@@ -18,6 +18,7 @@ export const metadata = {
 };
 
 const themeScript = `
+// aplica el tema guardado antes de que cargue la página
 (function() {
   try {
     var saved = localStorage.getItem('theme');
