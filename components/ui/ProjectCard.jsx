@@ -7,6 +7,7 @@ export default function ProjectCard({ project, featured = false }) {
   const { title, description, technologies, image, link, github, category, year } = project;
   const [imgError, setImgError] = useState(false);
   const inDevelopment = !link && !github;
+  // badge visible en cards sin links
 
   return (
     <article className="card" style={{ display: 'flex', flexDirection: 'column', height: '100%', borderRadius: '0', border: 'none' }}>
