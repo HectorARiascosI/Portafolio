@@ -1,0 +1,76 @@
+{
+  "experience": [
+    {
+      "company": "Independiente",
+      "role": "Diseñador de Software",
+      "period": "Jul 2024 – Presente",
+      "description": "Diseño de interfaces de usuario que mejoran la experiencia de navegación y usabilidad. Colaboración en equipos multidisciplinarios para la creación de software a medida. Investigación de nuevas tecnologías y herramientas de desarrollo. Contribución al desarrollo de estrategias de prueba para aplicaciones móviles y de escritorio. Análisis de requerimientos y necesidades de clientes. Gestión de instalaciones, actualizaciones y soporte de mantenimiento de software.",
+      "technologies": ["UI/UX", "Figma", "HTML", "CSS", "JavaScript"],
+      "type": "work",
+      "location": "Pasto, Colombia"
+    },
+    {
+      "company": "Ventas Independientes",
+      "role": "Asesor Comercial",
+      "period": "Ene 2025 – Presente",
+      "description": "Atención y servicio al cliente con enfoque en calidad. Venta directa ofreciendo un servicio personalizado. Realización de tareas administrativas y gestión de plazos.",
+      "technologies": [],
+      "type": "work",
+      "location": "Pasto, Colombia"
+    },
+    {
+      "company": "Independiente",
+      "role": "Profesor Particular",
+      "period": "Abr 2022 – Ago 2023",
+      "description": "Elaboración de materiales y recursos didácticos para la enseñanza. Promoción de un ambiente participativo que motiva al alumno a involucrarse activamente en su aprendizaje.",
+      "technologies": [],
+      "type": "work",
+      "location": "Pasto, Colombia"
+    },
+    {
+      "company": "INTESNAR",
+      "role": "Estudiante en Prácticas",
+      "period": "Oct 2022",
+      "description": "Elaboración de informes y reportes del área de trabajo. Ejecución del plan de prácticas de aprendizaje. Atención al cliente para garantizar un servicio de calidad. Aplicación práctica de habilidades técnicas desarrolladas durante la formación.",
+      "technologies": ["Sistemas", "Redes", "Soporte Técnico"],
+      "type": "work",
+      "location": "Pasto, Colombia"
+    },
+    {
+      "company": "Guardianes de Identidad",
+      "role": "Voluntario Social",
+      "period": "Feb 2022 – Nov 2022",
+      "description": "Presentación de actividades culturales, sociales y de desarrollo. Apoyo en la organización y ejecución de eventos para recaudar fondos. Promoción de actividades de voluntariado a través de redes sociales y plataformas digitales. Participación en grupos de trabajo para desarrollar procesos integrales.",
+      "technologies": [],
+      "type": "volunteer",
+      "location": "Pasto, Colombia"
+    },
+    {
+      "company": "Universidad Cooperativa de Colombia",
+      "role": "Ingeniería de Software",
+      "period": "Feb 2024 – En curso",
+      "description": "Formación en desarrollo de software, algoritmos, estructuras de datos, diseño de interfaces, bases de datos e ingeniería de requerimientos. Actualmente en quinto semestre (2026). Participante del Primer Seminario Nacional de Ingeniería de Software (18–19 Nov 2024, 16 horas). Sede Pasto, Nariño.",
+      "technologies": ["Next.js", "TypeScript", "React", "Tailwind CSS", "Java", "Python"],
+      "type": "education",
+      "location": "Pasto, Colombia"
+    },
+    {
+      "company": "Instituto Técnico Sistematizado de Nariño — INTESNAR",
+      "role": "Técnico Laboral en Sistemas y Redes",
+      "period": "Ene 2021 – Dic 2022",
+      "description": "Técnico laboral por competencias en Sistemas y Redes. Formación en infraestructura de redes, mantenimiento de equipos, soporte técnico y administración de sistemas.",
+      "technologies": ["Redes", "Hardware", "Soporte Técnico", "Windows Server"],
+      "type": "education",
+      "location": "Pasto, Colombia"
+    },
+    {
+      "company": "I.E.M Ciudadela Educativa de Pasto",
+      "role": "Bachillerato Académico",
+      "period": "Ene 2016 – Dic 2022",
+      "description": "Formación académica secundaria con énfasis en ciencias y matemáticas.",
+      "technologies": [],
+      "type": "education",
+      "location": "Pasto, Colombia"
+    }
+  ]
+}

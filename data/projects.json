@@ -1,0 +1,56 @@
+{
+  "projects": [
+    {
+      "id": "mileshop",
+      "title": "MileShop",
+      "description": "Tienda virtual completa con catálogo de productos en contenedores, carrito de compras, sistema de inicio de sesión y base de datos integrada. Desarrollada con Django como framework principal, con gestión de usuarios, autenticación y panel de administración.",
+      "technologies": ["Django", "Python", "HTML", "CSS", "JavaScript", "SQLite"],
+      "image": "",
+      "link": "",
+      "github": "",
+      "featured": true,
+      "order": 1,
+      "category": "E-Commerce",
+      "year": 2025
+    },
+    {
+      "id": "flight-tracker",
+      "title": "Flight Tracker",
+      "description": "Plataforma de seguimiento de vuelos en tiempo real, similar a FlightRadar24 pero con una interfaz más accesible. Muestra posición, ruta y datos de vuelos activos. Construida con TypeScript y Java en el backend, con diseño responsivo en Tailwind CSS.",
+      "technologies": ["TypeScript", "Java", "Tailwind CSS", "APIs REST"],
+      "image": "",
+      "link": "",
+      "github": "",
+      "featured": true,
+      "order": 2,
+      "category": "Aplicación Web",
+      "year": 2025
+    },
+    {
+      "id": "aerion",
+      "title": "AERION — IA Conversacional",
+      "description": "Software de inteligencia artificial conversacional que se adapta al estilo de vida y personalidad del usuario, permitiendo una interacción natural como si hablaras con otra persona. Inspirado en la visión de Blade Runner 2049. Diseñado para uso personal y empresarial, con capacidad de adaptarse a distintos contextos y necesidades del usuario. Actualmente en desarrollo.",
+      "technologies": ["Python", "IA / ML", "NLP", "API Design"],
+      "image": "",
+      "link": "",
+      "github": "",
+      "featured": false,
+      "order": 3,
+      "category": "Inteligencia Artificial",
+      "year": 2026
+    },
+    {
+      "id": "portafolio-personal",
+      "title": "Portafolio Personal",
+      "description": "Portafolio web profesional desarrollado con Next.js y Tailwind CSS. Incluye tema claro/oscuro, animaciones con IntersectionObserver, diseño responsivo mobile-first y despliegue en Vercel.",
+      "technologies": ["Next.js", "Tailwind CSS", "JavaScript", "Vercel"],
+      "image": "",
+      "link": "",
+      "github": "",
+      "featured": false,
+      "order": 4,
+      "category": "Aplicación Web",
+      "year": 2026
+    }
+  ]
+}

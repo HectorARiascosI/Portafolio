@@ -1,0 +1,28 @@
+{
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Docente de Diseño de Interfaces",
+      "role": "Docente",
+      "company": "Universidad Cooperativa de Colombia",
+      "text": "Hector demuestra un nivel de compromiso y dedicación que lo distingue dentro del aula. Su portafolio refleja no solo conocimiento técnico, sino también una comprensión real del diseño centrado en el usuario. Es un estudiante que va más allá de los requisitos mínimos.",
+      "avatar": ""
+    },
+    {
+      "id": 2,
+      "name": "Cliente — Proyecto de Software",
+      "role": "Cliente independiente",
+      "company": "Pasto, Colombia",
+      "text": "Trabajé con Hector en el diseño de una interfaz para mi negocio. Entendió exactamente lo que necesitaba, propuso mejoras que yo no había considerado y entregó en el tiempo acordado. La comunicación fue clara y profesional durante todo el proceso.",
+      "avatar": ""
+    },
+    {
+      "id": 3,
+      "name": "Compañero de equipo",
+      "role": "Estudiante de Ingeniería de Software",
+      "company": "Universidad Cooperativa de Colombia",
+      "text": "Hector es de las personas que siempre llega con soluciones, no con problemas. En los proyectos grupales se encarga de que todo quede bien hecho, aporta ideas creativas y se asegura de que el equipo avance. Su conocimiento en diseño UI/UX complementa muy bien el trabajo técnico.",
+      "avatar": ""
+    }
+  ]
+}

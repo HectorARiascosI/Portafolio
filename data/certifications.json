@@ -1,0 +1,40 @@
+{
+  "certifications": [
+    {
+      "id": 1,
+      "title": "Primer Seminario Nacional de Ingeniería de Software",
+      "issuer": "Universidad Cooperativa de Colombia",
+      "date": "Nov 2024",
+      "hours": "16 horas",
+      "location": "Pasto, Colombia",
+      "credential": "Radicado: PAS-02-2025-038234"
+    },
+    {
+      "id": 2,
+      "title": "Técnico Laboral por Competencias: Sistemas y Redes",
+      "issuer": "Instituto Técnico Sistematizado de Nariño — INTESNAR",
+      "date": "Dic 2022",
+      "hours": "",
+      "location": "Pasto, Colombia",
+      "credential": ""
+    },
+    {
+      "id": 3,
+      "title": "Bachillerato Académico",
+      "issuer": "I.E.M Ciudadela Educativa de Pasto",
+      "date": "Dic 2022",
+      "hours": "",
+      "location": "Pasto, Colombia",
+      "credential": ""
+    },
+    {
+      "id": 4,
+      "title": "Permiso de Conducir A2",
+      "issuer": "Ministerio de Transporte — Colombia",
+      "date": "2022",
+      "hours": "",
+      "location": "Pasto, Colombia",
+      "credential": ""
+    }
+  ]
+}
