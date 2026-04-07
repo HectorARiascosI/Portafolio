@@ -23,6 +23,52 @@ export default function Hero({ profile = {} }) {
   const resume   = profile.resume   ?? '/resume.pdf';
   const social   = profile.social   ?? {};
 
+  /* ── Bloque de foto reutilizable ── */
+  const PhotoBlock = ({ size = 280 }) => (
+    <div style={{ position: 'relative', display: 'inline-block' }}>
+      <div style={{
+        width: `${size}px`, height: `${size}px`, borderRadius: '16px',
+        overflow: 'hidden', border: '1px solid var(--border-2)',
+        background: 'var(--surface)',
+      }}>
+        {!imgError && image ? (
+          <Image
+            src={image}
+            alt={`Foto de ${name}`}
+            fill
+            style={{ objectFit: 'cover', objectPosition: 'center top' }}
+            priority
+            onError={() => setImgError(true)}
+            unoptimized={process.env.NODE_ENV === 'development'}
+          />
+        ) : (
+          <div style={{
+            width: '100%', height: '100%', display: 'flex',
+            alignItems: 'center', justifyContent: 'center',
+            fontSize: '4rem', fontWeight: 700,
+            color: 'var(--text-3)', userSelect: 'none',
+          }}>
+            {name.charAt(0)}
+          </div>
+        )}
+      </div>
+
+      {/* Badge disponibilidad */}
+      <div style={{
+        position: 'absolute', bottom: '-14px', left: '50%', transform: 'translateX(-50%)',
+        display: 'flex', alignItems: 'center', gap: '6px',
+        background: 'var(--surface-2)', border: '1px solid var(--border-2)',
+        borderRadius: '20px', padding: '6px 14px', whiteSpace: 'nowrap',
+        boxShadow: 'var(--shadow-sm)',
+      }}>
+        <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--green)', display: 'block', flexShrink: 0 }} />
+        <span style={{ fontSize: '0.75rem', color: 'var(--text-2)', fontWeight: 500 }}>
+          Disponible para trabajar
+        </span>
+      </div>
+    </div>
+  );
+
   return (
     <section id="hero" aria-label="Presentación" style={{
       background: 'var(--bg)', paddingTop: '60px',
@@ -36,25 +82,33 @@ export default function Hero({ profile = {} }) {
         pointerEvents: 'none',
       }} />
 
-      <div className="container-custom" style={{ paddingTop: '3.5rem', paddingBottom: '4rem', position: 'relative', zIndex: 1 }}>
+      <div className="container-custom" style={{ paddingTop: '3rem', paddingBottom: '4.5rem', position: 'relative', zIndex: 1 }}>
+
+        {/* ── MÓVIL: foto centrada arriba ── */}
+        <div className="hero-photo-mobile">
+          <div className={cls('reveal-scale', 'delay-1')} style={{ display: 'flex', justifyContent: 'center', marginBottom: '2.5rem' }}>
+            <PhotoBlock size={200} />
+          </div>
+        </div>
+
+        {/* ── GRID: texto izquierda / foto derecha (desktop) ── */}
         <div className="grid-hero">
 
-          {/* ── Texto ── */}
+          {/* Texto */}
           <div style={{ width: '100%' }}>
-
-            <div className={cls('reveal', 'delay-1')} style={{ marginBottom: '1.5rem' }}>
+            <div className={cls('reveal', 'delay-1')} style={{ marginBottom: '1.25rem' }}>
               <span className="t-label">Ingeniería de Software</span>
             </div>
 
-            <h1 className={`t-display ${cls('reveal', 'delay-2')}`} style={{ marginBottom: '0.875rem' }}>
+            <h1 className={`t-display ${cls('reveal', 'delay-2')}`} style={{ marginBottom: '0.75rem' }}>
               {name}
             </h1>
 
-            <p className={`t-sub ${cls('reveal', 'delay-3')}`} style={{ marginBottom: '1.25rem' }}>
+            <p className={`t-sub ${cls('reveal', 'delay-3')}`} style={{ marginBottom: '1rem' }}>
               {title}
             </p>
 
-            <p className={`t-body ${cls('reveal', 'delay-3')}`} style={{ marginBottom: '2.5rem' }}>
+            <p className={`t-body ${cls('reveal', 'delay-3')}`} style={{ marginBottom: '2rem' }}>
               {tagline}
             </p>
 
@@ -104,45 +158,10 @@ export default function Hero({ profile = {} }) {
             </div>
           </div>
 
-          {/* ── Foto (solo desktop) ── */}
-          <div className="hidden lg:flex" style={{ justifyContent: 'flex-end' }}>
-            <div className={cls('reveal-scale', 'delay-2')} style={{ position: 'relative' }}>
-              <div style={{
-                width: '280px', height: '280px', borderRadius: '16px',
-                overflow: 'hidden', border: '1px solid var(--border-2)',
-                background: 'var(--surface)',
-              }}>
-                {!imgError && image ? (
-                  <Image src={image} alt={`Foto de ${name}`} fill
-                    style={{ objectFit: 'cover', objectPosition: 'center top' }}
-                    priority
-                    onError={() => setImgError(true)}
-                    unoptimized={process.env.NODE_ENV === 'development'} />
-                ) : (
-                  <div style={{
-                    width: '100%', height: '100%', display: 'flex',
-                    alignItems: 'center', justifyContent: 'center',
-                    fontSize: '4.5rem', fontWeight: 700,
-                    color: 'var(--text-3)', userSelect: 'none',
-                  }}>
-                    {name.charAt(0)}
-                  </div>
-                )}
-              </div>
-
-              {/* Badge disponibilidad */}
-              <div style={{
-                position: 'absolute', bottom: '-14px', left: '50%', transform: 'translateX(-50%)',
-                display: 'flex', alignItems: 'center', gap: '6px',
-                background: 'var(--surface-2)', border: '1px solid var(--border-2)',
-                borderRadius: '20px', padding: '6px 14px', whiteSpace: 'nowrap',
-                boxShadow: 'var(--shadow-sm)',
-              }}>
-                <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--green)', display: 'block', flexShrink: 0 }} />
-                <span style={{ fontSize: '0.75rem', color: 'var(--text-2)', fontWeight: 500 }}>
-                  Disponible para trabajar
-                </span>
-              </div>
+          {/* Foto desktop — oculta en móvil porque ya aparece arriba */}
+          <div className="hero-photo-desktop" style={{ justifyContent: 'flex-end' }}>
+            <div className={cls('reveal-scale', 'delay-2')}>
+              <PhotoBlock size={280} />
             </div>
           </div>
 

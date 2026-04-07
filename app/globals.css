@@ -389,9 +389,15 @@ body {
 }
 @media (min-width: 640px) { .grid-skills { grid-template-columns: repeat(2, 1fr); } }
 
-/* ─────────────────────────────────────────
-   PRINT
-───────────────────────────────────────── */
+/* ── Foto en Hero ── */
+/* Móvil: foto arriba centrada, desktop: foto a la derecha en el grid */
+.hero-photo-mobile  { display: block; }
+.hero-photo-desktop { display: none; }
+
+@media (min-width: 1024px) {
+  .hero-photo-mobile  { display: none; }
+  .hero-photo-desktop { display: flex; }
+}
 @media print {
   body { background: #fff; color: #000; }
   .container-custom { max-width: 100%; padding: 0; }
