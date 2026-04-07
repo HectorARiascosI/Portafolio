@@ -20,7 +20,6 @@ export default function About({ profile = {} }) {
     { label: 'Estado',    value: 'Disponible para oportunidades', green: true },
     { label: 'Educación', value: 'Ing. de Software — UCC · 2024–Presente (5° semestre)' },
   ];
-
   const paragraphs = (profile.bio ?? '').split('\n\n').filter(Boolean);
 
   return (
