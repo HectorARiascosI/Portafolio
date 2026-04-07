@@ -1,4 +1,5 @@
 export default function Footer({ name = 'Hector Alejandro Riascos Insuasty' }) {
+  // pie de página con links rápidos
   const year = new Date().getFullYear();
 
   return (
