@@ -216,7 +216,7 @@ body {
 }
 .btn-ghost:hover { background: var(--border-2); }
 
-/* Hero CTAs — full width on mobile, auto on ≥640px */
+  /* ── Hero CTAs — full width on mobile, auto on ≥640px ── */
 .hero-ctas { display: flex; flex-direction: column; gap: 0.625rem; margin-bottom: 2.5rem; }
 .hero-ctas .btn { justify-content: center; width: 100%; }
 @media (min-width: 640px) {
