@@ -7,6 +7,7 @@ export default function Contact({ contact = {}, profile = {} }) {
   const { ref, visible } = useReveal();
   const email    = profile.email    ?? contact.email    ?? 'hectorariascos6.6@gmail.com';
   const location = profile.location ?? contact.location ?? 'Pasto, Colombia';
+  // datos de contacto reales
   const [form, setForm]       = useState({ name: '', email: '', message: '' });
   const [errors, setErrors]   = useState({});
   const [loading, setLoading] = useState(false);
