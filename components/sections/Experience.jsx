@@ -3,6 +3,7 @@
 import { useReveal } from '@/lib/useReveal';
 
 const typeLabel = { work: 'Trabajo', education: 'Educación', volunteer: 'Open Source' };
+// tipos de experiencia
 
 export default function Experience({ experience }) {
   const { ref, visible } = useReveal();
