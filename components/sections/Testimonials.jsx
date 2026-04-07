@@ -3,6 +3,7 @@
 import { useReveal } from '@/lib/useReveal';
 
 function QuoteIcon() {
+  // icono de comillas para testimonios
   return (
     <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"
       style={{ color: 'var(--accent)', opacity: 0.4, flexShrink: 0 }}>
