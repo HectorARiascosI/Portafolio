@@ -35,7 +35,7 @@ export default function Testimonials({ testimonials }) {
 
         <div className={`reveal ${visible ? 'visible' : ''}`} style={{ marginBottom: '3.5rem' }}>
           <p className="t-label" style={{ marginBottom: '0.75rem' }}>Testimonios</p>
-          <h2 className="t-heading">Lo que dicen de mí</h2>
+          <h2 className="t-heading">Opiniones de quienes me conocen</h2>
           <p className="t-body" style={{ marginTop: '0.75rem', maxWidth: '420px' }}>
             Opiniones de docentes, clientes y compañeros con quienes he trabajado.
           </p>
