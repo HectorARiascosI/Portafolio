@@ -83,7 +83,7 @@ export default function Contact({ contact = {}, profile = {} }) {
             style={{ display: 'flex', flexDirection: 'column', gap: '1.125rem' }}>
 
             {[
-              { id: 'name',  label: 'Nombre',  type: 'text',  placeholder: 'Tu nombre completo' },
+              { id: 'name',  label: 'Nombre',  type: 'text',  placeholder: 'Nombre completo' },
               { id: 'email', label: 'Email',   type: 'email', placeholder: 'tu@email.com' },
             ].map(f => (
               <div key={f.id}>
