@@ -17,7 +17,7 @@ export default function Hero({ profile = {} }) {
 
   const name     = profile.name     ?? 'Hector Alejandro Riascos Insuasty';
   const title    = profile.title    ?? 'Estudiante de Ingeniería de Software';
-  const tagline  = profile.tagline  ?? '';
+  const tagline  = profile.tagline  ?? 'Diseño interfaces y construyo soluciones de software.';
   const location = profile.location ?? 'Pasto, Colombia';
   const image    = profile.image    ?? '';
   const resume   = profile.resume   ?? '/resume.pdf';
