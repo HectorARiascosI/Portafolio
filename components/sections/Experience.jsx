@@ -9,14 +9,14 @@ export default function Experience({ experience }) {
   const { ref, visible } = useReveal();
 
   return (
-    <section id="experiencia" aria-label="Experiencia y educación"
+    <section id="experiencia" aria-label="Trayectoria profesional"
       style={{ background: 'var(--bg)', borderTop: '1px solid var(--border)' }}
       className="section-pad">
       <div className="container-custom" ref={ref}>
 
         <div className={`reveal ${visible ? 'visible' : ''}`} style={{ marginBottom: '3.5rem' }}>
           <p className="t-label" style={{ marginBottom: '0.75rem' }}>Trayectoria</p>
-          <h2 className="t-heading">Experiencia y educación</h2>
+          <h2 className="t-heading">Trayectoria profesional</h2>
         </div>
 
         <div style={{ maxWidth: '700px', display: 'flex', flexDirection: 'column' }}>
