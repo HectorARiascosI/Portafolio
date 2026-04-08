@@ -30,7 +30,7 @@ export default function About({ profile = {} }) {
 
         <div className={`reveal ${visible ? 'visible' : ''}`} style={{ marginBottom: '3.5rem' }}>
           <p className="t-label" style={{ marginBottom: '0.75rem' }}>Sobre mí</p>
-          <h2 className="t-heading">Quién soy</h2>
+          <h2 className="t-heading">Sobre mí</h2>
         </div>
 
         <div className="grid-about">
