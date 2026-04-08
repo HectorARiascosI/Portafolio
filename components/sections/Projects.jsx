@@ -18,7 +18,7 @@ export default function Projects({ projects = [] }) {
           style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', marginBottom: '3rem' }}>
           <div>
             <p className="t-label" style={{ marginBottom: '0.75rem' }}>Proyectos</p>
-            <h2 className="t-heading">Trabajo seleccionado</h2>
+            <h2 className="t-heading">Proyectos destacados</h2>
           </div>
           <a href="https://github.com" target="_blank" rel="noopener noreferrer"
             className="link-dim" style={{ fontSize: '0.875rem', display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
