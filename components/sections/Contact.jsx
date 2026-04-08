@@ -50,8 +50,7 @@ export default function Contact({ contact = {}, profile = {} }) {
           <p className="t-label" style={{ marginBottom: '0.75rem' }}>Contacto</p>
           <h2 className="t-heading">Hablemos</h2>
           <p className="t-body" style={{ marginTop: '0.75rem', maxWidth: '400px' }}>
-            Disponible para prácticas, proyectos y colaboraciones. Te respondo en menos de 24 horas.
-          </p>
+            Disponible para prácticas, proyectos y colaboraciones. Te respondo en menos de 24 horas.          </p>
         </div>
 
         <div className="grid-contact">
