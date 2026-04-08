@@ -63,7 +63,7 @@ export default function Hero({ profile = {} }) {
       }}>
         <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--green)', display: 'block', flexShrink: 0 }} />
         <span style={{ fontSize: '0.75rem', color: 'var(--text-2)', fontWeight: 500 }}>
-          Disponible para trabajar
+          Abierto a oportunidades
         </span>
       </div>
     </div>
