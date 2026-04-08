@@ -61,9 +61,9 @@
    SHARED TOKENS
 ───────────────────────────────────────── */
 :root {
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
+  --radius-sm: 5px;
+  --radius-md: 9px;
+  --radius-lg: 13px;
 }
 
 /* ─────────────────────────────────────────
