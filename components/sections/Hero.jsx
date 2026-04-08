@@ -17,7 +17,7 @@ export default function Hero({ profile = {} }) {
 
   const name     = profile.name     ?? 'Hector Alejandro Riascos Insuasty';
   const title    = profile.title    ?? 'Estudiante de Ingeniería de Software';
-  const tagline  = profile.tagline  ?? 'Diseño interfaces y construyo soluciones de software.';
+  const tagline  = profile.tagline  ?? 'Diseño interfaces y construyo soluciones de software a medida.';
   const location = profile.location ?? 'Pasto, Colombia';
   const image    = profile.image    ?? '';
   const resume   = profile.resume   ?? '/resume.pdf';
@@ -63,7 +63,7 @@ export default function Hero({ profile = {} }) {
       }}>
         <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--green)', display: 'block', flexShrink: 0 }} />
         <span style={{ fontSize: '0.75rem', color: 'var(--text-2)', fontWeight: 500 }}>
-          Abierto a oportunidades
+          Disponible para trabajar
         </span>
       </div>
     </div>
@@ -114,7 +114,7 @@ export default function Hero({ profile = {} }) {
 
             <div className={`hero-ctas ${cls('reveal', 'delay-4')}`}>
               <a href="#proyectos" className="btn btn-primary">
-                Ver mis proyectos
+                Ver proyectos
                 <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                 </svg>
