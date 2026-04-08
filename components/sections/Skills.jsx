@@ -15,7 +15,7 @@ export default function Skills({ skills }) {
           <p className="t-label" style={{ marginBottom: '0.75rem' }}>Stack técnico</p>
           <h2 className="t-heading">Tecnologías</h2>
           <p className="t-body" style={{ marginTop: '0.75rem', maxWidth: '420px' }}>
-            Tecnologías que uso en mis proyectos de desarrollo web y software.
+            Herramientas y lenguajes con los que construyo soluciones reales día a día.
           </p>
         </div>
 
