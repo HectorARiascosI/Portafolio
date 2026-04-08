@@ -102,7 +102,7 @@ export default function Contact({ contact = {}, profile = {} }) {
               Mensaje <span style={{ color: 'var(--red)', opacity: 0.7 }}>*</span>
               </label>
               <textarea id="message" name="message" value={form.message} onChange={onChange}
-                required rows={5} placeholder="Cuéntame sobre tu proyecto o propuesta..."
+                required rows={5} placeholder="Escribe tu mensaje aquí..."
                 style={{ ...inputBase, border: `1px solid ${errors.message ? 'rgba(239,68,68,0.4)' : 'var(--border-2)'}`, resize: 'vertical', minHeight: '120px' }} />
               {errors.message && <p style={{ marginTop: '4px', fontSize: '0.75rem', color: 'var(--red)' }}>{errors.message}</p>}
             </div>
