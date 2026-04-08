@@ -41,11 +41,11 @@ export default function Projects({ projects = [] }) {
           ))}
         </div>
 
-        {/* Más proyectos */}
+        {/* Otros proyectos */}
         {others.length > 0 && (
           <div className={`reveal ${visible ? 'visible' : ''} delay-2`} style={{ marginTop: '2.5rem' }}>
             <p style={{ fontSize: '0.6875rem', fontWeight: 600, color: 'var(--text-3)', letterSpacing: '0.09em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>
-              Más proyectos
+              Otros proyectos
             </p>
             <div className="grid-projects-others" role="list">
               {others.map(project => (
