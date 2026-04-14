@@ -21,18 +21,18 @@ export default function Certifications({ certifications }) {
       className="section-pad">
       <div className="container-custom" ref={ref}>
 
-        <div className={`reveal ${visible ? 'visible' : ''}`} style={{ marginBottom: '3.5rem' }}>
+        <div className={`reveal ${visible ? 'visible' : ''}`} style={{ marginBottom: '3.5rem', textAlign: 'center' }}>
           <p className="t-label" style={{ marginBottom: '0.75rem' }}>Logros y certificados</p>
           <h2 className="t-heading">Certificaciones</h2>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1px', background: 'var(--border)', borderRadius: '12px', overflow: 'hidden', maxWidth: '700px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1px', background: 'var(--border)', borderRadius: '12px', overflow: 'hidden', maxWidth: '700px', margin: '0 auto' }}>
           {certifications.map((cert, i) => (
             <div key={cert.id}
               className={`reveal ${visible ? 'visible' : ''} delay-${Math.min(i + 1, 5)}`}
               style={{
                 background: 'var(--surface)',
-                padding: '1.25rem 1.5rem',
+                padding: '1.375rem 1.5rem',
                 display: 'flex',
                 alignItems: 'flex-start',
                 gap: '1rem',
@@ -41,18 +41,18 @@ export default function Certifications({ certifications }) {
               <BadgeIcon />
 
               <div style={{ flex: 1, minWidth: 0 }}>
-                <p style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'var(--text-1)', marginBottom: '3px', letterSpacing: '-0.01em' }}>
+                <p style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-1)', marginBottom: '4px', letterSpacing: '-0.01em' }}>
                   {cert.title}
                 </p>
-                <p style={{ fontSize: '0.8125rem', color: 'var(--text-2)' }}>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-2)' }}>
                   {cert.issuer}
                 </p>
               </div>
 
               <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                <span className="tag-n" style={{ fontSize: '0.6875rem' }}>{cert.date}</span>
+                <span className="tag-n" style={{ fontSize: '0.8125rem' }}>{cert.date}</span>
                 {cert.hours && (
-                  <p style={{ fontSize: '0.6875rem', color: 'var(--text-3)', marginTop: '4px' }}>{cert.hours}</p>
+                  <p style={{ fontSize: '0.8125rem', color: 'var(--text-3)', marginTop: '4px' }}>{cert.hours}</p>
                 )}
               </div>
 

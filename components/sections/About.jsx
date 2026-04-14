@@ -29,7 +29,7 @@ export default function About({ profile = {} }) {
       className="section-pad">
       <div className="container-custom" ref={ref}>
 
-        <div className={`reveal ${visible ? 'visible' : ''}`} style={{ marginBottom: '3.5rem' }}>
+        <div className={`reveal ${visible ? 'visible' : ''}`} style={{ marginBottom: '3.5rem', textAlign: 'center' }}>
           <p className="t-label" style={{ marginBottom: '0.75rem' }}>Sobre mí</p>
           <h2 className="t-heading">Sobre mí</h2>
         </div>
@@ -40,13 +40,10 @@ export default function About({ profile = {} }) {
           <div className={`reveal-left ${visible ? 'visible' : ''} delay-1`}>
             <div style={{
               width: '120px', height: '120px', borderRadius: '12px',
-              background: 'var(--surface-2)', border: '1px solid var(--border)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontSize: '2.5rem', fontWeight: 700, color: 'var(--text-3)',
-              marginBottom: '1.5rem', userSelect: 'none',
-            }}>
-              {(profile.name ?? 'H').charAt(0)}
-            </div>
+              background: 'linear-gradient(135deg, var(--surface-2) 0%, var(--accent-bg) 100%)',
+              border: '1px solid var(--accent-border)',
+              marginBottom: '1.5rem',
+            }} />
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: 'var(--border)', borderRadius: '10px', overflow: 'hidden' }}>
               {STATS.map(s => (
@@ -75,12 +72,12 @@ export default function About({ profile = {} }) {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
               {infoItems.map(item => (
                 <div key={item.label} style={{ display: 'flex', alignItems: 'baseline', gap: '1.25rem' }}>
-                  <span style={{ fontSize: '0.6875rem', fontWeight: 600, color: 'var(--text-3)', minWidth: '80px', flexShrink: 0, textTransform: 'uppercase', letterSpacing: '0.07em' }}>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-3)', minWidth: '80px', flexShrink: 0, textTransform: 'uppercase', letterSpacing: '0.07em' }}>
                     {item.label}
                   </span>
                   {item.href
-                    ? <a href={item.href} className="link-muted" style={{ fontSize: '0.875rem' }}>{item.value}</a>
-                    : <span style={{ fontSize: '0.875rem', color: item.green ? '#4ade80' : 'var(--text-2)' }}>{item.value}</span>
+                    ? <a href={item.href} className="link-muted" style={{ fontSize: '0.9375rem' }}>{item.value}</a>
+                    : <span style={{ fontSize: '0.9375rem', color: item.green ? 'var(--green)' : 'var(--text-2)' }}>{item.value}</span>
                   }
                 </div>
               ))}

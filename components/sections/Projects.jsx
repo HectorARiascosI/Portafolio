@@ -15,17 +15,18 @@ export default function Projects({ projects = [] }) {
       <div className="container-custom" ref={ref}>
 
         <div className={`reveal ${visible ? 'visible' : ''}`}
-          style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', marginBottom: '3rem' }}>
-          <div>
-            <p className="t-label" style={{ marginBottom: '0.75rem' }}>Proyectos</p>
-            <h2 className="t-heading">Proyectos destacados</h2>          </div>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer"
-            className="link-dim" style={{ fontSize: '0.875rem', display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
-            Ver mis repositorios en GitHub
-            <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </a>
+          style={{ textAlign: 'center', marginBottom: '3rem' }}>
+          <p className="t-label" style={{ marginBottom: '0.75rem' }}>Proyectos</p>
+          <h2 className="t-heading">Proyectos destacados</h2>
+          <div style={{ marginTop: '1rem' }}>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+              className="link-dim" style={{ fontSize: '0.9375rem', display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
+              Ver mis repositorios en GitHub
+              <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+          </div>
         </div>
 
         {/* Grid principal */}
@@ -43,7 +44,7 @@ export default function Projects({ projects = [] }) {
         {/* Otros proyectos */}
         {others.length > 0 && (
           <div className={`reveal ${visible ? 'visible' : ''} delay-2`} style={{ marginTop: '2.5rem' }}>
-            <p style={{ fontSize: '0.6875rem', fontWeight: 600, color: 'var(--text-3)', letterSpacing: '0.09em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>
+            <p style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'var(--text-3)', letterSpacing: '0.09em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>
               Otros proyectos
             </p>
             <div className="grid-projects-others" role="list">

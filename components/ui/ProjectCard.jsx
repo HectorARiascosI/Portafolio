@@ -67,20 +67,20 @@ export default function ProjectCard({ project, featured = false }) {
 
       {/* Contenido */}
       <div style={{ display: 'flex', flexDirection: 'column', flex: 1, padding: featured ? '1.5rem' : '1.25rem' }}>
-        <p style={{ fontSize: '0.6875rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-3)', marginBottom: '0.5rem' }}>
+        <p style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-3)', marginBottom: '0.5rem' }}>
           {category}
         </p>
 
         <h3 style={{
-          fontSize: featured ? '1.125rem' : '0.9375rem',
-          fontWeight: 600, letterSpacing: '-0.02em',
+          fontSize: featured ? '1.25rem' : '1.0625rem',
+          fontWeight: 700, letterSpacing: '-0.02em',
           color: 'var(--text-1)', marginBottom: '0.625rem', lineHeight: 1.3,
         }}>
           {title}
         </h3>
 
         <p style={{
-          fontSize: '0.875rem', lineHeight: 1.7, color: 'var(--text-2)',
+          fontSize: '0.9375rem', lineHeight: 1.75, color: 'var(--text-2)',
           marginBottom: '1.125rem', flex: 1,
           display: '-webkit-box', WebkitLineClamp: featured ? 4 : 3,
           WebkitBoxOrient: 'vertical', overflow: 'hidden',
@@ -91,10 +91,10 @@ export default function ProjectCard({ project, featured = false }) {
         {/* Tecnologías */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.375rem', marginBottom: '1.125rem' }}>
           {technologies.slice(0, featured ? 5 : 4).map(tech => (
-            <span key={tech} className="tag-n">{tech}</span>
+            <span key={tech} className="tag-n" style={{ fontSize: '0.8125rem', padding: '4px 10px' }}>{tech}</span>
           ))}
           {technologies.length > (featured ? 5 : 4) && (
-            <span className="tag-n" style={{ color: 'var(--text-3)' }}>
+            <span className="tag-n" style={{ color: 'var(--text-3)', fontSize: '0.8125rem', padding: '4px 10px' }}>
               +{technologies.length - (featured ? 5 : 4)}
             </span>
           )}
