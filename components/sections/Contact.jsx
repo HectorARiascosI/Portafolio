@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useReveal } from '@/lib/useReveal';
 
 export default function Contact({ contact = {}, profile = {} }) {
-  const { ref, visible } = useReveal();
+  const { ref, visible } = useReveal({ threshold: 0.08 });
   const email    = profile.email    ?? contact.email    ?? 'hectorariascos6.6@gmail.com';
   const location = profile.location ?? contact.location ?? 'Pasto, Colombia';
   // datos de contacto reales

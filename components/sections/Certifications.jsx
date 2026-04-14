@@ -13,7 +13,7 @@ function BadgeIcon() {
 }
 
 export default function Certifications({ certifications }) {
-  const { ref, visible } = useReveal();
+  const { ref, visible } = useReveal({ threshold: 0.08 });
 
   return (
     <section id="certificaciones" aria-label="Certificaciones"
