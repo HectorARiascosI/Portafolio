@@ -3,7 +3,7 @@
     {
       "id": "mileshop",
       "title": "MileShop",
-      "description": "Tienda virtual completa con catálogo de productos en contenedores, carrito de compras, sistema de inicio de sesión y base de datos integrada. Desarrollada con Django, con gestión de usuarios, autenticación segura y panel de administración.",      "technologies": ["Django", "Python", "HTML", "CSS", "JavaScript", "SQLite"],
+      "description": "Tienda virtual completa con catálogo de productos en contenedores, carrito de compras, sistema de inicio de sesión y base de datos integrada. Desarrollada con Django, con gestión de usuarios, autenticación segura y panel de administración.",      "technologies": ["Django", "Python", "HTML", "CSS", "JavaScript", "SQLite", "Bootstrap"],
       "image": "",
       "link": "",
       "github": "",
