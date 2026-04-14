@@ -4,7 +4,7 @@ import { useReveal } from '@/lib/useReveal';
 import ProjectCard from '@/components/ui/ProjectCard';
 
 export default function Projects({ projects = [] }) {
-  const { ref, visible } = useReveal();
+  const { ref, visible } = useReveal({ threshold: 0.08 });
   const featured = projects.filter(p => p.featured);
   const others   = projects.filter(p => !p.featured);
 
