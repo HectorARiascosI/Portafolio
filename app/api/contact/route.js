@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 /* ── Rate limiting en memoria ── */
 const rateMap = new Map();
 const WINDOW  = 60_000; // 1 minuto
-const MAX_REQ = 3;
+const MAX_REQ = 2; // máximo 2 intentos por minuto
 
 function isRateLimited(ip) {
   const now  = Date.now();
