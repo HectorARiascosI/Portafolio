@@ -6,7 +6,7 @@ const typeLabel = { work: 'Trabajo', education: 'Educación', volunteer: 'Open S
 // tipos de experiencia
 
 export default function Experience({ experience }) {
-  const { ref, visible } = useReveal();
+  const { ref, visible } = useReveal({ threshold: 0.08 });
 
   return (
     <section id="experiencia" aria-label="Trayectoria profesional"
