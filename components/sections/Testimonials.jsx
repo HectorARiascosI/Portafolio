@@ -25,7 +25,7 @@ function StarRating() {
 }
 
 export default function Testimonials({ testimonials }) {
-  const { ref, visible } = useReveal({ threshold: 0.08 });
+  const { ref, visible } = useReveal({ threshold: 0.06 });
 
   return (
     <section id="testimonios" aria-label="Testimonios"
