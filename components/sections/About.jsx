@@ -2,7 +2,7 @@
 
 import { useReveal } from '@/lib/useReveal';
 
-  const STATS = [
+const STATS = [
   { value: '2+',  label: 'Años de exp.' },
   { value: '3',   label: 'Proyectos' },
   { value: '5to', label: 'Semestre' },
