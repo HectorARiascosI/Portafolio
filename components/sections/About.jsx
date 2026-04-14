@@ -10,7 +10,7 @@ const STATS = [
 ];
 
 export default function About({ profile = {} }) {
-  const { ref, visible } = useReveal();
+  const { ref, visible } = useReveal({ threshold: 0.08 });
 
   const infoItems = [
     { label: 'Ubicación', value: profile.location ?? 'Pasto, Nariño — Colombia' },
