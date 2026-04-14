@@ -33,10 +33,11 @@
     {
       "category": "Herramientas y Plataformas",
       "items": [
-        { "name": "Git", "level": "intermedio", "years": 2 },
-        { "name": "GitHub", "level": "intermedio", "years": 2 },
-        { "name": "Vercel", "level": "básico", "years": 1 },
-        { "name": "VS Code", "level": "avanzado", "years": 3 }
+        { "name": "Git",     "level": "intermedio", "years": 2 },
+        { "name": "GitHub",  "level": "intermedio", "years": 2 },
+        { "name": "Vercel",  "level": "básico",     "years": 1 },
+        { "name": "VS Code", "level": "avanzado",   "years": 3 },
+        { "name": "Postman", "level": "básico",     "years": 1 }
       ]
     }
   ]
