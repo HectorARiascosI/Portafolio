@@ -24,10 +24,11 @@
     {
       "category": "Diseño y UX",
       "items": [
-        { "name": "Figma", "level": "intermedio", "years": 2 },
-        { "name": "UI/UX Design", "level": "intermedio", "years": 2 },
-        { "name": "Wireframing", "level": "avanzado", "years": 2 },
-        { "name": "Diseño Responsivo", "level": "intermedio", "years": 2 }
+        { "name": "Figma",             "level": "intermedio", "years": 2 },
+        { "name": "UI/UX Design",      "level": "intermedio", "years": 2 },
+        { "name": "Wireframing",       "level": "avanzado",   "years": 2 },
+        { "name": "Diseño Responsivo", "level": "intermedio", "years": 2 },
+        { "name": "Prototipado",       "level": "intermedio", "years": 1 }
       ]
     },
     {
