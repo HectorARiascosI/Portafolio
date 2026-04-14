@@ -128,8 +128,8 @@ body {
   .container-custom { padding-left: 2.5rem; padding-right: 2.5rem; }
 }
 
-.section-pad { padding-top: 4rem; padding-bottom: 4rem; }
-@media (min-width: 768px)  { .section-pad { padding-top: 6rem; padding-bottom: 6rem; } }
+.section-pad { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+@media (min-width: 768px)  { .section-pad { padding-top: 6.5rem; padding-bottom: 6.5rem; } }
 @media (min-width: 1024px) { .section-pad { padding-top: 8rem; padding-bottom: 8rem; } }
 
 /* ─────────────────────────────────────────
