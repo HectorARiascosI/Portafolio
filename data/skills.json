@@ -40,7 +40,7 @@
         { "name": "VS Code", "level": "avanzado",   "years": 3 },
         { "name": "Postman", "level": "básico",     "years": 1 }
       ]
-    }
+    },
     {
       "category": "Bases de Datos",
       "items": [
