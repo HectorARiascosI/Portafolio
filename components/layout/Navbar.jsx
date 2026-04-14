@@ -83,14 +83,14 @@ export default function Navbar({ name = 'Portfolio', links: navLinks = defaultLi
             width: '30px', height: '30px', borderRadius: '8px',
             background: 'var(--accent)', color: '#fff',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: '0.75rem', fontWeight: 700, letterSpacing: '-0.02em',
+            fontSize: '0.85rem', fontWeight: 700, letterSpacing: '-0.02em',
             flexShrink: 0,
           }}>
             {name.split(' ').map(w => w[0]).slice(0, 2).join('')}
           </span>
           {/* Nombre corto */}
           <span style={{
-            fontSize: '0.9rem', fontWeight: 600,
+            fontSize: '1rem', fontWeight: 600,
             color: 'var(--text-1)', letterSpacing: '-0.02em',
           }}>
             Hector
@@ -125,7 +125,7 @@ export default function Navbar({ name = 'Portfolio', links: navLinks = defaultLi
 
           {/* Desktop CTA */}
           {desktop && (
-            <a href="#contacto" className="btn btn-primary" style={{ fontSize: '0.8125rem', padding: '7px 16px' }}>
+            <a href="#contacto" className="btn btn-primary" style={{ padding: '7px 16px' }}>
               Contactar
             </a>
           )}

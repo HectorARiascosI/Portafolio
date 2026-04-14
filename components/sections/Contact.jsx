@@ -89,8 +89,8 @@ export default function Contact({ contact = {}, profile = {} }) {
               <div key={item.label}>
                 <p className="t-field-label" style={{ marginBottom: '4px' }}>{item.label}</p>
                 {item.href
-                  ? <a href={item.href} className="link-muted" style={{ fontSize: '1rem', wordBreak: 'break-all' }}>{item.value}</a>
-                  : <p style={{ fontSize: '1rem', color: 'var(--text-2)' }}>{item.value}</p>
+                  ? <a href={item.href} className="link-muted" style={{ wordBreak: 'break-all' }}>{item.value}</a>
+                  : <p style={{ color: 'var(--text-2)' }}>{item.value}</p>
                 }
               </div>
             ))}
@@ -112,7 +112,7 @@ export default function Contact({ contact = {}, profile = {} }) {
                 <input id={f.id} name={f.id} type={f.type} value={form[f.id]}
                   onChange={onChange} required placeholder={f.placeholder}
                   style={{ ...inputBase, border: `1px solid ${errors[f.id] ? 'rgba(239,68,68,0.4)' : 'var(--border-2)'}` }} />
-                {errors[f.id] && <p style={{ marginTop: '4px', fontSize: '0.875rem', color: 'var(--red)' }}>{errors[f.id]}</p>}
+                {errors[f.id] && <p style={{ marginTop: '4px', color: 'var(--red)' }}>{errors[f.id]}</p>}
               </div>
             ))}
 
@@ -123,7 +123,7 @@ export default function Contact({ contact = {}, profile = {} }) {
               <textarea id="message" name="message" value={form.message} onChange={onChange}
                 required rows={5} placeholder="Escribe tu mensaje aquí..."
                 style={{ ...inputBase, border: `1px solid ${errors.message ? 'rgba(239,68,68,0.4)' : 'var(--border-2)'}`, resize: 'vertical', minHeight: '120px' }} />
-              {errors.message && <p style={{ marginTop: '4px', fontSize: '0.875rem', color: 'var(--red)' }}>{errors.message}</p>}
+              {errors.message && <p style={{ marginTop: '4px', color: 'var(--red)' }}>{errors.message}</p>}
             </div>
 
             <button type="submit" disabled={loading} className="btn btn-primary"
@@ -138,7 +138,7 @@ export default function Contact({ contact = {}, profile = {} }) {
 
             {status && (
               <div role="alert" style={{
-                padding: '12px 16px', borderRadius: 'var(--radius-md)', fontSize: '0.875rem',
+                padding: '12px 16px', borderRadius: 'var(--radius-md)',
                 background: status.ok ? 'rgba(34,197,94,0.08)' : 'rgba(239,68,68,0.08)',
                 border: `1px solid ${status.ok ? 'rgba(34,197,94,0.25)' : 'rgba(239,68,68,0.25)'}`,
                 color: status.ok ? 'var(--green)' : 'var(--red)',

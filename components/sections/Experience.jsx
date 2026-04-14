@@ -61,7 +61,7 @@ export default function Experience({ experience }) {
                         }}>En curso</span>
                       )}
                     </div>
-                    <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-1)', letterSpacing: '-0.01em', marginBottom: '3px' }}>
+                    <h3 style={{ fontSize: '1.06rem', fontWeight: 700, color: 'var(--text-1)', letterSpacing: '-0.01em', marginBottom: '3px' }}>
                       {item.role}
                     </h3>
                     <p style={{ color: 'var(--text-2)', fontWeight: 500 }}>

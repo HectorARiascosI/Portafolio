@@ -60,7 +60,7 @@ export default function Hero({ profile = {} }) {
         boxShadow: 'var(--shadow-sm)',
       }}>
         <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--green)', display: 'block', flexShrink: 0 }} />
-        <span style={{ fontSize: '0.6875rem', color: 'var(--text-2)', fontWeight: 500 }}>Disponible</span>
+        <span style={{ color: 'var(--text-2)', fontWeight: 500 }}>Disponible</span>
       </div>
     </div>
   );
@@ -96,7 +96,7 @@ export default function Hero({ profile = {} }) {
 
             {/* Nombre — más grande y centrado en móvil */}
             <h1 className={cls('reveal', 'delay-2')} style={{
-              fontSize: 'clamp(2rem, 6vw, 4rem)',
+              fontSize: 'clamp(2.2rem, 6vw, 4rem)',
               fontWeight: 800, letterSpacing: '-0.035em', lineHeight: 1.08,
               color: 'var(--text-1)', marginBottom: '0.75rem',
             }}>
@@ -104,7 +104,7 @@ export default function Hero({ profile = {} }) {
             </h1>
 
             <p className={cls('reveal', 'delay-3')} style={{
-              fontSize: 'clamp(1.1rem, 2.5vw, 1.35rem)',
+              fontSize: 'clamp(1.15rem, 2.5vw, 1.4rem)',
               fontWeight: 400, color: 'var(--text-2)',
               marginBottom: '1rem', lineHeight: 1.5,
             }}>
@@ -112,7 +112,7 @@ export default function Hero({ profile = {} }) {
             </p>
 
             <p className={cls('reveal', 'delay-3')} style={{
-              fontSize: 'clamp(1rem, 1.8vw, 1.125rem)',
+              fontSize: '1.06rem',
               lineHeight: 1.75, color: 'var(--text-2)',
               marginBottom: '2rem',
             }}>
@@ -152,7 +152,7 @@ export default function Hero({ profile = {} }) {
               {location && (
                 <>
                   <span aria-hidden style={{ width: '1px', height: '14px', background: 'var(--border-2)' }} />
-                  <span style={{ fontSize: '0.875rem', color: 'var(--text-3)' }}>{location}</span>
+                  <span style={{ color: 'var(--text-3)' }}>{location}</span>
                 </>
               )}
             </div>

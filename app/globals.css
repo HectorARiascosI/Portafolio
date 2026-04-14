@@ -81,8 +81,8 @@ body {
   background: var(--bg);
   color: var(--text-1);
   font-family: var(--font-inter), system-ui, sans-serif;
-  font-size: 18px;
-  line-height: 1.7;
+  font-size: 17px;
+  line-height: 1.75;
   overflow-x: hidden;
   min-width: 320px;
   transition: background 300ms ease, color 300ms ease;
@@ -136,14 +136,8 @@ body {
 /* ─────────────────────────────────────────
    TYPOGRAPHY
 ───────────────────────────────────────── */
-.t-display {
-  font-size: clamp(1.875rem, 8vw, 3.75rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  color: var(--text-1);
-}
 
+/* Título principal de sección */
 .t-heading {
   font-size: clamp(1.75rem, 3.5vw, 2.5rem);
   font-weight: 700;
@@ -152,46 +146,42 @@ body {
   color: var(--text-1);
 }
 
-.t-sub {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  font-weight: 400;
-  line-height: 1.6;
-  color: var(--text-2);
-}
-
+/* Párrafo — hereda 17px del body */
 .t-body {
   font-size: 1rem;
   line-height: 1.85;
   color: var(--text-2);
 }
 
+/* Etiqueta de sección encima del título */
 .t-label {
-  font-size: 0.722rem;
+  font-size: 0.76rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent-2);
 }
 
-.t-mono {
-  font-family: var(--font-jetbrains-mono), monospace;
-  font-size: 0.889rem;
-  color: var(--text-3);
-}
-
-/* Texto secundario (fechas, metadatos) */
+/* Metadatos: fechas, empresa, ubicación */
 .t-meta {
-  font-size: 0.889rem;
+  font-size: 0.94rem;
   color: var(--text-3);
   font-weight: 500;
 }
 
-/* Label de campo (formularios, listas de info) */
+/* Labels de formulario y listas de info */
 .t-field-label {
-  font-size: 0.722rem;
+  font-size: 0.76rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  color: var(--text-3);
+}
+
+/* Mono */
+.t-mono {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.94rem;
   color: var(--text-3);
 }
 
@@ -245,12 +235,12 @@ body {
 .tag {
   display: inline-flex;
   align-items: center;
-  padding: 3px 10px;
+  padding: 4px 12px;
   border-radius: var(--radius-sm);
   background: var(--accent-bg);
   border: 1px solid var(--accent-border);
   color: var(--accent-2);
-  font-size: 0.75rem;
+  font-size: 0.88rem;
   font-weight: 500;
   white-space: nowrap;
 }
@@ -258,12 +248,12 @@ body {
 .tag-n {
   display: inline-flex;
   align-items: center;
-  padding: 3px 10px;
+  padding: 4px 12px;
   border-radius: var(--radius-sm);
   background: var(--surface-2);
   border: 1px solid var(--border);
   color: var(--text-2);
-  font-size: 0.75rem;
+  font-size: 0.88rem;
   font-weight: 500;
   white-space: nowrap;
 }

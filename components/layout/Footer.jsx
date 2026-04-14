@@ -3,7 +3,7 @@ export default function Footer({ name = 'Hector Alejandro Riascos Insuasty' }) {
   return (
     <footer style={{ background: 'var(--surface)', borderTop: '1px solid var(--border)', padding: '2rem 0' }}>
       <div className="container-custom" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
-        <p style={{ fontSize: '0.8125rem', color: 'var(--text-3)' }}>
+        <p style={{ color: 'var(--text-3)' }}>
           © {year} {name}
         </p>
         <nav aria-label="Footer">
@@ -15,7 +15,7 @@ export default function Footer({ name = 'Hector Alejandro Riascos Insuasty' }) {
               { href: '#contacto',    label: 'Contacto' },
             ].map(l => (
               <li key={l.href}>
-                <a href={l.href} className="link-dim" style={{ fontSize: '0.8125rem' }}>{l.label}</a>
+                <a href={l.href} className="link-dim">{l.label}</a>
               </li>
             ))}
           </ul>

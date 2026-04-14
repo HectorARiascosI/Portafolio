@@ -44,7 +44,7 @@ export default function Projects({ projects = [] }) {
         {/* Otros proyectos */}
         {others.length > 0 && (
           <div className={`reveal ${visible ? 'visible' : ''} delay-2`} style={{ marginTop: '2.5rem' }}>
-            <p style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'var(--text-3)', letterSpacing: '0.09em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>
+            <p style={{ fontWeight: 600, color: 'var(--text-3)', letterSpacing: '0.09em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>
               Otros proyectos
             </p>
             <div className="grid-projects-others" role="list">
