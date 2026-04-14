@@ -30,7 +30,7 @@ export default function Hero({ profile = {} }) {
         borderRadius: '50%',           /* círculo moderno */
         overflow: 'hidden',
         border: '3px solid var(--accent)',
-        boxShadow: '0 0 0 6px var(--accent-bg), 0 8px 32px rgba(0,0,0,0.35)',
+        boxShadow: '0 0 0 5px var(--accent-bg), 0 8px 32px rgba(0,0,0,0.35)',
         background: 'var(--surface)',
         flexShrink: 0,
       }}>
