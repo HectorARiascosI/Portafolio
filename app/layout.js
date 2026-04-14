@@ -11,7 +11,7 @@ export const metadata = {
     template: '%s | Hector Riascos',
   },
   description: 'Portafolio de Hector Alejandro Riascos Insuasty, estudiante de Ingeniería de Software en la Universidad Cooperativa de Colombia, Pasto. Diseño de interfaces, desarrollo web y soluciones de software.',
-  keywords: ['ingeniería de software', 'desarrollo web', 'react', 'next.js', 'portafolio', 'Hector Riascos', 'Pasto', 'Colombia', 'UCC'],
+  keywords: ['ingeniería de software', 'desarrollo web', 'react', 'next.js', 'portafolio', 'Hector Riascos', 'Pasto', 'Colombia', 'UCC', 'diseño de interfaces'],
   authors: [{ name: 'Hector Alejandro Riascos Insuasty' }],
   robots: { index: true, follow: true },
   icons: { icon: '/favicon.ico' },
