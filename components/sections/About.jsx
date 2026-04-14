@@ -2,10 +2,10 @@
 
 import { useReveal } from '@/lib/useReveal';
 
-const STATS = [
-  { value: '3+',  label: 'Años de exp.' },
-  { value: '6+',  label: 'Proyectos realizados' },
-  { value: '3.8', label: 'GPA' },
+  const STATS = [
+  { value: '2+',  label: 'Años de exp.' },
+  { value: '3',   label: 'Proyectos' },
+  { value: '5to', label: 'Semestre' },
   { value: '10+', label: 'Tecnologías' },
 ];
 
