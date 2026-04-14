@@ -14,10 +14,11 @@
     {
       "category": "Frameworks y Librerías",
       "items": [
-        { "name": "React", "level": "intermedio", "years": 1 },
-        { "name": "Next.js", "level": "intermedio", "years": 1 },
+        { "name": "React",        "level": "intermedio", "years": 1 },
+        { "name": "Next.js",      "level": "intermedio", "years": 1 },
+        { "name": "Django",       "level": "intermedio", "years": 1 },
         { "name": "Tailwind CSS", "level": "intermedio", "years": 1 },
-        { "name": "Node.js", "level": "básico", "years": 1 }
+        { "name": "Node.js",      "level": "básico",     "years": 1 }
       ]
     },
     {
