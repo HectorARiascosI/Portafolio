@@ -44,9 +44,7 @@ export default function About({ profile = {} }) {
                   <div style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--text-1)', letterSpacing: '-0.03em', marginBottom: '4px' }}>
                     {s.value}
                   </div>
-                  <div style={{ fontSize: '0.8125rem', color: 'var(--text-3)', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-                    {s.label}
-                  </div>
+                  <div className="t-field-label">{s.label}</div>
                 </div>
               ))}
             </div>
@@ -69,8 +67,8 @@ export default function About({ profile = {} }) {
                     {item.label}
                   </span>
                   {item.href
-                    ? <a href={item.href} className="link-muted" style={{ fontSize: '1rem' }}>{item.value}</a>
-                    : <span style={{ fontSize: '1rem', color: item.green ? 'var(--green)' : 'var(--text-2)' }}>{item.value}</span>
+                    ? <a href={item.href} className="link-muted">{item.value}</a>
+                    : <span style={{ color: item.green ? 'var(--green)' : 'var(--text-2)' }}>{item.value}</span>
                   }
                 </div>
               ))}

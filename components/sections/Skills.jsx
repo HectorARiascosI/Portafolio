@@ -25,7 +25,7 @@ export default function Skills({ skills }) {
               className={`reveal ${visible ? 'visible' : ''} delay-${Math.min(i + 1, 5)}`}
               style={{ background: 'var(--surface)', padding: '1.75rem' }}>
 
-              <h3 style={{ fontSize: '0.875rem', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--text-2)', marginBottom: '1.25rem' }}>
+              <h3 style={{ fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--text-2)', marginBottom: '1.25rem' }}>
                 {category.category}
               </h3>
 
@@ -33,7 +33,7 @@ export default function Skills({ skills }) {
                 {category.items.map(skill => (
                   <span key={skill.name} className="tag-n"
                     title={`${skill.level} · ${skill.years} año${skill.years !== 1 ? 's' : ''}`}
-                    style={{ cursor: 'default', fontSize: '0.9375rem', padding: '5px 13px' }}>
+                    style={{ cursor: 'default' }}>
                     {skill.name}
                   </span>
                 ))}

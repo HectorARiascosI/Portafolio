@@ -3,7 +3,6 @@
 import { useReveal } from '@/lib/useReveal';
 
 function QuoteIcon() {
-  // icono de comillas para testimonios
   return (
     <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"
       style={{ color: 'var(--accent)', opacity: 0.4, flexShrink: 0 }}>
@@ -16,7 +15,7 @@ function StarRating() {
   return (
     <div style={{ display: 'flex', gap: '3px' }}>
       {[1,2,3,4,5].map(i => (
-        <svg key={i} width="14" height="14" fill="var(--accent)" viewBox="0 0 24 24">
+        <svg key={i} width="16" height="16" fill="var(--accent)" viewBox="0 0 24 24">
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
         </svg>
       ))}
@@ -33,7 +32,7 @@ export default function Testimonials({ testimonials }) {
       className="section-pad">
       <div className="container-custom" ref={ref}>
 
-        <div className={`reveal ${visible ? 'visible' : ''}`} style={{ marginBottom: '3.5rem', textAlign: 'center' }}>
+        <div className={"reveal " + (visible ? 'visible' : '')} style={{ marginBottom: '3.5rem', textAlign: 'center' }}>
           <p className="t-label" style={{ marginBottom: '0.75rem' }}>Testimonios</p>
           <h2 className="t-heading">Opiniones de quienes me conocen</h2>
           <p className="t-body" style={{ marginTop: '0.75rem', maxWidth: '420px', margin: '0.75rem auto 0' }}>
@@ -41,66 +40,40 @@ export default function Testimonials({ testimonials }) {
           </p>
         </div>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: '1.25rem',
-        }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>
           {testimonials.map((t, i) => (
             <div key={t.id}
-              className={`reveal ${visible ? 'visible' : ''} delay-${Math.min(i + 1, 5)}`}
+              className={"reveal " + (visible ? 'visible' : '') + " delay-" + Math.min(i + 1, 5)}
               style={{
-                background: 'var(--bg)',
-                border: '1px solid var(--border)',
-                borderRadius: '14px',
-                padding: '1.75rem',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '1.25rem',
+                background: 'var(--bg)', border: '1px solid var(--border)',
+                borderRadius: '14px', padding: '1.75rem',
+                display: 'flex', flexDirection: 'column', gap: '1.25rem',
                 transition: 'border-color 200ms ease, box-shadow 200ms ease',
               }}
-              onMouseEnter={e => {
-                e.currentTarget.style.borderColor = 'var(--border-2)';
-                e.currentTarget.style.boxShadow = 'var(--shadow-md)';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.borderColor = 'var(--border)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}>
+              onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--border-2)'; e.currentTarget.style.boxShadow = 'var(--shadow-md)'; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.boxShadow = 'none'; }}>
 
-              {/* Quote + estrellas */}
               <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
                 <QuoteIcon />
                 <StarRating />
               </div>
 
-              {/* Texto */}
-              <p style={{
-                fontSize: '1rem', lineHeight: 1.8,
-                color: 'var(--text-2)', flex: 1,
-                fontStyle: 'italic',
-              }}>
-                "{t.text}"
+              <p style={{ lineHeight: 1.8, color: 'var(--text-2)', flex: 1, fontStyle: 'italic' }}>
+                {t.text}
               </p>
 
-              {/* Autor */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.875rem', paddingTop: '1rem', borderTop: '1px solid var(--border)' }}>
                 <div style={{
-                  width: '40px', height: '40px', borderRadius: '50%',
+                  width: '44px', height: '44px', borderRadius: '50%',
                   background: 'var(--accent-bg)', border: '1px solid var(--accent-border)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: '0.9375rem', fontWeight: 700, color: 'var(--accent-2)',
-                  flexShrink: 0,
+                  fontWeight: 700, color: 'var(--accent-2)', flexShrink: 0,
                 }}>
                   {t.name.charAt(0)}
                 </div>
                 <div>
-                  <p style={{ fontSize: '1.0625rem', fontWeight: 600, color: 'var(--text-1)', marginBottom: '1px' }}>
-                    {t.name}
-                  </p>
-                  <p className="t-meta">
-                    {t.role}{t.company ? ` · ${t.company}` : ''}
-                  </p>
+                  <p style={{ fontWeight: 600, color: 'var(--text-1)', marginBottom: '2px' }}>{t.name}</p>
+                  <p className="t-meta">{t.role}{t.company ? ' · ' + t.company : ''}</p>
                 </div>
               </div>
 
