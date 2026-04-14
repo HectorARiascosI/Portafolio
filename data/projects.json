@@ -37,7 +37,7 @@
     {
       "id": "portafolio-personal",
       "title": "Portafolio Personal",
-      "description": "Portafolio web profesional desarrollado con Next.js y Tailwind CSS. Incluye tema claro/oscuro, animaciones con IntersectionObserver, diseño responsivo mobile-first y despliegue en Vercel.",
+      "description": "Portafolio web personal desarrollado con Next.js y Tailwind CSS. Incluye tema claro/oscuro, animaciones al hacer scroll, diseño responsivo y despliegue en Vercel.",
       "technologies": ["Next.js", "Tailwind CSS", "JavaScript", "Vercel"],
       "image": "",
       "link": "",
