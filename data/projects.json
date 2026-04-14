@@ -22,11 +22,7 @@
       "github": "",
       "featured": true,
       "order": 2,
-      "category": "Aplicación Web",
-      "year": 2025
-    },
-    {
-      "id": "aerion",
+      "category": "Aplicación Web · TypeScript",,
       "title": "AERION — IA Conversacional",
       "description": "Software de inteligencia artificial conversacional que se adapta al estilo de vida y personalidad del usuario, permitiendo una interacción natural como si hablaras con otra persona. Inspirado en la visión de Blade Runner 2049. Diseñado para uso personal y empresarial, con capacidad de adaptarse a distintos contextos y necesidades del usuario. Actualmente en desarrollo.",
       "technologies": ["Python", "IA / ML", "NLP", "API Design"],
