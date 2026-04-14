@@ -54,7 +54,7 @@ async function sendEmail({ name, email, message }) {
       body: JSON.stringify({
         from:    'Portafolio <onboarding@resend.dev>',
         to:      ['hectorariascos6.6@gmail.com'],
-        subject: `Nuevo mensaje de contacto — ${name}`,
+        subject: `Mensaje desde tu portafolio — ${name}`,
         html: `
           <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px">
             <h2 style="color:#6366f1;margin-bottom:8px">Nuevo mensaje desde tu portafolio</h2>
