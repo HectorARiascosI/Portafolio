@@ -95,10 +95,10 @@ export default function Testimonials({ testimonials }) {
                   {t.name.charAt(0)}
                 </div>
                 <div>
-                  <p style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'var(--text-1)', marginBottom: '1px' }}>
+                  <p style={{ fontSize: '1.0625rem', fontWeight: 600, color: 'var(--text-1)', marginBottom: '1px' }}>
                     {t.name}
                   </p>
-                  <p style={{ fontSize: '0.8125rem', color: 'var(--text-3)' }}>
+                  <p className="t-meta">
                     {t.role}{t.company ? ` · ${t.company}` : ''}
                   </p>
                 </div>

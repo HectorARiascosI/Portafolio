@@ -50,28 +50,28 @@ export default function Experience({ experience }) {
                 <div style={{ marginBottom: '0.5rem' }}>
                   <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.5rem', marginBottom: '6px' }}>
                     <span className="tag-n" style={{ flexShrink: 0 }}>{typeLabel[item.type] || item.type}</span>
-                    <span style={{ fontSize: '0.8125rem', color: isActive ? 'var(--accent-2)' : 'var(--text-3)', fontWeight: isActive ? 600 : 500 }}>
+                    <span className="t-meta" style={{ color: isActive ? 'var(--accent-2)' : 'var(--text-3)', fontWeight: isActive ? 600 : 500 }}>
                       {item.period}
                     </span>
                     {isActive && (
                       <span style={{
-                        fontSize: '0.6875rem', fontWeight: 600, letterSpacing: '0.06em',
+                        fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.06em',
                         textTransform: 'uppercase', color: 'var(--accent-2)',
                         background: 'var(--accent-bg)', border: '1px solid var(--accent-border)',
                         borderRadius: '20px', padding: '2px 8px',
                       }}>En curso</span>
                     )}
                   </div>
-                  <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-1)', letterSpacing: '-0.01em', marginBottom: '3px' }}>
+                  <h3 style={{ fontSize: '1.0625rem', fontWeight: 700, color: 'var(--text-1)', letterSpacing: '-0.01em', marginBottom: '3px' }}>
                     {item.role}
                   </h3>
-                  <p style={{ fontSize: '0.875rem', color: 'var(--text-2)', fontWeight: 500 }}>
+                  <p style={{ fontSize: '1rem', color: 'var(--text-2)', fontWeight: 500 }}>
                     {item.company}
                     {item.location && <span style={{ color: 'var(--text-3)', fontWeight: 400 }}> · {item.location}</span>}
                   </p>
                 </div>
 
-                <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-2)', marginBottom: item.technologies?.length ? '0.875rem' : 0 }}>
+                <p style={{ fontSize: '1rem', lineHeight: 1.8, color: 'var(--text-2)', marginBottom: item.technologies?.length ? '0.875rem' : 0 }}>
                   {item.description}
                 </p>
 

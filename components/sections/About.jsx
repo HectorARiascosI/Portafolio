@@ -36,22 +36,15 @@ export default function About({ profile = {} }) {
 
         <div className="grid-about">
 
-          {/* Izquierda — avatar + stats */}
+          {/* Izquierda — stats */}
           <div className={`reveal-left ${visible ? 'visible' : ''} delay-1`}>
-            <div style={{
-              width: '120px', height: '120px', borderRadius: '12px',
-              background: 'linear-gradient(135deg, var(--surface-2) 0%, var(--accent-bg) 100%)',
-              border: '1px solid var(--accent-border)',
-              marginBottom: '1.5rem',
-            }} />
-
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: 'var(--border)', borderRadius: '10px', overflow: 'hidden' }}>
               {STATS.map(s => (
-                <div key={s.label} style={{ background: 'var(--surface-2)', padding: '1.125rem 1rem' }}>
-                  <div style={{ fontSize: '1.375rem', fontWeight: 700, color: 'var(--text-1)', letterSpacing: '-0.03em', marginBottom: '2px' }}>
+                <div key={s.label} style={{ background: 'var(--surface-2)', padding: '1.25rem 1rem' }}>
+                  <div style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--text-1)', letterSpacing: '-0.03em', marginBottom: '4px' }}>
                     {s.value}
                   </div>
-                  <div style={{ fontSize: '0.6875rem', color: 'var(--text-3)', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.07em' }}>
+                  <div style={{ fontSize: '0.8125rem', color: 'var(--text-3)', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                     {s.label}
                   </div>
                 </div>
@@ -72,12 +65,12 @@ export default function About({ profile = {} }) {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
               {infoItems.map(item => (
                 <div key={item.label} style={{ display: 'flex', alignItems: 'baseline', gap: '1.25rem' }}>
-                  <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-3)', minWidth: '80px', flexShrink: 0, textTransform: 'uppercase', letterSpacing: '0.07em' }}>
+                  <span className="t-field-label" style={{ minWidth: '80px', flexShrink: 0 }}>
                     {item.label}
                   </span>
                   {item.href
-                    ? <a href={item.href} className="link-muted" style={{ fontSize: '0.9375rem' }}>{item.value}</a>
-                    : <span style={{ fontSize: '0.9375rem', color: item.green ? 'var(--green)' : 'var(--text-2)' }}>{item.value}</span>
+                    ? <a href={item.href} className="link-muted" style={{ fontSize: '1rem' }}>{item.value}</a>
+                    : <span style={{ fontSize: '1rem', color: item.green ? 'var(--green)' : 'var(--text-2)' }}>{item.value}</span>
                   }
                 </div>
               ))}

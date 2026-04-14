@@ -41,18 +41,18 @@ export default function Certifications({ certifications }) {
               <BadgeIcon />
 
               <div style={{ flex: 1, minWidth: 0 }}>
-                <p style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-1)', marginBottom: '4px', letterSpacing: '-0.01em' }}>
+                <p style={{ fontSize: '1.0625rem', fontWeight: 600, color: 'var(--text-1)', marginBottom: '4px', letterSpacing: '-0.01em' }}>
                   {cert.title}
                 </p>
-                <p style={{ fontSize: '0.9rem', color: 'var(--text-2)' }}>
+                <p style={{ fontSize: '1rem', color: 'var(--text-2)' }}>
                   {cert.issuer}
                 </p>
               </div>
 
               <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                <span className="tag-n" style={{ fontSize: '0.8125rem' }}>{cert.date}</span>
+                <span className="tag-n" style={{ fontSize: '0.875rem' }}>{cert.date}</span>
                 {cert.hours && (
-                  <p style={{ fontSize: '0.8125rem', color: 'var(--text-3)', marginTop: '4px' }}>{cert.hours}</p>
+                  <p className="t-meta" style={{ marginTop: '4px' }}>{cert.hours}</p>
                 )}
               </div>
 

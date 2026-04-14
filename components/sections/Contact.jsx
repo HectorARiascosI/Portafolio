@@ -56,7 +56,7 @@ export default function Contact({ contact = {}, profile = {} }) {
     width: '100%', padding: '10px 14px',
     background: 'var(--surface-2)',
     borderRadius: 'var(--radius-md)',
-    color: 'var(--text-1)', fontSize: '0.875rem',
+    color: 'var(--text-1)', fontSize: '1rem',
     outline: 'none', fontFamily: 'inherit',
     transition: 'border-color 150ms ease',
   };
@@ -87,12 +87,10 @@ export default function Contact({ contact = {}, profile = {} }) {
               { label: 'Disponibilidad', value: 'Abierto a oportunidades' },
             ].map(item => (
               <div key={item.label}>
-                <p style={{ fontSize: '0.6875rem', fontWeight: 600, letterSpacing: '0.09em', textTransform: 'uppercase', color: 'var(--text-3)', marginBottom: '4px' }}>
-                  {item.label}
-                </p>
+                <p className="t-field-label" style={{ marginBottom: '4px' }}>{item.label}</p>
                 {item.href
-                  ? <a href={item.href} className="link-muted" style={{ fontSize: '0.9375rem', wordBreak: 'break-all' }}>{item.value}</a>
-                  : <p style={{ fontSize: '0.9375rem', color: 'var(--text-2)' }}>{item.value}</p>
+                  ? <a href={item.href} className="link-muted" style={{ fontSize: '1rem', wordBreak: 'break-all' }}>{item.value}</a>
+                  : <p style={{ fontSize: '1rem', color: 'var(--text-2)' }}>{item.value}</p>
                 }
               </div>
             ))}
@@ -108,24 +106,24 @@ export default function Contact({ contact = {}, profile = {} }) {
               { id: 'email', label: 'Email',   type: 'email', placeholder: 'tu@email.com' },
             ].map(f => (
               <div key={f.id}>
-                <label htmlFor={f.id} style={{ display: 'block', fontSize: '0.6875rem', fontWeight: 600, color: 'var(--text-3)', letterSpacing: '0.09em', textTransform: 'uppercase', marginBottom: '6px' }}>
+                <label htmlFor={f.id} className="t-field-label" style={{ display: 'block', marginBottom: '6px' }}>
                   {f.label} <span style={{ color: 'var(--red)', opacity: 0.7 }}>*</span>
                 </label>
                 <input id={f.id} name={f.id} type={f.type} value={form[f.id]}
                   onChange={onChange} required placeholder={f.placeholder}
                   style={{ ...inputBase, border: `1px solid ${errors[f.id] ? 'rgba(239,68,68,0.4)' : 'var(--border-2)'}` }} />
-                {errors[f.id] && <p style={{ marginTop: '4px', fontSize: '0.75rem', color: 'var(--red)' }}>{errors[f.id]}</p>}
+                {errors[f.id] && <p style={{ marginTop: '4px', fontSize: '0.875rem', color: 'var(--red)' }}>{errors[f.id]}</p>}
               </div>
             ))}
 
             <div>
-              <label htmlFor="message" style={{ display: 'block', fontSize: '0.6875rem', fontWeight: 600, color: 'var(--text-3)', letterSpacing: '0.09em', textTransform: 'uppercase', marginBottom: '6px' }}>
+              <label htmlFor="message" className="t-field-label" style={{ display: 'block', marginBottom: '6px' }}>
               Mensaje <span style={{ color: 'var(--red)', opacity: 0.7 }}>*</span>
               </label>
               <textarea id="message" name="message" value={form.message} onChange={onChange}
                 required rows={5} placeholder="Escribe tu mensaje aquí..."
                 style={{ ...inputBase, border: `1px solid ${errors.message ? 'rgba(239,68,68,0.4)' : 'var(--border-2)'}`, resize: 'vertical', minHeight: '120px' }} />
-              {errors.message && <p style={{ marginTop: '4px', fontSize: '0.75rem', color: 'var(--red)' }}>{errors.message}</p>}
+              {errors.message && <p style={{ marginTop: '4px', fontSize: '0.875rem', color: 'var(--red)' }}>{errors.message}</p>}
             </div>
 
             <button type="submit" disabled={loading} className="btn btn-primary"

@@ -80,7 +80,7 @@ export default function ProjectCard({ project, featured = false }) {
         </h3>
 
         <p style={{
-          fontSize: '0.9375rem', lineHeight: 1.75, color: 'var(--text-2)',
+          fontSize: '1rem', lineHeight: 1.75, color: 'var(--text-2)',
           marginBottom: '1.125rem', flex: 1,
           display: '-webkit-box', WebkitLineClamp: featured ? 4 : 3,
           WebkitBoxOrient: 'vertical', overflow: 'hidden',
@@ -91,10 +91,10 @@ export default function ProjectCard({ project, featured = false }) {
         {/* Tecnologías */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.375rem', marginBottom: '1.125rem' }}>
           {technologies.slice(0, featured ? 5 : 4).map(tech => (
-            <span key={tech} className="tag-n" style={{ fontSize: '0.8125rem', padding: '4px 10px' }}>{tech}</span>
+            <span key={tech} className="tag-n" style={{ fontSize: '0.875rem', padding: '4px 10px' }}>{tech}</span>
           ))}
           {technologies.length > (featured ? 5 : 4) && (
-            <span className="tag-n" style={{ color: 'var(--text-3)', fontSize: '0.8125rem', padding: '4px 10px' }}>
+            <span className="tag-n" style={{ color: 'var(--text-3)', fontSize: '0.875rem', padding: '4px 10px' }}>
               +{technologies.length - (featured ? 5 : 4)}
             </span>
           )}

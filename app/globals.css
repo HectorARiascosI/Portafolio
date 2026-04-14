@@ -159,13 +159,13 @@ body {
 }
 
 .t-body {
-  font-size: 1.0625rem;
+  font-size: 1rem;
   line-height: 1.85;
   color: var(--text-2);
 }
 
 .t-label {
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -174,7 +174,23 @@ body {
 
 .t-mono {
   font-family: var(--font-jetbrains-mono), monospace;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
+  color: var(--text-3);
+}
+
+/* Texto secundario (fechas, metadatos) */
+.t-meta {
+  font-size: 0.875rem;
+  color: var(--text-3);
+  font-weight: 500;
+}
+
+/* Label de campo (formularios, listas de info) */
+.t-field-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--text-3);
 }
 
