@@ -45,7 +45,8 @@
       "featured": false,
       "order": 4,
       "category": "Aplicación Web",
-      "year": 2026
+      "year": 2026,
+      "status": "activo"
     }
   ]
 }
