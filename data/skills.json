@@ -40,5 +40,13 @@
         { "name": "Postman", "level": "básico",     "years": 1 }
       ]
     }
+    {
+      "category": "Bases de Datos",
+      "items": [
+        { "name": "SQLite",     "level": "intermedio", "years": 1 },
+        { "name": "MySQL",      "level": "básico",     "years": 1 },
+        { "name": "PostgreSQL", "level": "básico",     "years": 1 }
+      ]
+    }
   ]
 }
