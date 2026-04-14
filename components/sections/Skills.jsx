@@ -3,7 +3,7 @@
 import { useReveal } from '@/lib/useReveal';
 
 export default function Skills({ skills }) {
-  const { ref, visible } = useReveal();
+  const { ref, visible } = useReveal({ threshold: 0.08 });
 
   return (
     <section id="habilidades" aria-label="Habilidades técnicas"
