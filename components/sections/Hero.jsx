@@ -27,7 +27,7 @@ export default function Hero({ profile = {} }) {
     <div style={{ position: 'relative', display: 'inline-block' }}>
       <div style={{
         width: size, height: size,
-        borderRadius: '50%',           /* círculo moderno 2026 */
+        borderRadius: '50%',           /* círculo moderno */
         overflow: 'hidden',
         border: '3px solid var(--accent)',
         boxShadow: '0 0 0 6px var(--accent-bg), 0 8px 32px rgba(0,0,0,0.35)',
