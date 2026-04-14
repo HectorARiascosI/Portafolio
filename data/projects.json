@@ -16,7 +16,7 @@
       "id": "flight-tracker",
       "title": "Flight Tracker",
       "description": "Plataforma de seguimiento de vuelos en tiempo real, similar a FlightRadar24 pero con una interfaz más accesible y limpia. Muestra posición, ruta y datos de vuelos activos. Construida con TypeScript y Java en el backend, con diseño responsivo en Tailwind CSS.",
-      "technologies": ["TypeScript", "Java", "Tailwind CSS", "APIs REST"],
+      "technologies": ["TypeScript", "Java", "Tailwind CSS", "APIs REST", "Leaflet.js"],
       "image": "",
       "link": "",
       "github": "",
