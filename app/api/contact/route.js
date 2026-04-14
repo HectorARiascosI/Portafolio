@@ -1,133 +1,125 @@
 import { NextResponse } from 'next/server';
 
-// Simple in-memory rate limiting (for mock)
-const rateLimitMap = new Map();
-const RATE_LIMIT_WINDOW = 60000; // 1 minute
-const MAX_REQUESTS = 3; // 3 requests per minute
+/* ── Rate limiting en memoria ── */
+const rateMap = new Map();
+const WINDOW  = 60_000; // 1 minuto
+const MAX_REQ = 3;
 
-function isRateLimited(clientId) {
-  const now = Date.now();
-  const requests = rateLimitMap.get(clientId) || [];
-
-  // Remove old requests outside window
-  const recentRequests = requests.filter((time) => now - time < RATE_LIMIT_WINDOW);
-
-  if (recentRequests.length >= MAX_REQUESTS) {
-    return true;
-  }
-
-  // Add current request
-  recentRequests.push(now);
-  rateLimitMap.set(clientId, recentRequests);
-
+function isRateLimited(ip) {
+  const now  = Date.now();
+  const hits = (rateMap.get(ip) || []).filter(t => now - t < WINDOW);
+  if (hits.length >= MAX_REQ) return true;
+  hits.push(now);
+  rateMap.set(ip, hits);
   return false;
 }
 
-function validateContactForm(data) {
+/* ── Validación estricta ── */
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const SPAM_RE  = /^[\s\W]*$/; // solo espacios o caracteres raros
+
+function validate({ name, email, message }) {
   const errors = {};
 
-  // Name validation
-  if (!data.name || data.name.trim().length < 2) {
-    errors.name = 'Name must be at least 2 characters';
-  }
-  if (data.name && data.name.length > 100) {
-    errors.name = 'Name must be less than 100 characters';
-  }
+  const n = (name || '').trim();
+  if (!n || n.length < 2)   errors.name = 'El nombre debe tener al menos 2 caracteres.';
+  if (n.length > 100)       errors.name = 'El nombre es demasiado largo.';
+  if (SPAM_RE.test(n))      errors.name = 'Por favor ingresa un nombre válido.';
 
-  // Email validation
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!data.email || !emailRegex.test(data.email)) {
-    errors.email = 'Please enter a valid email address';
-  }
+  const e = (email || '').trim();
+  if (!e || !EMAIL_RE.test(e)) errors.email = 'Ingresa un correo electrónico válido.';
 
-  // Message validation
-  if (!data.message || data.message.trim().length < 10) {
-    errors.message = 'Message must be at least 10 characters';
-  }
-  if (data.message && data.message.length > 1000) {
-    errors.message = 'Message must be less than 1000 characters';
-  }
+  const m = (message || '').trim();
+  if (!m || m.length < 15)  errors.message = 'El mensaje debe tener al menos 15 caracteres.';
+  if (m.length > 2000)      errors.message = 'El mensaje no puede superar los 2000 caracteres.';
+  if (SPAM_RE.test(m))      errors.message = 'Por favor escribe un mensaje real.';
 
-  return {
-    isValid: Object.keys(errors).length === 0,
-    errors,
-  };
+  return { ok: Object.keys(errors).length === 0, errors };
 }
 
-function sanitizeInput(input) {
-  return input
-    .trim()
-    .replace(/[<>]/g, '') // Remove potential HTML tags
-    .slice(0, 1000); // Enforce max length
+function sanitize(str) {
+  return (str || '').trim().replace(/[<>]/g, '').slice(0, 2000);
 }
 
+/* ── Envío de email ── */
+async function sendEmail({ name, email, message }) {
+  // Si hay RESEND_API_KEY configurada en Vercel, usa Resend
+  if (process.env.RESEND_API_KEY) {
+    const res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from:    'Portafolio <onboarding@resend.dev>',
+        to:      ['hectorariascos6.6@gmail.com'],
+        subject: `Nuevo mensaje de contacto — ${name}`,
+        html: `
+          <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px">
+            <h2 style="color:#6366f1;margin-bottom:8px">Nuevo mensaje desde tu portafolio</h2>
+            <hr style="border:none;border-top:1px solid #e5e7eb;margin-bottom:24px"/>
+            <p><strong>Nombre:</strong> ${name}</p>
+            <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+            <p><strong>Mensaje:</strong></p>
+            <div style="background:#f9fafb;border-left:4px solid #6366f1;padding:16px;border-radius:4px;margin-top:8px">
+              ${message.replace(/\n/g, '<br/>')}
+            </div>
+            <hr style="border:none;border-top:1px solid #e5e7eb;margin-top:24px"/>
+            <p style="color:#9ca3af;font-size:12px">Enviado desde hectorriascos.vercel.app</p>
+          </div>
+        `,
+      }),
+    });
+    if (!res.ok) throw new Error('Resend error: ' + res.status);
+    return;
+  }
+
+  // Sin API key: solo log (en desarrollo)
+  console.log('📧 Mensaje de contacto recibido:');
+  console.log('  Nombre:', name);
+  console.log('  Email:', email);
+  console.log('  Mensaje:', message);
+}
+
+/* ── Handler POST ── */
 export async function POST(request) {
   try {
-    // Get client IP for rate limiting
-    const clientId = request.headers.get('x-forwarded-for') || 'unknown';
-
-    // Check rate limit
-    if (isRateLimited(clientId)) {
+    const ip = request.headers.get('x-forwarded-for') || 'local';
+    if (isRateLimited(ip)) {
       return NextResponse.json(
-        {
-          success: false,
-          message: 'Too many requests. Please try again later.',
-        },
+        { success: false, message: 'Demasiados intentos. Espera un momento e intenta de nuevo.' },
         { status: 429 }
       );
     }
 
-    // Parse request body
     const body = await request.json();
-
-    // Validate input
-    const validation = validateContactForm(body);
-    if (!validation.isValid) {
-      return NextResponse.json(
-        {
-          success: false,
-          message: 'Validation failed',
-          errors: validation.errors,
-        },
-        { status: 400 }
-      );
+    const { ok, errors } = validate(body);
+    if (!ok) {
+      return NextResponse.json({ success: false, errors }, { status: 400 });
     }
 
-    // Sanitize input
-    const sanitizedData = {
-      name: sanitizeInput(body.name),
-      email: sanitizeInput(body.email),
-      message: sanitizeInput(body.message),
+    const data = {
+      name:    sanitize(body.name),
+      email:   sanitize(body.email),
+      message: sanitize(body.message),
     };
 
-    // Mock: Log to console (in production, send email)
-    console.log('Contact form submission:', sanitizedData);
+    await sendEmail(data);
 
-    // Mock: Simulate processing delay
-    await new Promise((resolve) => setTimeout(resolve, 500));
-
-    // Return success response
     return NextResponse.json(
-      {
-        success: true,
-        message: "Message received! I'll get back to you soon.",
-        timestamp: new Date().toISOString(),
-      },
+      { success: true, message: '¡Mensaje enviado! Te responderé pronto.' },
       { status: 200 }
     );
-  } catch (error) {
-    console.error('Contact form error:', error);
+  } catch (err) {
+    console.error('Contact error:', err);
     return NextResponse.json(
-      {
-        success: false,
-        message: 'An unexpected error occurred. Please try again.',
-      },
+      { success: false, message: 'Error al enviar. Intenta de nuevo o escríbeme directamente.' },
       { status: 500 }
     );
   }
 }
 
-// Handle other methods
 export async function GET() {
   return NextResponse.json({ message: 'Method not allowed' }, { status: 405 });
 }

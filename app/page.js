@@ -9,12 +9,8 @@ import Experience      from '@/components/sections/Experience';
 import Certifications  from '@/components/sections/Certifications';
 import Contact         from '@/components/sections/Contact';
 import {
-  getProfile,
-  getProjects,
-  getSkills,
-  getExperience,
-  getTestimonials,
-  getCertifications,
+  getProfile, getProjects, getSkills,
+  getExperience, getTestimonials, getCertifications,
 } from '@/lib/content';
 
 export default function HomePage() {
@@ -27,38 +23,18 @@ export default function HomePage() {
 
   return (
     <>
-      <a href="#main-content" className="skip-link">
-        Saltar al contenido principal
-      </a>
-
+      {/* skip-link eliminado — causaba barra visible en la parte superior */}
       <Navbar name={profile.name} />
-
-      <main id="main-content" tabIndex="-1">
-        {/* 1. Hero / Bienvenida */}
+      <main id="main-content">
         <Hero profile={profile} />
-
-        {/* 2. Acerca de mí */}
         <About profile={profile} />
-
-        {/* 3. Habilidades */}
         <Skills skills={skills} />
-
-        {/* 4. Proyectos */}
         <Projects projects={projects} />
-
-        {/* 5. Testimonios — requerido por el docente */}
         <Testimonials testimonials={testimonials} />
-
-        {/* 6. Experiencia académica y laboral */}
         <Experience experience={experience} />
-
-        {/* 7. Certificaciones — sección adicional */}
         <Certifications certifications={certifications} />
-
-        {/* 8. Contacto */}
         <Contact profile={profile} />
       </main>
-
       <Footer name={profile.name} />
     </>
   );

@@ -144,7 +144,7 @@ body {
 }
 
 .t-heading {
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
   font-weight: 700;
   letter-spacing: -0.025em;
   line-height: 1.15;
@@ -159,8 +159,8 @@ body {
 }
 
 .t-body {
-  font-size: 0.9375rem;
-  line-height: 1.75;
+  font-size: 1.0625rem;
+  line-height: 1.8;
   color: var(--text-2);
 }
 
@@ -277,14 +277,15 @@ body {
 .nav-link   { font-size: 0.875rem; font-weight: 400; color: var(--text-2); text-decoration: none; transition: color 150ms ease; }
 .nav-link:hover   { color: var(--text-1); }
 
-/* Skip link */
+/* Skip link — oculto visualmente, solo para lectores de pantalla */
 .skip-link {
-  position: absolute; top: -40px; left: 0;
+  position: absolute; top: -100px; left: 0;
   background: var(--accent); color: #fff;
   padding: 0.5rem 1rem; text-decoration: none;
   z-index: 9999; border-radius: 0 0 4px 0;
+  pointer-events: none;
 }
-.skip-link:focus { top: 0; }
+.skip-link:focus { top: 0; pointer-events: auto; }
 
 /* ─────────────────────────────────────────
    THEME TOGGLE BUTTON
