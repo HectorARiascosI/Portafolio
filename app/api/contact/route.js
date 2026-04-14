@@ -30,7 +30,7 @@ function validate({ name, email, message }) {
   if (!e || !EMAIL_RE.test(e)) errors.email = 'Ingresa un correo electrónico válido.';
 
   const m = (message || '').trim();
-  if (!m || m.length < 15)  errors.message = 'El mensaje debe tener al menos 15 caracteres.';
+  if (!m || m.length < 20)  errors.message = 'El mensaje debe tener al menos 20 caracteres.';
   if (m.length > 2000)      errors.message = 'El mensaje no puede superar los 2000 caracteres.';
   if (SPAM_RE.test(m))      errors.message = 'Por favor escribe un mensaje real.';
 
