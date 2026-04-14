@@ -23,7 +23,7 @@ function validate({ name, email, message }) {
 
   const n = (name || '').trim();
   if (!n || n.length < 2)   errors.name = 'El nombre debe tener al menos 2 caracteres.';
-  if (n.length > 100)       errors.name = 'El nombre es demasiado largo.';
+  if (n.length > 80)        errors.name = 'El nombre es demasiado largo.';
   if (SPAM_RE.test(n))      errors.name = 'Por favor ingresa un nombre válido.';
 
   const e = (email || '').trim();
