@@ -6,8 +6,9 @@
         { "name": "JavaScript", "level": "intermedio", "years": 2 },
         { "name": "TypeScript", "level": "básico", "years": 1 },
         { "name": "HTML / CSS", "level": "avanzado", "years": 3 },
-        { "name": "Python", "level": "básico", "years": 1 },
-        { "name": "SQL", "level": "básico", "years": 1 }
+        { "name": "Python",     "level": "básico",   "years": 1 },
+        { "name": "Java",       "level": "básico",   "years": 1 },
+        { "name": "SQL",        "level": "básico",   "years": 1 }
       ]
     },
     {
