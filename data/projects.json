@@ -32,7 +32,8 @@
       "featured": false,
       "order": 3,
       "category": "Inteligencia Artificial",
-      "year": 2026
+      "year": 2026,
+      "status": "en desarrollo"
     },
     {
       "id": "portafolio-personal",
