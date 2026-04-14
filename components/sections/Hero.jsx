@@ -7,7 +7,7 @@ export default function Hero({ profile = {} }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setMounted(true), 60);
+    const t = setTimeout(() => setMounted(true), 40);
     return () => clearTimeout(t);
   }, []);
 
