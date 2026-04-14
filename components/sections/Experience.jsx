@@ -14,51 +14,64 @@ export default function Experience({ experience }) {
       className="section-pad">
       <div className="container-custom" ref={ref}>
 
-        <div className={`reveal ${visible ? 'visible' : ''}`} style={{ marginBottom: '3.5rem' }}>
+        <div className={`reveal ${visible ? 'visible' : ''}`} style={{ marginBottom: '3.5rem', textAlign: 'center' }}>
           <p className="t-label" style={{ marginBottom: '0.75rem' }}>Trayectoria</p>
           <h2 className="t-heading">Trayectoria profesional</h2>
         </div>
 
-        <div style={{ maxWidth: '700px', display: 'flex', flexDirection: 'column' }}>
-          {experience.map((item, i) => (
+        <div style={{ maxWidth: '700px', margin: '0 auto', display: 'flex', flexDirection: 'column' }}>
+          {experience.map((item, i) => {
+            const isActive = /en curso|presente/i.test(item.period);
+            return (
             <div key={i}
               className={`reveal ${visible ? 'visible' : ''} delay-${Math.min(i + 1, 5)}`}
-              style={{ display: 'flex', gap: '1.5rem', paddingBottom: i < experience.length - 1 ? '2.25rem' : 0, position: 'relative' }}>
+              style={{ display: 'flex', gap: '1.5rem', paddingBottom: i < experience.length - 1 ? '2.5rem' : 0, position: 'relative' }}>
 
               {/* Línea vertical */}
               {i < experience.length - 1 && (
-                <div aria-hidden style={{ position: 'absolute', left: '11px', top: '24px', bottom: 0, width: '1px', background: 'var(--border)' }} />
+                <div aria-hidden style={{ position: 'absolute', left: '11px', top: '28px', bottom: 0, width: '1px', background: 'var(--border)' }} />
               )}
 
               {/* Dot */}
-              <div style={{ flexShrink: 0, marginTop: '4px', zIndex: 1 }}>
+              <div style={{ flexShrink: 0, marginTop: '2px', zIndex: 1 }}>
                 <div style={{
                   width: '24px', height: '24px', borderRadius: '50%',
-                  background: item.type === 'work' ? 'var(--accent)' : 'var(--surface-2)',
-                  border: `1px solid ${item.type === 'work' ? 'var(--accent)' : 'var(--border-2)'}`,
+                  background: isActive ? 'var(--accent)' : item.type === 'work' ? 'var(--surface-2)' : 'var(--surface-2)',
+                  border: `2px solid ${isActive ? 'var(--accent)' : 'var(--border-2)'}`,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  boxShadow: isActive ? '0 0 0 4px var(--accent-bg)' : 'none',
                 }}>
-                  <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: item.type === 'work' ? '#fff' : 'var(--text-3)' }} />
+                  <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: isActive ? '#fff' : 'var(--text-3)' }} />
                 </div>
               </div>
 
               {/* Contenido */}
-              <div style={{ flex: 1, paddingTop: '2px', minWidth: 0 }}>
+              <div style={{ flex: 1, paddingTop: '1px', minWidth: 0 }}>
                 <div style={{ marginBottom: '0.5rem' }}>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.5rem', marginBottom: '4px' }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.5rem', marginBottom: '6px' }}>
                     <span className="tag-n" style={{ flexShrink: 0 }}>{typeLabel[item.type] || item.type}</span>
-                    <span style={{ fontSize: '0.75rem', color: 'var(--text-3)', fontWeight: 500 }}>{item.period}</span>
+                    <span style={{ fontSize: '0.8125rem', color: isActive ? 'var(--accent-2)' : 'var(--text-3)', fontWeight: isActive ? 600 : 500 }}>
+                      {item.period}
+                    </span>
+                    {isActive && (
+                      <span style={{
+                        fontSize: '0.6875rem', fontWeight: 600, letterSpacing: '0.06em',
+                        textTransform: 'uppercase', color: 'var(--accent-2)',
+                        background: 'var(--accent-bg)', border: '1px solid var(--accent-border)',
+                        borderRadius: '20px', padding: '2px 8px',
+                      }}>En curso</span>
+                    )}
                   </div>
-                  <h3 style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'var(--text-1)', letterSpacing: '-0.01em', marginBottom: '2px' }}>
+                  <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-1)', letterSpacing: '-0.01em', marginBottom: '3px' }}>
                     {item.role}
                   </h3>
-                  <p style={{ fontSize: '0.875rem', color: 'var(--text-2)' }}>
+                  <p style={{ fontSize: '0.875rem', color: 'var(--text-2)', fontWeight: 500 }}>
                     {item.company}
-                    {item.location && <span style={{ color: 'var(--text-3)' }}> · {item.location}</span>}
+                    {item.location && <span style={{ color: 'var(--text-3)', fontWeight: 400 }}> · {item.location}</span>}
                   </p>
                 </div>
 
-                <p style={{ fontSize: '0.875rem', lineHeight: 1.75, color: 'var(--text-2)', marginBottom: item.technologies?.length ? '0.875rem' : 0 }}>
+                <p style={{ fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--text-2)', marginBottom: item.technologies?.length ? '0.875rem' : 0 }}>
                   {item.description}
                 </p>
 
@@ -71,7 +84,8 @@ export default function Experience({ experience }) {
                 )}
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>

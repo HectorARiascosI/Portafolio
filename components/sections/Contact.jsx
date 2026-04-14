@@ -19,8 +19,29 @@ export default function Contact({ contact = {}, profile = {} }) {
     if (errors[name]) setErrors(p => ({ ...p, [name]: '' }));
   };
 
+  const validateClient = () => {
+    const errs = {};
+    const name    = form.name.trim();
+    const email   = form.email.trim();
+    const message = form.message.trim();
+    const hasRealLetters = (str) => /[a-záéíóúüñA-ZÁÉÍÓÚÜÑ]{2,}/.test(str);
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!name || name.length < 2)          errs.name = 'Ingresa tu nombre completo.';
+    else if (!hasRealLetters(name))        errs.name = 'El nombre debe contener letras reales.';
+
+    if (!email || !emailRe.test(email))    errs.email = 'Ingresa un correo electrónico válido.';
+
+    if (!message || message.length < 20)   errs.message = 'El mensaje debe tener al menos 20 caracteres.';
+    else if (!hasRealLetters(message))     errs.message = 'Escribe un mensaje con palabras reales.';
+
+    return errs;
+  };
+
   const onSubmit = async e => {
     e.preventDefault();
+    const clientErrors = validateClient();
+    if (Object.keys(clientErrors).length > 0) { setErrors(clientErrors); return; }
     setLoading(true); setErrors({}); setStatus(null);
     try {
       const res  = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(form) });
@@ -46,11 +67,12 @@ export default function Contact({ contact = {}, profile = {} }) {
       className="section-pad">
       <div className="container-custom" ref={ref}>
 
-        <div className={`reveal ${visible ? 'visible' : ''}`} style={{ marginBottom: '3.5rem' }}>
+        <div className={`reveal ${visible ? 'visible' : ''}`} style={{ marginBottom: '3.5rem', textAlign: 'center' }}>
           <p className="t-label" style={{ marginBottom: '0.75rem' }}>Contacto</p>
           <h2 className="t-heading">Hablemos</h2>
-          <p className="t-body" style={{ marginTop: '0.75rem', maxWidth: '400px' }}>
-            Disponible para prácticas, proyectos y colaboraciones. Te respondo en menos de 24 horas.          </p>
+          <p className="t-body" style={{ marginTop: '0.75rem', maxWidth: '420px', margin: '0.75rem auto 0' }}>
+            Disponible para prácticas, proyectos y colaboraciones. Te respondo en menos de 24 horas.
+          </p>
         </div>
 
         <div className="grid-contact">

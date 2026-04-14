@@ -45,10 +45,9 @@ export default function Hero({ profile = {} }) {
             quality={90}
           />
         ) : (
-          /* Sin imagen: gradiente limpio, sin letra */
           <div style={{
             width: '100%', height: '100%',
-            background: 'linear-gradient(135deg, var(--surface-2), var(--accent-bg))',
+            background: 'linear-gradient(135deg, var(--surface-2) 0%, var(--accent-bg) 100%)',
           }} />
         )}
       </div>
