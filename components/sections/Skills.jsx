@@ -11,11 +11,11 @@ export default function Skills({ skills }) {
       className="section-pad">
       <div className="container-custom" ref={ref}>
 
-        <div className={`reveal ${visible ? 'visible' : ''}`} style={{ marginBottom: '3.5rem', textAlign: 'center' }}>
+        <div className={`reveal ${visible ? 'visible' : ''}`} style={{ marginBottom: '3rem', textAlign: 'center' }}>
           <p className="t-label" style={{ marginBottom: '0.75rem' }}>Stack técnico</p>
-          <h2 className="t-heading">Tecnologías</h2>
-          <p className="t-body" style={{ marginTop: '0.75rem', maxWidth: '420px', margin: '0.75rem auto 0' }}>
-            Herramientas y lenguajes con los que construyo soluciones reales día a día.
+          <h2 className="t-heading">Habilidades</h2>
+          <p className="t-body" style={{ marginTop: '0.75rem', maxWidth: '480px', margin: '0.75rem auto 0' }}>
+            Herramientas y lenguajes con los que construyo soluciones reales.
           </p>
         </div>
 

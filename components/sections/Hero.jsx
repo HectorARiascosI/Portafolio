@@ -90,13 +90,12 @@ export default function Hero({ profile = {} }) {
 
         <div className="grid-hero">
           {/* Texto */}
-          <div style={{ width: '100%', minWidth: 0, overflow: 'hidden' }}>
+          <div className="hero-text" style={{ width: '100%', minWidth: 0, overflow: 'hidden' }}>
 
             <div className={cls('reveal', 'delay-1')} style={{ marginBottom: '1rem' }}>
               <span className="t-label">Ingeniería de Software</span>
             </div>
 
-            {/* Nombre — más grande y centrado en móvil */}
             <h1 className={cls('reveal', 'delay-2')} style={{
               fontSize: 'clamp(1.75rem, 8vw, 4rem)',
               fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1,
@@ -115,7 +114,6 @@ export default function Hero({ profile = {} }) {
             </p>
 
             <p className={cls('reveal', 'delay-3')} style={{
-              fontSize: '1.06rem',
               lineHeight: 1.75, color: 'var(--text-2)',
               marginBottom: '2rem',
               overflowWrap: 'break-word', wordBreak: 'break-word',
@@ -138,7 +136,7 @@ export default function Hero({ profile = {} }) {
               </a>
             </div>
 
-            <div className={cls('reveal', 'delay-5')} style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
+            <div className={cls('reveal', 'delay-5')} style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap', justifyContent: 'center' }}>
               {social.github && (
                 <a href={social.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="icon-link">
                   <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">

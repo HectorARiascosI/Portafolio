@@ -14,14 +14,13 @@ export default function Projects({ projects = [] }) {
       className="section-pad">
       <div className="container-custom" ref={ref}>
 
-        <div className={`reveal ${visible ? 'visible' : ''}`}
-          style={{ textAlign: 'center', marginBottom: '3rem' }}>
+        <div className={`reveal ${visible ? 'visible' : ''}`} style={{ marginBottom: '3rem', textAlign: 'center' }}>
           <p className="t-label" style={{ marginBottom: '0.75rem' }}>Proyectos</p>
           <h2 className="t-heading">Proyectos destacados</h2>
-          <div style={{ marginTop: '1rem' }}>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+          <div style={{ marginTop: '0.875rem' }}>
+            <a href="https://github.com/HectorARiascosI" target="_blank" rel="noopener noreferrer"
               className="link-dim" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
-              Ver mis repositorios en GitHub
+              Ver repositorios en GitHub
               <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3"/>
               </svg>

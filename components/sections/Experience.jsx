@@ -13,8 +13,8 @@ export default function Experience({ experience }) {
       className="section-pad">
       <div className="container-custom" ref={ref}>
 
-        <div className={`reveal ${visible ? 'visible' : ''}`} style={{ marginBottom: '3.5rem', textAlign: 'center' }}>
-          <p className="t-label" style={{ marginBottom: '0.75rem' }}>Trayectoria</p>
+        <div className={`reveal ${visible ? 'visible' : ''}`} style={{ marginBottom: '3rem', textAlign: 'center' }}>
+          <p className="t-label" style={{ marginBottom: '0.75rem' }}>Experiencia</p>
           <h2 className="t-heading">Trayectoria profesional</h2>
         </div>
 

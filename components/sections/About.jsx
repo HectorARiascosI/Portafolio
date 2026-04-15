@@ -28,8 +28,7 @@ export default function About({ profile = {} }) {
       className="section-pad">
       <div className="container-custom" ref={ref}>
 
-        <div className={`reveal ${visible ? 'visible' : ''}`} style={{ marginBottom: '3.5rem', textAlign: 'center' }}>
-          <p className="t-label" style={{ marginBottom: '0.75rem' }}>Sobre mí</p>
+        <div className={`reveal ${visible ? 'visible' : ''}`} style={{ marginBottom: '3rem', textAlign: 'center' }}>
           <h2 className="t-heading">Sobre mí</h2>
         </div>
 
@@ -53,7 +52,7 @@ export default function About({ profile = {} }) {
           <div className={`reveal ${visible ? 'visible' : ''} delay-2`}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.125rem', marginBottom: '2.25rem' }}>
               {paragraphs.map((p, i) => (
-                <p key={i} className="t-body">{p}</p>
+                <p key={i} style={{ lineHeight: 1.85, color: 'var(--text-2)', textAlign: 'left' }}>{p}</p>
               ))}
             </div>
 

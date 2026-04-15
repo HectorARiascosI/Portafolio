@@ -21,8 +21,7 @@ export default function Certifications({ certifications }) {
       className="section-pad">
       <div className="container-custom" ref={ref}>
 
-        <div className={`reveal ${visible ? 'visible' : ''}`} style={{ marginBottom: '3.5rem', textAlign: 'center' }}>
-          <p className="t-label" style={{ marginBottom: '0.75rem' }}>Logros y certificados</p>
+        <div className={`reveal ${visible ? 'visible' : ''}`} style={{ marginBottom: '3rem', textAlign: 'center' }}>
           <h2 className="t-heading">Certificaciones</h2>
         </div>
 

@@ -159,18 +159,28 @@ body {
 
 /* Título principal de sección */
 .t-heading {
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-size: clamp(1.6rem, 5vw, 2.5rem);
   font-weight: 700;
   letter-spacing: -0.025em;
   line-height: 1.15;
   color: var(--text-1);
+  text-align: center;
 }
 
-/* Párrafo — hereda 17px del body */
+/* Párrafo estándar */
 .t-body {
   font-size: 1rem;
   line-height: 1.85;
   color: var(--text-2);
+  text-align: center;
+}
+
+/* En desktop el t-body dentro de grids va a la izquierda */
+@media (min-width: 768px) {
+  .grid-about .t-body,
+  .grid-contact .t-body {
+    text-align: left;
+  }
 }
 
 /* Etiqueta de sección encima del título */
@@ -244,12 +254,15 @@ body {
 }
 .btn-ghost:hover { background: var(--border-2); }
 
-  /* ── Hero CTAs — full width on mobile, auto on ≥640px ── */
-.hero-ctas { display: flex; flex-direction: column; gap: 0.625rem; margin-bottom: 2.5rem; }
+/* ── Hero CTAs — full width on mobile, auto on ≥640px ── */
+.hero-ctas { display: flex; flex-direction: column; gap: 0.625rem; margin-bottom: 2.5rem; justify-content: center; }
 .hero-ctas .btn { justify-content: center; width: 100%; }
 @media (min-width: 640px) {
-  .hero-ctas { flex-direction: row; flex-wrap: wrap; }
+  .hero-ctas { flex-direction: row; flex-wrap: wrap; justify-content: flex-start; }
   .hero-ctas .btn { width: auto; }
+}
+@media (min-width: 1024px) {
+  .hero-ctas { justify-content: flex-start; }
 }
 
 /* Tags */
@@ -423,7 +436,10 @@ body {
 .hero-photo-mobile  { display: block; }
 .hero-photo-desktop { display: none; }
 
+/* Hero texto: centrado en móvil, izquierda en desktop */
+.hero-text { text-align: center; }
 @media (min-width: 1024px) {
+  .hero-text { text-align: left; }
   .hero-photo-mobile  { display: none; }
   .hero-photo-desktop { display: flex; }
 }
