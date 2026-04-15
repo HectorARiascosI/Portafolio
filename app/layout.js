@@ -44,7 +44,9 @@ export default function RootLayout({ children }) {
       </head>
       <body suppressHydrationWarning>
         <ThemeProvider>
-          {children}
+          <div style={{ overflowX: 'hidden', width: '100%', position: 'relative' }}>
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>

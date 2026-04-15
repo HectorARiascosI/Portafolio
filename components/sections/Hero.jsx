@@ -24,7 +24,7 @@ export default function Hero({ profile = {} }) {
 
   /* ── Foto compartida entre móvil y desktop ── */
   const Photo = ({ size }) => (
-    <div style={{ position: 'relative', display: 'inline-block' }}>
+    <div style={{ position: 'relative', display: 'inline-block', flexShrink: 0 }}>
       <div style={{
         width: size, height: size,
         borderRadius: '50%',           /* círculo moderno */
@@ -56,8 +56,9 @@ export default function Hero({ profile = {} }) {
         position: 'absolute', bottom: '4px', left: '50%', transform: 'translateX(-50%)',
         display: 'flex', alignItems: 'center', gap: '5px',
         background: 'var(--surface-2)', border: '1px solid var(--border-2)',
-        borderRadius: '20px', padding: '5px 12px',
+        borderRadius: '20px', padding: '4px 10px',
         boxShadow: 'var(--shadow-sm)',
+        whiteSpace: 'nowrap',
       }}>
         <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--green)', display: 'block', flexShrink: 0 }} />
         <span style={{ color: 'var(--text-2)', fontWeight: 500 }}>Disponible</span>
@@ -69,6 +70,7 @@ export default function Hero({ profile = {} }) {
     <section id="hero" aria-label="Presentación" style={{
       background: 'var(--bg)', paddingTop: '60px',
       position: 'relative', overflow: 'hidden',
+      width: '100%', maxWidth: '100vw',
     }}>
       <div aria-hidden style={{
         position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)',
