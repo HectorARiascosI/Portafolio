@@ -3,68 +3,101 @@
     {
       "id": "mileshop",
       "title": "MileShop",
-      "description": "Tienda virtual con más de 80 productos, carrito de compras, autenticación de usuarios y panel de administración. Construida con Django y SQLite. Proyecto colaborativo donde trabajé el backend, los modelos de datos y la integración del panel admin.",
+      "description": {
+        "es": "Tienda virtual con más de 80 productos, carrito de compras, autenticación de usuarios y panel de administración. Construida con Django y SQLite. Proyecto colaborativo donde trabajé el backend, los modelos de datos y la integración del panel admin.",
+        "en": "Virtual store with over 80 products, shopping cart, user authentication and admin panel. Built with Django and SQLite. Collaborative project where I handled the backend, data models and admin panel integration."
+      },
       "technologies": ["Django", "Python", "SQLite", "HTML", "CSS", "JavaScript", "Bootstrap"],
       "image": "/images/projects/mileshop-preview.svg",
       "link": "https://proyecto-ventas-c74o.onrender.com",
       "github": "",
       "featured": true,
       "order": 1,
-      "category": "E-Commerce · Django",
+      "category": {
+        "es": "E-Commerce · Django",
+        "en": "E-Commerce · Django"
+      },
       "year": 2025
     },
     {
       "id": "aerotickets",
       "title": "AeroTickets",
-      "description": "Plataforma web para búsqueda y reserva de tiquetes aéreos con flujo de registro, inicio de sesión y navegación entre vuelos. Proyecto colaborativo donde me encargué del frontend: diseño de pantallas, componentes y navegación entre vistas.",
+      "description": {
+        "es": "Plataforma web para búsqueda y reserva de tiquetes aéreos con flujo de registro, inicio de sesión y navegación entre vuelos. Proyecto colaborativo donde me encargué del frontend: diseño de pantallas, componentes y navegación entre vistas.",
+        "en": "Web platform for searching and booking flight tickets with registration flow, login and navigation between flights. Collaborative project where I handled the frontend: screen design, components and view navigation."
+      },
       "technologies": ["React", "JavaScript", "CSS", "Vercel"],
       "image": "/images/projects/aerotickets-preview.svg",
       "link": "https://aerotickets-frontend.vercel.app",
       "github": "",
       "featured": true,
       "order": 2,
-      "category": "Aplicación Web · React",
+      "category": {
+        "es": "Aplicación Web · React",
+        "en": "Web App · React"
+      },
       "year": 2025
     },
     {
       "id": "yojobs",
       "title": "YoJobs",
-      "description": "Red social laboral con registro de usuarios, inicio de sesión y perfil profesional. Permite conectar personas que buscan trabajo con quienes ofrecen oportunidades. Proyecto colaborativo con Django, desplegado en Vercel.",
+      "description": {
+        "es": "Red social laboral con registro de usuarios, inicio de sesión y perfil profesional. Permite conectar personas que buscan trabajo con quienes ofrecen oportunidades. Proyecto colaborativo con Django, desplegado en Vercel.",
+        "en": "Professional social network with user registration, login and professional profiles. Connects job seekers with those offering opportunities. Collaborative project built with Django, deployed on Vercel."
+      },
       "technologies": ["Django", "Python", "HTML", "CSS", "JavaScript", "Vercel"],
       "image": "/images/projects/yojobs-preview.svg",
       "link": "https://red-social-yo-jobs.vercel.app/users/register",
       "github": "",
       "featured": false,
       "order": 3,
-      "category": "Red Social · Django",
+      "category": {
+        "es": "Red Social · Django",
+        "en": "Social Network · Django"
+      },
       "year": 2025
     },
     {
       "id": "clon-mercadolibre",
-      "title": "Clon MercadoLibre",
-      "description": "Réplica visual de la página principal de MercadoLibre con catálogo de productos, precios, descuentos y barra de búsqueda. Ejercicio de maquetación para practicar HTML y CSS puro sin frameworks.",
+      "title": "MercadoLibre Clone",
+      "description": {
+        "es": "Réplica visual de la página principal de MercadoLibre con catálogo de productos, precios, descuentos y barra de búsqueda. Ejercicio de maquetación para practicar HTML y CSS puro sin frameworks.",
+        "en": "Visual replica of MercadoLibre's main page with product catalog, prices, discounts and search bar. Layout exercise to practice pure HTML and CSS without frameworks."
+      },
       "technologies": ["HTML", "CSS"],
       "image": "/images/projects/mercadolibre-preview.svg",
       "link": "https://steveninsuasti.github.io/TalleGit",
       "github": "https://github.com/steveninsuasti/TalleGit",
       "featured": false,
       "order": 4,
-      "category": "Maquetación · HTML/CSS",
+      "category": {
+        "es": "Maquetación · HTML/CSS",
+        "en": "Layout · HTML/CSS"
+      },
       "year": 2026
     },
     {
       "id": "portafolio-personal",
-      "title": "Portafolio Personal",
-      "description": "Este mismo portafolio, construido con Next.js y Tailwind CSS. Incluye cambio de tema claro/oscuro, cambio de idioma ES/EN, animaciones al hacer scroll y diseño responsivo.",
+      "title": "Personal Portfolio",
+      "description": {
+        "es": "Este mismo portafolio, construido con Next.js y Tailwind CSS. Incluye cambio de tema claro/oscuro, cambio de idioma ES/EN, animaciones al hacer scroll y diseño responsivo.",
+        "en": "This very portfolio, built with Next.js and Tailwind CSS. Includes light/dark theme toggle, ES/EN language switch, scroll animations and responsive design."
+      },
       "technologies": ["Next.js", "Tailwind CSS", "JavaScript", "Vercel"],
       "image": "/images/projects/portafolio-preview.svg",
       "link": "",
       "github": "",
       "featured": false,
       "order": 5,
-      "category": "Aplicación Web",
+      "category": {
+        "es": "Aplicación Web",
+        "en": "Web App"
+      },
       "year": 2026,
-      "status": "activo"
+      "status": {
+        "es": "activo",
+        "en": "active"
+      }
     }
   ]
 }

@@ -3,25 +3,43 @@
     {
       "id": 1,
       "name": "Milena Insuasty",
-      "role": "Emprendedora",
+      "role": {
+        "es": "Emprendedora",
+        "en": "Entrepreneur"
+      },
       "company": "MileShop",
-      "text": "Hector me ayudó a montar la tienda virtual para mi negocio. Le expliqué lo que necesitaba y lo entendió rápido. La página quedó funcionando bien, con los productos, el carrito y el login. Quedé contenta con el resultado.",
+      "text": {
+        "es": "Hector me ayudó a montar la tienda virtual para mi negocio. Le expliqué lo que necesitaba y lo entendió rápido. La página quedó funcionando bien, con los productos, el carrito y el login. Quedé contenta con el resultado.",
+        "en": "Hector helped me set up the online store for my business. I explained what I needed and he understood quickly. The site ended up working great, with the products, cart and login all in place. I was happy with the result."
+      },
       "avatar": ""
     },
     {
       "id": 2,
       "name": "José Riascos",
-      "role": "Usuario beta",
+      "role": {
+        "es": "Usuario beta",
+        "en": "Beta user"
+      },
       "company": "AeroTickets",
-      "text": "Estuve probando la plataforma de vuelos que hizo Hector con su equipo. La interfaz es clara y fácil de usar. Se nota que pensaron bien cómo organizarla para que uno encuentre lo que busca sin complicarse.",
+      "text": {
+        "es": "Estuve probando la plataforma de vuelos que hizo Hector con su equipo. La interfaz es clara y fácil de usar. Se nota que pensaron bien cómo organizarla para que uno encuentre lo que busca sin complicarse.",
+        "en": "I tested the flight platform that Hector built with his team. The interface is clear and easy to use. You can tell they thought carefully about how to organize it so you can find what you need without any hassle."
+      },
       "avatar": ""
     },
     {
       "id": 3,
       "name": "Isabel Palacios",
-      "role": "Revisora de diseño",
+      "role": {
+        "es": "Revisora de diseño",
+        "en": "Design reviewer"
+      },
       "company": "Pasto, Colombia",
-      "text": "He visto los diseños de varias de las aplicaciones que ha hecho Hector y todas tienen algo en común: se ven ordenadas y cuidadas. No es solo que funcionen, sino que se nota que le pone atención a cómo se ven.",
+      "text": {
+        "es": "He visto los diseños de varias de las aplicaciones que ha hecho Hector y todas tienen algo en común: se ven ordenadas y cuidadas. No es solo que funcionen, sino que se nota que le pone atención a cómo se ven.",
+        "en": "I have seen the designs of several apps Hector has built and they all have something in common: they look clean and polished. It is not just that they work, you can tell he pays attention to how they look."
+      },
       "avatar": ""
     }
   ]

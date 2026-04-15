@@ -2,36 +2,75 @@
   "experience": [
     {
       "company": "Universidad Cooperativa de Colombia",
-      "role": "Ingeniería de Software",
-      "period": "Feb 2024 – En curso",
-      "description": "Quinto semestre (2026). Formación en desarrollo de software, algoritmos, estructuras de datos, diseño de interfaces, bases de datos e ingeniería de requerimientos.",
+      "role": {
+        "es": "Ingeniería de Software",
+        "en": "Software Engineering"
+      },
+      "period": {
+        "es": "Feb 2024 – En curso",
+        "en": "Feb 2024 – Ongoing"
+      },
+      "description": {
+        "es": "Quinto semestre (2026). Formación en desarrollo de software, algoritmos, estructuras de datos, diseño de interfaces, bases de datos e ingeniería de requerimientos.",
+        "en": "Fifth semester (2026). Training in software development, algorithms, data structures, interface design, databases and requirements engineering."
+      },
       "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Java", "Python"],
       "type": "education",
       "location": "Pasto, Colombia"
     },
     {
-      "company": "Proyectos independientes",
-      "role": "Desarrollador y Diseñador Web",
-      "period": "Jul 2024 – Presente",
-      "description": "Desarrollo de proyectos propios y algunos encargos pequeños donde aplico lo que voy aprendiendo: diseño de interfaces en Figma, maquetación web y desarrollo con Django y React.",
+      "company": {
+        "es": "Proyectos independientes",
+        "en": "Freelance Projects"
+      },
+      "role": {
+        "es": "Desarrollador y Diseñador Web",
+        "en": "Web Developer & Designer"
+      },
+      "period": {
+        "es": "Jul 2024 – Presente",
+        "en": "Jul 2024 – Present"
+      },
+      "description": {
+        "es": "Desarrollo de proyectos propios y algunos encargos pequeños donde aplico lo que voy aprendiendo: diseño de interfaces en Figma, maquetación web y desarrollo con Django y React.",
+        "en": "Development of personal projects and small freelance work where I apply what I am learning: interface design in Figma, web layout and development with Django and React."
+      },
       "technologies": ["Figma", "HTML", "CSS", "JavaScript", "Django", "React"],
       "type": "work",
       "location": "Pasto, Colombia"
     },
     {
       "company": "INTESNAR",
-      "role": "Técnico Laboral en Sistemas y Redes",
-      "period": "Ene 2021 – Dic 2022",
-      "description": "Formación técnica en infraestructura de redes, mantenimiento de equipos y soporte técnico.",
+      "role": {
+        "es": "Técnico Laboral en Sistemas y Redes",
+        "en": "Technical Degree in Systems and Networks"
+      },
+      "period": {
+        "es": "Ene 2021 – Dic 2022",
+        "en": "Jan 2021 – Dec 2022"
+      },
+      "description": {
+        "es": "Formación técnica en infraestructura de redes, mantenimiento de equipos y soporte técnico.",
+        "en": "Technical training in network infrastructure, equipment maintenance and technical support."
+      },
       "technologies": ["Redes", "Hardware", "Soporte Técnico"],
       "type": "education",
       "location": "Pasto, Colombia"
     },
     {
       "company": "Guardianes de Identidad",
-      "role": "Voluntario",
-      "period": "Feb 2022 – Nov 2022",
-      "description": "Apoyo en organización de eventos culturales y difusión en redes sociales.",
+      "role": {
+        "es": "Voluntario",
+        "en": "Volunteer"
+      },
+      "period": {
+        "es": "Feb 2022 – Nov 2022",
+        "en": "Feb 2022 – Nov 2022"
+      },
+      "description": {
+        "es": "Apoyo en organización de eventos culturales y difusión en redes sociales.",
+        "en": "Support in organizing cultural events and social media outreach."
+      },
       "technologies": [],
       "type": "volunteer",
       "location": "Pasto, Colombia"

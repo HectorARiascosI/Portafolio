@@ -2,18 +2,33 @@
   "certifications": [
     {
       "id": 1,
-      "title": "Primer Seminario Nacional de Ingeniería de Software",
+      "title": {
+        "es": "Primer Seminario Nacional de Ingeniería de Software",
+        "en": "First National Software Engineering Seminar"
+      },
       "issuer": "Universidad Cooperativa de Colombia — Sede Pasto",
-      "date": "Nov 2024",
-      "hours": "16 horas académicas",
+      "date": {
+        "es": "Nov 2024",
+        "en": "Nov 2024"
+      },
+      "hours": {
+        "es": "16 horas académicas",
+        "en": "16 academic hours"
+      },
       "location": "Pasto, Colombia",
       "credential": "Radicado: PAS-02-2025-038234"
     },
     {
       "id": 2,
-      "title": "Técnico Laboral por Competencias: Sistemas y Redes",
+      "title": {
+        "es": "Técnico Laboral por Competencias: Sistemas y Redes",
+        "en": "Technical Degree by Competencies: Systems and Networks"
+      },
       "issuer": "INTESNAR — Instituto Técnico Sistematizado de Nariño",
-      "date": "Dic 2022",
+      "date": {
+        "es": "Dic 2022",
+        "en": "Dec 2022"
+      },
       "hours": "",
       "location": "Pasto, Colombia",
       "credential": ""
