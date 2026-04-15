@@ -23,48 +23,88 @@ export default function Hero({ profile = {} }) {
   const social   = profile.social   ?? {};
 
   /* ── Foto compartida entre móvil y desktop ── */
-  const Photo = ({ size }) => (
-    <div style={{ position: 'relative', display: 'inline-block', flexShrink: 0 }}>
-      <div style={{
-        width: size, height: size,
-        borderRadius: '50%',           /* círculo moderno */
-        overflow: 'hidden',
-        border: '3px solid var(--accent)',
-        boxShadow: '0 0 0 5px var(--accent-bg), 0 8px 32px rgba(0,0,0,0.35)',
-        background: 'var(--surface)',
-        flexShrink: 0,
-      }}>
-        {image ? (
-          <Image
-            src={image}
-            alt={`Foto de ${name}`}
-            width={parseInt(size)}
-            height={parseInt(size)}
-            style={{ objectFit: 'cover', objectPosition: 'center top', width: '100%', height: '100%' }}
-            priority
-            quality={90}
-          />
-        ) : (
+  const Photo = ({ size }) => {
+    const w = parseInt(size);
+    const h = Math.round(w * 1.2); /* proporción retrato 5:6 */
+    const fold = Math.round(w * 0.13); /* tamaño del doblez */
+
+    return (
+      <div style={{ position: 'relative', display: 'inline-block', flexShrink: 0 }}>
+
+        {/* Marco con sombra exterior */}
+        <div style={{
+          position: 'relative',
+          width: w, height: h,
+          borderRadius: '14px',
+          boxShadow: '0 20px 60px rgba(0,0,0,0.45), 0 4px 16px rgba(0,0,0,0.3)',
+        }}>
+
+          {/* Foto */}
           <div style={{
             width: '100%', height: '100%',
-            background: 'linear-gradient(135deg, var(--surface-2) 0%, var(--accent-bg) 100%)',
+            borderRadius: '14px',
+            overflow: 'hidden',
+            border: '2px solid var(--accent)',
+          }}>
+            {image ? (
+              <Image
+                src={image}
+                alt={`Foto de ${name}`}
+                width={w}
+                height={h}
+                style={{ objectFit: 'cover', objectPosition: 'center top', width: '100%', height: '100%' }}
+                priority
+                quality={90}
+              />
+            ) : (
+              <div style={{
+                width: '100%', height: '100%',
+                background: 'linear-gradient(135deg, var(--surface-2) 0%, var(--accent-bg) 100%)',
+              }} />
+            )}
+          </div>
+
+          {/* Doblez esquina superior izquierda */}
+          <div style={{
+            position: 'absolute', top: 0, left: 0,
+            width: 0, height: 0,
+            borderStyle: 'solid',
+            borderWidth: `${fold}px ${fold}px 0 0`,
+            borderColor: `var(--bg) transparent transparent transparent`,
+            filter: 'drop-shadow(2px 2px 3px rgba(0,0,0,0.4))',
+            zIndex: 2,
           }} />
-        )}
+
+          {/* Doblez esquina inferior derecha */}
+          <div style={{
+            position: 'absolute', bottom: 0, right: 0,
+            width: 0, height: 0,
+            borderStyle: 'solid',
+            borderWidth: `0 0 ${fold}px ${fold}px`,
+            borderColor: `transparent transparent var(--bg) transparent`,
+            filter: 'drop-shadow(-2px -2px 3px rgba(0,0,0,0.4))',
+            zIndex: 2,
+          }} />
+        </div>
+
+        {/* Badge disponibilidad — discreto, debajo de la foto */}
+        <div style={{
+          marginTop: '10px',
+          display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '5px',
+        }}>
+          <span style={{
+            width: '5px', height: '5px', borderRadius: '50%',
+            background: 'var(--green)', display: 'block', flexShrink: 0,
+            boxShadow: '0 0 4px var(--green)',
+          }} />
+          <span style={{
+            color: 'var(--text-3)', fontSize: '0.7rem',
+            fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase',
+          }}>Disponible</span>
+        </div>
       </div>
-      {/* Badge disponibilidad */}
-      <div style={{
-        position: 'absolute', bottom: '4px', left: '50%', transform: 'translateX(-50%)',
-        display: 'flex', alignItems: 'center', gap: '5px',
-        background: 'var(--surface-2)', border: '1px solid var(--border-2)',
-        borderRadius: '20px', padding: '4px 10px',
-        boxShadow: 'var(--shadow-sm)',
-        whiteSpace: 'nowrap',
-      }}>
-        <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--green)', display: 'block', flexShrink: 0 }} />
-        <span style={{ color: 'var(--text-2)', fontWeight: 500 }}>Disponible</span>
-      </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <section id="hero" aria-label="Presentación" style={{
