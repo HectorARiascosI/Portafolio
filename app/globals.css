@@ -75,6 +75,7 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 body {
@@ -205,6 +206,7 @@ body {
   transition: opacity 150ms ease, transform 150ms ease, background 150ms ease;
   white-space: nowrap;
   box-sizing: border-box;
+  max-width: 100%;
 }
 .btn:hover { transform: translateY(-1px); }
 .btn:active { transform: translateY(0); }
@@ -242,7 +244,8 @@ body {
   color: var(--accent-2);
   font-size: 0.88rem;
   font-weight: 500;
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .tag-n {
@@ -255,7 +258,8 @@ body {
   color: var(--text-2);
   font-size: 0.88rem;
   font-weight: 500;
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
 }
 
 /* Cards */
@@ -409,4 +413,15 @@ body {
 @media print {
   body { background: #fff; color: #000; }
   .container-custom { max-width: 100%; padding: 0; }
+}
+
+/* ─────────────────────────────────────────
+   MOBILE OVERFLOW FIXES
+───────────────────────────────────────── */
+img, video, svg, iframe { max-width: 100%; }
+
+/* Evita que cualquier elemento rompa el layout horizontal */
+section, article, aside, main, header, footer, nav {
+  max-width: 100%;
+  overflow-x: hidden;
 }

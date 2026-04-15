@@ -17,6 +17,12 @@ export const metadata = {
   icons: { icon: '/favicon.ico' },
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 const themeScript = `
 // aplica el tema guardado antes de que cargue la página
 (function() {

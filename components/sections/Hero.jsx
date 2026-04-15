@@ -56,7 +56,7 @@ export default function Hero({ profile = {} }) {
         position: 'absolute', bottom: '4px', left: '50%', transform: 'translateX(-50%)',
         display: 'flex', alignItems: 'center', gap: '5px',
         background: 'var(--surface-2)', border: '1px solid var(--border-2)',
-        borderRadius: '20px', padding: '5px 12px', whiteSpace: 'nowrap',
+        borderRadius: '20px', padding: '5px 12px',
         boxShadow: 'var(--shadow-sm)',
       }}>
         <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--green)', display: 'block', flexShrink: 0 }} />
@@ -72,7 +72,7 @@ export default function Hero({ profile = {} }) {
     }}>
       <div aria-hidden style={{
         position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)',
-        width: '600px', height: '400px',
+        width: '100%', maxWidth: '600px', height: '400px',
         background: 'radial-gradient(ellipse, var(--accent-bg) 0%, transparent 65%)',
         pointerEvents: 'none',
       }} />
