@@ -78,12 +78,12 @@ export default function About({ profile = {} }) {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               {infoItems.map(item => (
-                <div key={item.label} style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <div key={item.label} style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', minWidth: 0 }}>
                   <span className="t-field-label" style={{ minWidth: '90px', flexShrink: 0, paddingTop: '2px' }}>
                     {item.label}
                   </span>
                   {item.href
-                    ? <a href={item.href} className="link-muted" style={{ overflowWrap: 'anywhere', minWidth: 0, flex: 1 }}>{item.value}</a>
+                    ? <a href={item.href} className="link-muted" style={{ overflowWrap: 'anywhere', wordBreak: 'break-all', minWidth: 0, flex: 1, fontSize: '0.9rem' }}>{item.value}</a>
                     : <span style={{ color: item.green ? 'var(--green)' : 'var(--text-2)', overflowWrap: 'break-word', minWidth: 0, flex: 1 }}>{item.value}</span>
                   }
                 </div>
