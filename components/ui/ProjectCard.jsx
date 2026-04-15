@@ -82,8 +82,6 @@ export default function ProjectCard({ project, featured = false }) {
         <p style={{
           lineHeight: 1.75, color: 'var(--text-2)',
           marginBottom: '1.125rem', flex: 1,
-          display: '-webkit-box', WebkitLineClamp: featured ? 4 : 3,
-          WebkitBoxOrient: 'vertical', overflow: 'hidden',
         }}>
           {description}
         </p>

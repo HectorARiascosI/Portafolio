@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import { useReveal } from '@/lib/useReveal';
 import { useLang } from '@/lib/LangProvider';
@@ -23,6 +23,13 @@ export default function Contact({ contact = {}, profile = {} }) {
   const [loading, setLoading] = useState(false);
   const [status, setStatus]   = useState(null);
   const [msgLen, setMsgLen]   = useState(0);
+
+  // Auto-dismiss del mensaje de éxito después de 4 segundos
+  useEffect(() => {
+    if (!status?.ok) return;
+    const timer = setTimeout(() => setStatus(null), 4000);
+    return () => clearTimeout(timer);
+  }, [status]);
 
   const onChange = e => {
     const { name, value } = e.target;
