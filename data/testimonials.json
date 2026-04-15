@@ -18,8 +18,8 @@
       "id": 2,
       "name": "José Riascos",
       "role": {
-        "es": "Usuario beta",
-        "en": "Beta user"
+        "es": "Tester",
+        "en": "Tester"
       },
       "company": "AeroTickets",
       "text": {

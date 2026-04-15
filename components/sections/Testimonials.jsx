@@ -12,18 +12,6 @@ function QuoteIcon() {
   );
 }
 
-function StarRating() {
-  return (
-    <div style={{ display: 'flex', gap: '3px' }}>
-      {[1,2,3,4,5].map(i => (
-        <svg key={i} width="16" height="16" fill="var(--accent)" viewBox="0 0 24 24">
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-        </svg>
-      ))}
-    </div>
-  );
-}
-
 export default function Testimonials({ testimonials }) {
   const { ref, visible } = useReveal({ threshold: 0.06 });
   const { t, lang } = useLang();
@@ -64,7 +52,6 @@ export default function Testimonials({ testimonials }) {
 
               <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
                 <QuoteIcon />
-                <StarRating />
               </div>
 
               <p style={{ lineHeight: 1.8, color: 'var(--text-2)', flex: 1, fontStyle: 'italic' }}>

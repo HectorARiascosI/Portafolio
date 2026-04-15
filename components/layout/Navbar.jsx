@@ -49,7 +49,7 @@ export default function Navbar({ name = 'Portfolio' }) {
   const [desktop, setDesktop]   = useState(false);
 
   useEffect(() => {
-    const mq = window.matchMedia('(min-width: 768px)');
+    const mq = window.matchMedia('(min-width: 1024px)');
     setDesktop(mq.matches);
     const onMQ = (e) => { setDesktop(e.matches); if (e.matches) setOpen(false); };
     mq.addEventListener('change', onMQ);
@@ -95,10 +95,10 @@ export default function Navbar({ name = 'Portfolio' }) {
 
         {/* Desktop nav */}
         {desktop && (
-          <nav aria-label="Navegación principal" style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-            <ul style={{ display: 'flex', alignItems: 'center', gap: '1.75rem', listStyle: 'none', margin: 0, padding: 0 }}>
+          <nav aria-label="Navegación principal" style={{ flex: 1, display: 'flex', justifyContent: 'center', overflow: 'hidden' }}>
+            <ul style={{ display: 'flex', alignItems: 'center', gap: '1.1rem', listStyle: 'none', margin: 0, padding: 0, flexWrap: 'nowrap' }}>
               {navLinks.map(l => (
-                <li key={l.href}><a href={l.href} className="nav-link">{l.label}</a></li>
+                <li key={l.href}><a href={l.href} className="nav-link" style={{ fontSize: '0.82rem', whiteSpace: 'nowrap' }}>{l.label}</a></li>
               ))}
             </ul>
           </nav>
