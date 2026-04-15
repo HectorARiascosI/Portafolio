@@ -15,7 +15,13 @@ function BadgeIcon() {
 
 export default function Certifications({ certifications }) {
   const { ref, visible } = useReveal({ threshold: 0.06 });
-  const { t } = useLang();
+  const { t, lang } = useLang();
+
+  function loc(field) {
+    if (!field) return '';
+    if (typeof field === 'string') return field;
+    return field[lang] ?? field.es ?? '';
+  }
 
   return (
     <section id="certificaciones" aria-label={t('certifications.heading')}
@@ -50,7 +56,7 @@ export default function Certifications({ certifications }) {
                   letterSpacing: '-0.01em', lineHeight: 1.4,
                   flex: 1, minWidth: 0,
                 }}>
-                  {cert.title}
+                  {loc(cert.title)}
                 </p>
               </div>
 
@@ -65,9 +71,9 @@ export default function Certifications({ certifications }) {
                   {cert.issuer}
                 </p>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0 }}>
-                  <span className="tag-n" style={{ whiteSpace: 'nowrap' }}>{cert.date}</span>
+                  <span className="tag-n" style={{ whiteSpace: 'nowrap' }}>{loc(cert.date)}</span>
                   {cert.hours && (
-                    <span className="t-meta" style={{ whiteSpace: 'nowrap' }}>{cert.hours}</span>
+                    <span className="t-meta" style={{ whiteSpace: 'nowrap' }}>{loc(cert.hours)}</span>
                   )}
                 </div>
               </div>

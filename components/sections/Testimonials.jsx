@@ -26,7 +26,14 @@ function StarRating() {
 
 export default function Testimonials({ testimonials }) {
   const { ref, visible } = useReveal({ threshold: 0.06 });
-  const { t } = useLang();
+  const { t, lang } = useLang();
+
+  // Resuelve un campo que puede ser string o { es, en }
+  function loc(field) {
+    if (!field) return '';
+    if (typeof field === 'string') return field;
+    return field[lang] ?? field.es ?? '';
+  }
 
   return (
     <section id="testimonios" aria-label={t('testimonials.label')}
@@ -61,7 +68,7 @@ export default function Testimonials({ testimonials }) {
               </div>
 
               <p style={{ lineHeight: 1.8, color: 'var(--text-2)', flex: 1, fontStyle: 'italic' }}>
-                {item.text}
+                {loc(item.text)}
               </p>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.875rem', paddingTop: '1rem', borderTop: '1px solid var(--border)' }}>
@@ -75,7 +82,7 @@ export default function Testimonials({ testimonials }) {
                 </div>
                 <div>
                   <p style={{ fontWeight: 600, color: 'var(--text-1)', marginBottom: '2px' }}>{item.name}</p>
-                  <p className="t-meta">{item.role}{item.company ? ' · ' + item.company : ''}</p>
+                  <p className="t-meta">{loc(item.role)}{item.company ? ' · ' + item.company : ''}</p>
                 </div>
               </div>
             </div>

@@ -3,9 +3,16 @@
 import { useReveal } from '@/lib/useReveal';
 import { useLang } from '@/lib/LangProvider';
 
+// Resuelve un campo que puede ser string o { es, en }
+function loc(field, lang) {
+  if (!field) return '';
+  if (typeof field === 'string') return field;
+  return field[lang] ?? field.es ?? '';
+}
+
 export default function Experience({ experience }) {
   const { ref, visible } = useReveal({ threshold: 0.08 });
-  const { t } = useLang();
+  const { t, lang } = useLang();
 
   return (
     <section id="experiencia" aria-label={t('experience.heading')}
@@ -20,7 +27,11 @@ export default function Experience({ experience }) {
 
         <div style={{ maxWidth: '700px', margin: '0 auto', display: 'flex', flexDirection: 'column' }}>
           {experience.map((item, i) => {
-            const isActive = /en curso|presente|ongoing|present/i.test(item.period);
+            const role        = loc(item.role, lang);
+            const company     = loc(item.company, lang);
+            const period      = loc(item.period, lang);
+            const description = loc(item.description, lang);
+            const isActive = /en curso|presente|ongoing|present/i.test(period);
             return (
               <div key={i}
                 className={`reveal ${visible ? 'visible' : ''} delay-${Math.min(i + 1, 5)}`}
@@ -49,7 +60,7 @@ export default function Experience({ experience }) {
                         {t(`experience.types.${item.type}`) || item.type}
                       </span>
                       <span className="t-meta" style={{ color: isActive ? 'var(--accent-2)' : 'var(--text-3)', fontWeight: isActive ? 600 : 500 }}>
-                        {item.period}
+                        {period}
                       </span>
                       {isActive && (
                         <span style={{
@@ -61,16 +72,16 @@ export default function Experience({ experience }) {
                       )}
                     </div>
                     <h3 style={{ fontSize: '1.06rem', fontWeight: 700, color: 'var(--text-1)', letterSpacing: '-0.01em', marginBottom: '3px' }}>
-                      {item.role}
+                      {role}
                     </h3>
                     <p style={{ color: 'var(--text-2)', fontWeight: 500 }}>
-                      {item.company}
+                      {company}
                       {item.location && <span style={{ color: 'var(--text-3)', fontWeight: 400 }}> · {item.location}</span>}
                     </p>
                   </div>
 
                   <p style={{ lineHeight: 1.8, color: 'var(--text-2)', marginBottom: item.technologies?.length ? '0.875rem' : 0 }}>
-                    {item.description}
+                    {description}
                   </p>
 
                   {item.technologies?.length > 0 && (
