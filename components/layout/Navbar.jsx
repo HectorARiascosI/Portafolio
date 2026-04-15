@@ -142,6 +142,7 @@ export default function Navbar({ name = 'Portfolio' }) {
                 background: 'none', border: 'none', cursor: 'pointer',
                 color: 'var(--text-2)', padding: '6px',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
+                marginRight: '-4px',
               }}>
               <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {open

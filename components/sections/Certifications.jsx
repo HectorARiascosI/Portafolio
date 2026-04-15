@@ -5,8 +5,8 @@ import { useLang } from '@/lib/LangProvider';
 
 function BadgeIcon() {
   return (
-    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-      style={{ color: 'var(--accent-2)', flexShrink: 0, marginTop: '2px' }}>
+    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+      style={{ color: 'var(--accent-2)', flexShrink: 0 }}>
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
         d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
     </svg>
@@ -27,25 +27,51 @@ export default function Certifications({ certifications }) {
           <h2 className="t-heading">{t('certifications.heading')}</h2>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1px', background: 'var(--border)', borderRadius: '12px', overflow: 'hidden', maxWidth: '700px', margin: '0 auto' }}>
+        <div style={{
+          display: 'flex', flexDirection: 'column',
+          gap: '0.75rem',
+          maxWidth: '700px', margin: '0 auto',
+        }}>
           {certifications.map((cert, i) => (
             <div key={cert.id}
               className={`reveal ${visible ? 'visible' : ''} delay-${Math.min(i + 1, 5)}`}
-              style={{ background: 'var(--surface)', padding: '1.25rem 1.5rem', display: 'flex', alignItems: 'flex-start', gap: '0.875rem' }}>
+              style={{
+                background: 'var(--surface)',
+                border: '1px solid var(--border)',
+                borderRadius: '12px',
+                padding: '1.125rem 1.25rem',
+              }}>
 
-              <BadgeIcon />
-
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <p style={{ fontWeight: 600, color: 'var(--text-1)', marginBottom: '3px', letterSpacing: '-0.01em', overflowWrap: 'break-word' }}>
+              {/* Fila superior: ícono + título */}
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '0.5rem' }}>
+                <BadgeIcon />
+                <p style={{
+                  fontWeight: 600, color: 'var(--text-1)',
+                  letterSpacing: '-0.01em', lineHeight: 1.4,
+                  flex: 1, minWidth: 0,
+                }}>
                   {cert.title}
                 </p>
-                <p style={{ color: 'var(--text-2)', fontSize: '0.9rem', overflowWrap: 'break-word' }}>{cert.issuer}</p>
               </div>
 
-              <div style={{ textAlign: 'right', flexShrink: 0, marginLeft: '0.5rem' }}>
-                <span className="tag-n" style={{ whiteSpace: 'nowrap' }}>{cert.date}</span>
-                {cert.hours && <p className="t-meta" style={{ marginTop: '4px', whiteSpace: 'nowrap' }}>{cert.hours}</p>}
+              {/* Fila inferior: emisor + fecha */}
+              <div style={{
+                display: 'flex', alignItems: 'center',
+                justifyContent: 'space-between', gap: '0.75rem',
+                flexWrap: 'wrap',
+                paddingLeft: '1.625rem', /* alinea con el título */
+              }}>
+                <p style={{ color: 'var(--text-2)', fontSize: '0.875rem', flex: 1, minWidth: 0 }}>
+                  {cert.issuer}
+                </p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0 }}>
+                  <span className="tag-n" style={{ whiteSpace: 'nowrap' }}>{cert.date}</span>
+                  {cert.hours && (
+                    <span className="t-meta" style={{ whiteSpace: 'nowrap' }}>{cert.hours}</span>
+                  )}
+                </div>
               </div>
+
             </div>
           ))}
         </div>
