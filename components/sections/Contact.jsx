@@ -1,9 +1,15 @@
 'use client';
 
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { useReveal } from '@/lib/useReveal';
 import { useLang } from '@/lib/LangProvider';
-import { validateContact, normalize } from '@/lib/validateContact';
+import { validateContact } from '@/lib/validateContact';
+
+// Credenciales EmailJS — configúralas en .env.local y en Vercel
+const EJS_SERVICE  = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID  ?? '';
+const EJS_TEMPLATE = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? '';
+const EJS_KEY      = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY  ?? '';
 
 export default function Contact({ contact = {}, profile = {} }) {
   const { ref, visible } = useReveal({ threshold: 0.06 });
@@ -12,47 +18,45 @@ export default function Contact({ contact = {}, profile = {} }) {
   const email    = profile.email    ?? contact.email    ?? 'hectorariascos6.6@gmail.com';
   const location = profile.location ?? contact.location ?? 'Pasto, Colombia';
 
-  const [form, setForm]       = useState({ name: '', email: '', message: '' });
-  const [errors, setErrors]   = useState({});
+  const [form, setForm]     = useState({ name: '', email: '', message: '' });
+  const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [status, setStatus]   = useState(null);
   const [msgLen, setMsgLen]   = useState(0);
 
   const onChange = e => {
     const { name, value } = e.target;
-    // Para el mensaje: bloquear más de 3 espacios consecutivos y más de 2 saltos seguidos en tiempo real
     let sanitized = value;
     if (name === 'message') {
       sanitized = value
-        .replace(/[^\S\n]{4,}/g, '   ')   // máximo 3 espacios consecutivos
-        .replace(/\n{3,}/g, '\n\n');       // máximo 2 saltos de línea seguidos
+        .replace(/[^\S\n]{4,}/g, '   ')
+        .replace(/\n{3,}/g, '\n\n');
       setMsgLen(sanitized.trim().length);
     }
     if (name === 'name') {
-      sanitized = value.replace(/[^\S\n]{3,}/g, '  '); // máximo 2 espacios en nombre
+      sanitized = value.replace(/[^\S\n]{3,}/g, '  ');
     }
     setForm(p => ({ ...p, [name]: sanitized }));
     if (errors[name]) setErrors(p => ({ ...p, [name]: '' }));
   };
 
-  // Mapea errores de la lib al diccionario i18n
   const mapError = (field, msg) => {
     const map = {
       name: {
-        'Ingresa tu nombre completo.':        t('contact.errors.name'),
-        'El nombre es demasiado largo.':      t('contact.errors.name_long'),
+        'Ingresa tu nombre completo.':            t('contact.errors.name'),
+        'El nombre es demasiado largo.':          t('contact.errors.name_long'),
         'El nombre debe contener letras reales.': t('contact.errors.name_inv'),
-        'Por favor ingresa un nombre válido.': t('contact.errors.name_bad'),
+        'Por favor ingresa un nombre válido.':    t('contact.errors.name_bad'),
       },
       email: {
-        'El correo electrónico es obligatorio.': t('contact.errors.email_req'),
-        'Ingresa un correo electrónico válido.': t('contact.errors.email'),
-        'El correo electrónico es demasiado largo.': t('contact.errors.email'),
+        'El correo electrónico es obligatorio.':      t('contact.errors.email_req'),
+        'Ingresa un correo electrónico válido.':      t('contact.errors.email'),
+        'El correo electrónico es demasiado largo.':  t('contact.errors.email'),
       },
       message: {
-        'El mensaje debe tener al menos 20 caracteres.': t('contact.errors.msg_len'),
+        'El mensaje debe tener al menos 20 caracteres.':    t('contact.errors.msg_len'),
         'El mensaje no puede superar los 2000 caracteres.': t('contact.errors.msg_long'),
-        'Escribe al menos 3 palabras reales en tu mensaje.': t('contact.errors.msg_words'),
+        'Escribe al menos 3 palabras reales en tu mensaje.':t('contact.errors.msg_words'),
         'Por favor escribe un mensaje con contenido real.': t('contact.errors.msg_inv'),
       },
     };
@@ -68,28 +72,27 @@ export default function Contact({ contact = {}, profile = {} }) {
       setErrors(translated);
       return;
     }
+
     setLoading(true); setErrors({}); setStatus(null);
+
     try {
-      const res  = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(normalized), // enviamos el texto ya normalizado
-      });
-      const data = await res.json();
-      if (res.ok) {
-        setStatus({ ok: true, msg: t('contact.form.success') });
-        setForm({ name: '', email: '', message: '' });
-        setMsgLen(0);
-      } else {
-        if (data.errors) {
-          const translated = {};
-          Object.entries(data.errors).forEach(([k, v]) => { translated[k] = mapError(k, v); });
-          setErrors(translated);
-        } else {
-          setStatus({ ok: false, msg: data.message });
-        }
-      }
-    } catch {
+      await emailjs.send(
+        EJS_SERVICE,
+        EJS_TEMPLATE,
+        {
+          from_name:    normalized.name,
+          from_email:   normalized.email,
+          message:      normalized.message,
+          to_email:     'hectorariascos6.6@gmail.com',
+          reply_to:     normalized.email,
+        },
+        EJS_KEY
+      );
+      setStatus({ ok: true, msg: t('contact.form.success') });
+      setForm({ name: '', email: '', message: '' });
+      setMsgLen(0);
+    } catch (err) {
+      console.error('EmailJS error:', err);
       setStatus({ ok: false, msg: t('contact.form.error') });
     } finally {
       setLoading(false);
