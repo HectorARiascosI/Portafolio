@@ -16,10 +16,9 @@ export default function About({ profile = {} }) {
     { label: 'Ubicación', value: profile.location ?? 'Pasto, Nariño — Colombia' },
     { label: 'Email',     value: profile.email ?? 'hectorariascos6.6@gmail.com', href: `mailto:${profile.email ?? 'hectorariascos6.6@gmail.com'}` },
     { label: 'Teléfono',  value: profile.phone ?? '3226679615', href: `tel:${profile.phone ?? '3226679615'}` },
-    { label: 'Idiomas',   value: (profile.languages ?? [{ name: 'Español', level: 'Nativo' }, { name: 'Inglés', level: 'B1' }]).map(l => `${l.name} (${l.level})`).join(' · ') },
+    { label: 'Idiomas',   value: 'Español (nativo) · Inglés B1' },
     { label: 'Estado',    value: 'Disponible para oportunidades', green: true },
     { label: 'Educación', value: 'Ing. de Software — UCC · 2024–Presente (5° semestre)' },
-    { label: 'Idiomas',   value: 'Español (nativo) · Inglés B1' },
   ];
   const paragraphs = (profile.bio ?? '').split('\n\n').filter(Boolean);
 

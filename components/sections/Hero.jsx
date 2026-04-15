@@ -88,7 +88,7 @@ export default function Hero({ profile = {} }) {
 
         <div className="grid-hero">
           {/* Texto */}
-          <div style={{ width: '100%' }}>
+          <div style={{ width: '100%', minWidth: 0, overflow: 'hidden' }}>
 
             <div className={cls('reveal', 'delay-1')} style={{ marginBottom: '1rem' }}>
               <span className="t-label">Ingeniería de Software</span>
@@ -96,15 +96,16 @@ export default function Hero({ profile = {} }) {
 
             {/* Nombre — más grande y centrado en móvil */}
             <h1 className={cls('reveal', 'delay-2')} style={{
-              fontSize: 'clamp(2.2rem, 6vw, 4rem)',
-              fontWeight: 800, letterSpacing: '-0.035em', lineHeight: 1.08,
+              fontSize: 'clamp(1.75rem, 8vw, 4rem)',
+              fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1,
               color: 'var(--text-1)', marginBottom: '0.75rem',
+              wordBreak: 'break-word',
             }}>
               {name}
             </h1>
 
             <p className={cls('reveal', 'delay-3')} style={{
-              fontSize: 'clamp(1.15rem, 2.5vw, 1.4rem)',
+              fontSize: 'clamp(1rem, 4vw, 1.35rem)',
               fontWeight: 400, color: 'var(--text-2)',
               marginBottom: '1rem', lineHeight: 1.5,
             }}>
