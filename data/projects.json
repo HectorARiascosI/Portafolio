@@ -57,7 +57,7 @@
       "title": "Portafolio Personal",
       "description": "Este mismo portafolio, construido con Next.js y Tailwind CSS. Incluye cambio de tema claro/oscuro, cambio de idioma ES/EN, animaciones al hacer scroll y diseño responsivo.",
       "technologies": ["Next.js", "Tailwind CSS", "JavaScript", "Vercel"],
-      "image": "",
+      "image": "/images/projects/portafolio-preview.svg",
       "link": "",
       "github": "",
       "featured": false,

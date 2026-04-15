@@ -2,26 +2,26 @@
   "testimonials": [
     {
       "id": 1,
-      "name": "Docente — Diseño de Interfaces",
-      "role": "Docente universitario",
-      "company": "UCC Pasto",
-      "text": "Hector es un estudiante que se nota que va más allá de lo que se pide en clase. Entrega trabajos bien pensados y se preocupa por los detalles visuales. Tiene potencial real en diseño de interfaces.",
+      "name": "Milena Insuasty",
+      "role": "Emprendedora",
+      "company": "MileShop",
+      "text": "Hector me ayudó a montar la tienda virtual para mi negocio. Le expliqué lo que necesitaba y lo entendió rápido. La página quedó funcionando bien, con los productos, el carrito y el login. Quedé contenta con el resultado.",
       "avatar": ""
     },
     {
       "id": 2,
-      "name": "Cliente — Proyecto freelance",
-      "role": "Emprendedor",
-      "company": "Pasto, Colombia",
-      "text": "Le pedí que diseñara la interfaz de una aplicación para mi negocio. Cumplió con lo acordado, propuso ideas que yo no había pensado y fue fácil comunicarse con él durante todo el proceso.",
+      "name": "José Riascos",
+      "role": "Usuario beta",
+      "company": "AeroTickets",
+      "text": "Estuve probando la plataforma de vuelos que hizo Hector con su equipo. La interfaz es clara y fácil de usar. Se nota que pensaron bien cómo organizarla para que uno encuentre lo que busca sin complicarse.",
       "avatar": ""
     },
     {
       "id": 3,
-      "name": "Compañero de equipo",
-      "role": "Estudiante de Ing. de Software",
-      "company": "UCC Pasto",
-      "text": "En los proyectos grupales Hector siempre aporta desde el diseño y la parte visual. Es organizado y se nota que le importa que el resultado final quede bien.",
+      "name": "Isabel Palacios",
+      "role": "Revisora de diseño",
+      "company": "Pasto, Colombia",
+      "text": "He visto los diseños de varias de las aplicaciones que ha hecho Hector y todas tienen algo en común: se ven ordenadas y cuidadas. No es solo que funcionen, sino que se nota que le pone atención a cómo se ven.",
       "avatar": ""
     }
   ]

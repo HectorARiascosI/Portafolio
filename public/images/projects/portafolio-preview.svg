@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="darkBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#07070f"/>
+      <stop offset="100%" style="stop-color:#0e0e1a"/>
+    </linearGradient>
+    <linearGradient id="accentGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#6366f1;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="35"/>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+
+  <!-- Fondo principal -->
+  <rect width="1200" height="675" fill="url(#darkBg)"/>
+
+  <!-- Glow radial central -->
+  <ellipse cx="600" cy="320" rx="420" ry="280" fill="#6366f1" opacity="0.07" filter="url(#glow)"/>
+
+  <!-- Navbar -->
+  <rect width="1200" height="60" fill="#0e0e1a" opacity="0.95"/>
+  <rect width="1200" height="1" y="60" fill="rgba(255,255,255,0.06)"/>
+
+  <!-- Logo monograma -->
+  <rect x="24" y="15" width="30" height="30" rx="8" fill="#6366f1"/>
+  <text x="39" y="35" font-family="Arial Black, sans-serif" font-size="13" font-weight="900" fill="white" text-anchor="middle">HR</text>
+
+  <!-- Nombre en navbar -->
+  <text x="64" y="36" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="#f0f0f8">Hector</text>
+  <text x="112" y="36" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#55556e"> Riascos</text>
+
+  <!-- Nav links desktop -->
+  <text x="420" y="36" font-family="Arial, sans-serif" font-size="13" fill="#a0a0c0">Sobre mí</text>
+  <text x="510" y="36" font-family="Arial, sans-serif" font-size="13" fill="#a0a0c0">Habilidades</text>
+  <text x="615" y="36" font-family="Arial, sans-serif" font-size="13" fill="#a0a0c0">Proyectos</text>
+  <text x="705" y="36" font-family="Arial, sans-serif" font-size="13" fill="#a0a0c0">Experiencia</text>
+  <text x="805" y="36" font-family="Arial, sans-serif" font-size="13" fill="#a0a0c0">Contacto</text>
+
+  <!-- Lang toggle -->
+  <rect x="920" y="14" width="60" height="32" rx="8" fill="#161626" stroke="rgba(255,255,255,0.11)" stroke-width="1"/>
+  <text x="950" y="34" font-family="Arial, sans-serif" font-size="12" fill="#a0a0c0" text-anchor="middle">🌐 ES</text>
+
+  <!-- Theme toggle -->
+  <rect x="990" y="14" width="36" height="32" rx="8" fill="#161626" stroke="rgba(255,255,255,0.11)" stroke-width="1"/>
+  <text x="1008" y="34" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">☀️</text>
+
+  <!-- CTA button -->
+  <rect x="1038" y="14" width="110" height="32" rx="8" fill="#6366f1"/>
+  <text x="1093" y="34" font-family="Arial, sans-serif" font-size="13" fill="white" text-anchor="middle" font-weight="600">Contactar</text>
+
+  <!-- ── HERO SECTION ── -->
+  <!-- Label -->
+  <text x="100" y="120" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#818cf8" letter-spacing="2">INGENIERÍA DE SOFTWARE</text>
+
+  <!-- Nombre grande -->
+  <text x="100" y="175" font-family="Arial Black, sans-serif" font-size="42" font-weight="900" fill="#f0f0f8">Hector Alejandro</text>
+  <text x="100" y="225" font-family="Arial Black, sans-serif" font-size="42" font-weight="900" fill="#f0f0f8">Riascos Insuasty</text>
+
+  <!-- Título -->
+  <text x="100" y="265" font-family="Arial, sans-serif" font-size="18" fill="#a0a0c0">Estudiante de Ingeniería de Software</text>
+
+  <!-- Tagline -->
+  <text x="100" y="300" font-family="Arial, sans-serif" font-size="14" fill="#a0a0c0">Aprendo construyendo. Me interesa el desarrollo</text>
+  <text x="100" y="320" font-family="Arial, sans-serif" font-size="14" fill="#a0a0c0">web y el diseño de interfaces.</text>
+
+  <!-- Botones CTA -->
+  <rect x="100" y="345" width="160" height="42" rx="10" fill="#6366f1"/>
+  <text x="180" y="371" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle" font-weight="600">Ver proyectos →</text>
+
+  <rect x="275" y="345" width="100" height="42" rx="10" fill="#161626" stroke="rgba(255,255,255,0.11)" stroke-width="1"/>
+  <text x="325" y="371" font-family="Arial, sans-serif" font-size="14" fill="#f0f0f8" text-anchor="middle">CV ↓</text>
+
+  <!-- Social icons -->
+  <text x="100" y="430" font-family="Arial, sans-serif" font-size="18" fill="#55556e">⌥</text>
+  <text x="135" y="430" font-family="Arial, sans-serif" font-size="18" fill="#55556e">in</text>
+  <rect x="160" y="418" width="1" height="14" fill="rgba(255,255,255,0.11)"/>
+  <text x="175" y="430" font-family="Arial, sans-serif" font-size="13" fill="#55556e">Pasto, Nariño · Colombia</text>
+
+  <!-- ── FOTO RETRATO (derecha) ── -->
+  <!-- Glow detrás de la foto -->
+  <ellipse cx="920" cy="310" rx="160" ry="180" fill="#6366f1" opacity="0.1" filter="url(#softGlow)"/>
+
+  <!-- Marco foto -->
+  <rect x="800" y="100" width="240" height="300" rx="16" fill="#161626" stroke="rgba(99,102,241,0.35)" stroke-width="1.5"/>
+  <!-- Sombra inferior accent -->
+  <rect x="800" y="398" width="240" height="2" rx="1" fill="#6366f1" opacity="0.8"/>
+
+  <!-- Placeholder foto con gradiente -->
+  <rect x="800" y="100" width="240" height="300" rx="16" fill="#161626"/>
+  <rect x="800" y="100" width="240" height="300" rx="16" fill="url(#accentGlow)"/>
+
+  <!-- Silueta persona -->
+  <circle cx="920" cy="195" r="52" fill="#1e1e35"/>
+  <ellipse cx="920" cy="330" rx="80" ry="55" fill="#1e1e35"/>
+  <circle cx="920" cy="195" r="38" fill="#252540"/>
+
+  <!-- Badge disponible -->
+  <rect x="845" y="375" width="150" height="28" rx="14" fill="rgba(7,7,15,0.8)"/>
+  <circle cx="868" cy="389" r="4" fill="#22c55e"/>
+  <text x="880" y="393" font-family="Arial, sans-serif" font-size="11" fill="rgba(255,255,255,0.85)" font-weight="500">Disponible</text>
+
+  <!-- ── STATS SECTION (abajo) ── -->
+  <rect x="0" y="490" width="1200" height="185" fill="#0e0e1a"/>
+  <rect x="0" y="490" width="1200" height="1" fill="rgba(255,255,255,0.06)"/>
+
+  <!-- Stat cards -->
+  <rect x="100" y="515" width="200" height="100" rx="12" fill="#161626" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <text x="130" y="560" font-family="Arial Black, sans-serif" font-size="28" font-weight="900" fill="#f0f0f8">1+</text>
+  <text x="130" y="582" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#55556e" letter-spacing="1">AÑO DE EXP.</text>
+
+  <rect x="320" y="515" width="200" height="100" rx="12" fill="#161626" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <text x="350" y="560" font-family="Arial Black, sans-serif" font-size="28" font-weight="900" fill="#f0f0f8">5</text>
+  <text x="350" y="582" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#55556e" letter-spacing="1">PROYECTOS</text>
+
+  <rect x="540" y="515" width="200" height="100" rx="12" fill="#161626" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <text x="570" y="560" font-family="Arial Black, sans-serif" font-size="28" font-weight="900" fill="#f0f0f8">5to</text>
+  <text x="570" y="582" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#55556e" letter-spacing="1">SEMESTRE</text>
+
+  <rect x="760" y="515" width="200" height="100" rx="12" fill="#161626" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <text x="790" y="560" font-family="Arial Black, sans-serif" font-size="28" font-weight="900" fill="#f0f0f8">10+</text>
+  <text x="790" y="582" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#55556e" letter-spacing="1">TECNOLOGÍAS</text>
+
+  <!-- Bottom label -->
+  <rect x="0" y="620" width="1200" height="55" fill="#07070f"/>
+  <text x="600" y="653" font-family="Arial, sans-serif" font-size="14" fill="#818cf8" text-anchor="middle" font-weight="600">Next.js · Tailwind CSS · JavaScript · Vercel</text>
+</svg>
