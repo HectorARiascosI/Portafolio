@@ -1,40 +1,43 @@
 'use client';
 
 import { useReveal } from '@/lib/useReveal';
-
-const STATS = [
-  { value: '2+',  label: 'Años de exp.' },
-  { value: '3',   label: 'Proyectos' },
-  { value: '5to', label: 'Semestre' },
-  { value: '10+', label: 'Tecnologías' },
-];
+import { useLang } from '@/lib/LangProvider';
 
 export default function About({ profile = {} }) {
   const { ref, visible } = useReveal({ threshold: 0.08 });
+  const { t } = useLang();
+
+  const STATS = [
+    { value: '2+',  label: t('about.stats.exp') },
+    { value: '3',   label: t('about.stats.projects') },
+    { value: '5to', label: t('about.stats.semester') },
+    { value: '10+', label: t('about.stats.tech') },
+  ];
 
   const infoItems = [
-    { label: 'Ubicación', value: profile.location ?? 'Pasto, Nariño — Colombia' },
-    { label: 'Email',     value: profile.email ?? 'hectorariascos6.6@gmail.com', href: `mailto:${profile.email ?? 'hectorariascos6.6@gmail.com'}` },
-    { label: 'Teléfono',  value: profile.phone ?? '3226679615', href: `tel:${profile.phone ?? '3226679615'}` },
-    { label: 'Idiomas',   value: 'Español (nativo) · Inglés B1' },
-    { label: 'Estado',    value: 'Disponible para oportunidades', green: true },
-    { label: 'Educación', value: 'Ing. de Software — UCC · 2024–Presente (5° semestre)' },
+    { label: t('about.info.location'),  value: profile.location ?? 'Pasto, Nariño · Colombia' },
+    { label: t('about.info.email'),     value: profile.email ?? 'hectorariascos6.6@gmail.com', href: `mailto:${profile.email ?? 'hectorariascos6.6@gmail.com'}` },
+    { label: t('about.info.phone'),     value: profile.phone ?? '+57 322 667 9615', href: `tel:${profile.phone ?? '+573226679615'}` },
+    { label: t('about.info.languages'), value: t('about.info.langs_val') },
+    { label: t('about.info.status'),    value: t('about.info.status_val'), green: true },
+    { label: t('about.info.education'), value: t('about.info.edu_val') },
   ];
+
   const paragraphs = (profile.bio ?? '').split('\n\n').filter(Boolean);
 
   return (
-    <section id="sobre-mi" aria-label="Sobre mí"
+    <section id="sobre-mi" aria-label={t('about.section_label')}
       style={{ background: 'var(--surface)', borderTop: '1px solid var(--border)' }}
       className="section-pad">
       <div className="container-custom" ref={ref}>
 
         <div className={`reveal ${visible ? 'visible' : ''}`} style={{ marginBottom: '3rem', textAlign: 'center' }}>
-          <h2 className="t-heading">Sobre mí</h2>
+          <h2 className="t-heading">{t('about.heading')}</h2>
         </div>
 
         <div className="grid-about">
 
-          {/* Izquierda — stats */}
+          {/* Stats */}
           <div className={`reveal-left ${visible ? 'visible' : ''} delay-1`}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
               {STATS.map(s => (
@@ -58,7 +61,7 @@ export default function About({ profile = {} }) {
             </div>
           </div>
 
-          {/* Derecha — bio + info */}
+          {/* Bio + info */}
           <div className={`reveal ${visible ? 'visible' : ''} delay-2`}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.125rem', marginBottom: '2.25rem' }}>
               {paragraphs.map((p, i) => (

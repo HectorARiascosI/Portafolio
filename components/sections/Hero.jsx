@@ -2,9 +2,11 @@
 
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { useLang } from '@/lib/LangProvider';
 
 export default function Hero({ profile = {} }) {
   const [mounted, setMounted] = useState(false);
+  const { t } = useLang();
 
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 40);
@@ -84,7 +86,7 @@ export default function Hero({ profile = {} }) {
             <span style={{
               color: 'rgba(255,255,255,0.85)', fontSize: '0.72rem',
               fontWeight: 500, letterSpacing: '0.06em',
-            }}>Disponible</span>
+            }}>{t('hero.available')}</span>
           </div>
         </div>
       </div>
@@ -118,7 +120,7 @@ export default function Hero({ profile = {} }) {
           <div className="hero-text" style={{ width: '100%', minWidth: 0, overflow: 'hidden' }}>
 
             <div className={cls('reveal', 'delay-1')} style={{ marginBottom: '1rem' }}>
-              <span className="t-label">Ingeniería de Software</span>
+              <span className="t-label">{t('hero.label')}</span>
             </div>
 
             <h1 className={cls('reveal', 'delay-2')} style={{
@@ -148,13 +150,13 @@ export default function Hero({ profile = {} }) {
 
             <div className={`hero-ctas ${cls('reveal', 'delay-4')}`}>
               <a href="#proyectos" className="btn btn-primary">
-                Ver proyectos
+                {t('hero.cta_projects')}
                 <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                 </svg>
               </a>
               <a href={resume} download="HV_Hector_Riascos.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
-              CV
+                {t('hero.cta_cv')}
                 <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                 </svg>

@@ -1,26 +1,28 @@
 'use client';
 
 import { useReveal } from '@/lib/useReveal';
+import { useLang } from '@/lib/LangProvider';
 import ProjectCard from '@/components/ui/ProjectCard';
 
 export default function Projects({ projects = [] }) {
   const { ref, visible } = useReveal({ threshold: 0.08 });
+  const { t } = useLang();
   const featured = projects.filter(p => p.featured);
   const others   = projects.filter(p => !p.featured);
 
   return (
-    <section id="proyectos" aria-label="Proyectos"
+    <section id="proyectos" aria-label={t('projects.heading')}
       style={{ background: 'var(--surface)', borderTop: '1px solid var(--border)' }}
       className="section-pad">
       <div className="container-custom" ref={ref}>
 
         <div className={`reveal ${visible ? 'visible' : ''}`} style={{ marginBottom: '3rem', textAlign: 'center' }}>
-          <p className="t-label" style={{ marginBottom: '0.75rem' }}>Proyectos</p>
-          <h2 className="t-heading">Proyectos destacados</h2>
+          <p className="t-label" style={{ marginBottom: '0.75rem' }}>{t('projects.label')}</p>
+          <h2 className="t-heading">{t('projects.heading')}</h2>
           <div style={{ marginTop: '0.875rem' }}>
             <a href="https://github.com/HectorARiascosI" target="_blank" rel="noopener noreferrer"
               className="link-dim" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
-              Ver repositorios en GitHub
+              {t('projects.github')}
               <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3"/>
               </svg>
@@ -28,9 +30,7 @@ export default function Projects({ projects = [] }) {
           </div>
         </div>
 
-        {/* Grid principal */}
-        <div className={`grid-projects-featured reveal-scale ${visible ? 'visible' : ''} delay-1`}
-          role="list">
+        <div className={`grid-projects-featured reveal-scale ${visible ? 'visible' : ''} delay-1`} role="list">
           {featured.map((project, i) => (
             <div key={project.id} role="listitem"
               className={i === 0 ? 'featured-span' : ''}
@@ -40,11 +40,10 @@ export default function Projects({ projects = [] }) {
           ))}
         </div>
 
-        {/* Otros proyectos */}
         {others.length > 0 && (
           <div className={`reveal ${visible ? 'visible' : ''} delay-2`} style={{ marginTop: '2.5rem' }}>
             <p style={{ fontWeight: 600, color: 'var(--text-3)', letterSpacing: '0.09em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>
-              Otros proyectos
+              {t('projects.others')}
             </p>
             <div className="grid-projects-others" role="list">
               {others.map(project => (

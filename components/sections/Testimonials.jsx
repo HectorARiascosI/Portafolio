@@ -1,6 +1,7 @@
 'use client';
 
 import { useReveal } from '@/lib/useReveal';
+import { useLang } from '@/lib/LangProvider';
 
 function QuoteIcon() {
   return (
@@ -25,24 +26,25 @@ function StarRating() {
 
 export default function Testimonials({ testimonials }) {
   const { ref, visible } = useReveal({ threshold: 0.06 });
+  const { t } = useLang();
 
   return (
-    <section id="testimonios" aria-label="Testimonios"
+    <section id="testimonios" aria-label={t('testimonials.label')}
       style={{ background: 'var(--surface)', borderTop: '1px solid var(--border)' }}
       className="section-pad">
       <div className="container-custom" ref={ref}>
 
         <div className={"reveal " + (visible ? 'visible' : '')} style={{ marginBottom: '3.5rem', textAlign: 'center' }}>
-          <p className="t-label" style={{ marginBottom: '0.75rem' }}>Testimonios</p>
-          <h2 className="t-heading">Opiniones de quienes me conocen</h2>
+          <p className="t-label" style={{ marginBottom: '0.75rem' }}>{t('testimonials.label')}</p>
+          <h2 className="t-heading">{t('testimonials.heading')}</h2>
           <p className="t-body" style={{ marginTop: '0.75rem', maxWidth: '420px', margin: '0.75rem auto 0' }}>
-            Personas con quienes he trabajado y estudiado comparten su experiencia.
+            {t('testimonials.sub')}
           </p>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '1.25rem' }}>
-          {testimonials.map((t, i) => (
-            <div key={t.id}
+          {testimonials.map((item, i) => (
+            <div key={item.id}
               className={"reveal " + (visible ? 'visible' : '') + " delay-" + Math.min(i + 1, 5)}
               style={{
                 background: 'var(--bg)', border: '1px solid var(--border)',
@@ -59,7 +61,7 @@ export default function Testimonials({ testimonials }) {
               </div>
 
               <p style={{ lineHeight: 1.8, color: 'var(--text-2)', flex: 1, fontStyle: 'italic' }}>
-                {t.text}
+                {item.text}
               </p>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.875rem', paddingTop: '1rem', borderTop: '1px solid var(--border)' }}>
@@ -69,14 +71,13 @@ export default function Testimonials({ testimonials }) {
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontWeight: 700, color: 'var(--accent-2)', flexShrink: 0,
                 }}>
-                  {t.name.charAt(0)}
+                  {item.name.charAt(0)}
                 </div>
                 <div>
-                  <p style={{ fontWeight: 600, color: 'var(--text-1)', marginBottom: '2px' }}>{t.name}</p>
-                  <p className="t-meta">{t.role}{t.company ? ' · ' + t.company : ''}</p>
+                  <p style={{ fontWeight: 600, color: 'var(--text-1)', marginBottom: '2px' }}>{item.name}</p>
+                  <p className="t-meta">{item.role}{item.company ? ' · ' + item.company : ''}</p>
                 </div>
               </div>
-
             </div>
           ))}
         </div>

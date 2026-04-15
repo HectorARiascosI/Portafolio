@@ -2,15 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useTheme } from '@/lib/ThemeProvider';
-
-// Fallback por si no se pasan links desde page.js
-const defaultLinks = [
-  { href: '#sobre-mi',    label: 'Sobre mí' },
-  { href: '#habilidades', label: 'Habilidades' },
-  { href: '#proyectos',   label: 'Proyectos' },
-  { href: '#experiencia', label: 'Experiencia' },
-  { href: '#contacto',    label: 'Contacto' },
-];
+import { useLang } from '@/lib/LangProvider';
 
 function SunIcon() {
   return (
@@ -29,9 +21,27 @@ function MoonIcon() {
   );
 }
 
-export default function Navbar({ name = 'Portfolio', links: navLinks = defaultLinks }) {
-  // navLinks viene de site.config.js → navigation
-  const { theme, toggle } = useTheme();
+function GlobeIcon() {
+  return (
+    <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
+      <circle cx="12" cy="12" r="10"/>
+      <path strokeLinecap="round" d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
+    </svg>
+  );
+}
+
+export default function Navbar({ name = 'Portfolio' }) {
+  const { theme, toggle: toggleTheme } = useTheme();
+  const { lang, toggle: toggleLang, t } = useLang();
+
+  const navLinks = [
+    { href: '#sobre-mi',    label: t('nav.about') },
+    { href: '#habilidades', label: t('nav.skills') },
+    { href: '#proyectos',   label: t('nav.projects') },
+    { href: '#experiencia', label: t('nav.experience') },
+    { href: '#contacto',    label: t('nav.contact') },
+  ];
+
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen]         = useState(false);
   const [desktop, setDesktop]   = useState(false);
@@ -41,23 +51,16 @@ export default function Navbar({ name = 'Portfolio', links: navLinks = defaultLi
     setDesktop(mq.matches);
     const onMQ = (e) => { setDesktop(e.matches); if (e.matches) setOpen(false); };
     mq.addEventListener('change', onMQ);
-
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', onScroll, { passive: true });
-
     return () => {
       mq.removeEventListener('change', onMQ);
       window.removeEventListener('scroll', onScroll);
     };
   }, []);
 
-  const navBg = scrolled || open
-    ? 'var(--surface)'
-    : 'transparent';
-
-  const navBorder = scrolled || open
-    ? '1px solid var(--border)'
-    : '1px solid transparent';
+  const navBg     = scrolled || open ? 'var(--surface)' : 'transparent';
+  const navBorder = scrolled || open ? '1px solid var(--border)' : '1px solid transparent';
 
   return (
     <header style={{
@@ -73,28 +76,18 @@ export default function Navbar({ name = 'Portfolio', links: navLinks = defaultLi
         justifyContent: 'space-between', height: '60px', gap: '1rem',
       }}>
 
-        {/* Logo — iniciales del nombre */}
-        <a href="#" style={{
-          display: 'flex', alignItems: 'center', gap: '8px',
-          textDecoration: 'none', flexShrink: 0,
-        }}>
-          {/* Monograma */}
+        {/* Logo */}
+        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', flexShrink: 0 }}>
           <span style={{
             width: '30px', height: '30px', borderRadius: '8px',
             background: 'var(--accent)', color: '#fff',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: '0.85rem', fontWeight: 700, letterSpacing: '-0.02em',
-            flexShrink: 0,
+            fontSize: '0.85rem', fontWeight: 700, letterSpacing: '-0.02em', flexShrink: 0,
           }}>
             {name.split(' ').map(w => w[0]).slice(0, 2).join('')}
           </span>
-          {/* Nombre corto */}
-          <span style={{
-            fontSize: '1rem', fontWeight: 600,
-            color: 'var(--text-1)', letterSpacing: '-0.02em',
-          }}>
-            Hector
-            <span style={{ color: 'var(--text-3)', fontWeight: 400 }}> Riascos</span>
+          <span style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-1)', letterSpacing: '-0.02em' }}>
+            Hector<span style={{ color: 'var(--text-3)', fontWeight: 400 }}> Riascos</span>
           </span>
         </a>
 
@@ -103,30 +96,39 @@ export default function Navbar({ name = 'Portfolio', links: navLinks = defaultLi
           <nav aria-label="Navegación principal" style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
             <ul style={{ display: 'flex', alignItems: 'center', gap: '1.75rem', listStyle: 'none', margin: 0, padding: 0 }}>
               {navLinks.map(l => (
-                <li key={l.href}>
-                  <a href={l.href} className="nav-link">{l.label}</a>
-                </li>
+                <li key={l.href}><a href={l.href} className="nav-link">{l.label}</a></li>
               ))}
             </ul>
           </nav>
         )}
 
-        {/* Right side actions */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', flexShrink: 0 }}>
+        {/* Actions */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0 }}>
+
+          {/* Lang toggle */}
+          <button
+            onClick={toggleLang}
+            className="theme-toggle"
+            aria-label={t('lang.toggle_label')}
+            title={t('lang.toggle_label')}
+            style={{ gap: '4px', width: 'auto', padding: '0 10px', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.04em' }}>
+            <GlobeIcon />
+            {lang === 'es' ? 'EN' : 'ES'}
+          </button>
 
           {/* Theme toggle */}
           <button
-            onClick={toggle}
+            onClick={toggleTheme}
             className="theme-toggle"
-            aria-label={theme === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'}
-            title={theme === 'dark' ? 'Tema claro' : 'Tema oscuro'}>
+            aria-label={theme === 'dark' ? t('theme.to_light') : t('theme.to_dark')}
+            title={theme === 'dark' ? t('theme.light') : t('theme.dark')}>
             {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
           </button>
 
           {/* Desktop CTA */}
           {desktop && (
             <a href="#contacto" className="btn btn-primary" style={{ padding: '7px 16px' }}>
-              Contactar
+              {t('nav.cta')}
             </a>
           )}
 
@@ -138,8 +140,8 @@ export default function Navbar({ name = 'Portfolio', links: navLinks = defaultLi
               aria-expanded={open}
               style={{
                 background: 'none', border: 'none', cursor: 'pointer',
-                color: 'var(--text-2)', padding: '6px', display: 'flex',
-                alignItems: 'center', justifyContent: 'center',
+                color: 'var(--text-2)', padding: '6px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}>
               <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {open
@@ -178,7 +180,7 @@ export default function Navbar({ name = 'Portfolio', links: navLinks = defaultLi
             <li style={{ paddingTop: '1rem' }}>
               <a href="#contacto" onClick={() => setOpen(false)}
                 className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-                Contactar
+                {t('nav.cta')}
               </a>
             </li>
           </ul>

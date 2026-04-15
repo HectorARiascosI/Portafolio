@@ -1,5 +1,6 @@
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import { ThemeProvider } from '@/lib/ThemeProvider';
+import { LangProvider } from '@/lib/LangProvider';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
@@ -33,6 +34,10 @@ const themeScript = `
   } catch(e) {
     document.documentElement.setAttribute('data-theme', 'dark');
   }
+  try {
+    var lang = localStorage.getItem('lang');
+    if (lang === 'en' || lang === 'es') document.documentElement.setAttribute('lang', lang);
+  } catch(e) {}
 })();
 `;
 
@@ -44,9 +49,11 @@ export default function RootLayout({ children }) {
       </head>
       <body suppressHydrationWarning>
         <ThemeProvider>
-          <div style={{ overflowX: 'hidden', width: '100%', maxWidth: '100%', position: 'relative' }}>
-            {children}
-          </div>
+          <LangProvider>
+            <div style={{ overflowX: 'hidden', width: '100%', maxWidth: '100%', position: 'relative' }}>
+              {children}
+            </div>
+          </LangProvider>
         </ThemeProvider>
       </body>
     </html>
