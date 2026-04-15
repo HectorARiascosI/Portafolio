@@ -2,6 +2,7 @@
 
 import { useReveal } from '@/lib/useReveal';
 import { useLang } from '@/lib/LangProvider';
+import TechBadge from '@/components/ui/TechBadge';
 
 // Resuelve un campo que puede ser string o { es, en }
 function loc(field, lang) {
@@ -87,7 +88,7 @@ export default function Experience({ experience }) {
                   {item.technologies?.length > 0 && (
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.375rem' }}>
                       {item.technologies.map(tech => (
-                        <span key={tech} className="tag-n">{tech}</span>
+                        <TechBadge key={tech} name={tech} size="sm" />
                       ))}
                     </div>
                   )}

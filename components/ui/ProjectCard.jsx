@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { useLang } from '@/lib/LangProvider';
+import TechBadge from '@/components/ui/TechBadge';
 
 // Resuelve un campo que puede ser string o { es, en }
 function loc(field, lang) {
@@ -99,7 +100,7 @@ export default function ProjectCard({ project, featured = false }) {
         {/* Tecnologías */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.375rem', marginBottom: '1.125rem' }}>
           {technologies.slice(0, featured ? 5 : 4).map(tech => (
-            <span key={tech} className="tag-n">{tech}</span>
+            <TechBadge key={tech} name={tech} size="sm" />
           ))}
           {technologies.length > (featured ? 5 : 4) && (
             <span className="tag-n" style={{ color: 'var(--text-3)' }}>
