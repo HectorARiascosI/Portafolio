@@ -28,6 +28,9 @@
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
   --shadow-md: 0 4px 16px rgba(0,0,0,0.5);
   --shadow-lg: 0 8px 32px rgba(0,0,0,0.6);
+
+  /* Simple Icons son negros — en dark mode los invertimos a blanco */
+  --icon-filter: invert(1) brightness(0.85);
 }
 
 /* ─────────────────────────────────────────
@@ -55,6 +58,9 @@
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
   --shadow-md: 0 4px 16px rgba(0,0,0,0.10);
   --shadow-lg: 0 8px 32px rgba(0,0,0,0.14);
+
+  /* En light mode los iconos se muestran en su color original (negro) */
+  --icon-filter: none;
 }
 
 /* ─────────────────────────────────────────
