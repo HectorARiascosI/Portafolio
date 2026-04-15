@@ -10,11 +10,11 @@
       "location": "Pasto, Colombia"
     },
     {
-      "company": "Independiente",
-      "role": "Diseñador de Software",
+      "company": "Proyectos independientes",
+      "role": "Desarrollador y Diseñador Web",
       "period": "Jul 2024 – Presente",
-      "description": "Diseño de interfaces de usuario, colaboración en equipos multidisciplinarios y análisis de requerimientos. Investigación de tecnologías y gestión de soporte de software.",
-      "technologies": ["Figma", "UI/UX", "HTML", "CSS", "JavaScript", "Django"],
+      "description": "Desarrollo de proyectos propios y algunos encargos pequeños donde aplico lo que voy aprendiendo: diseño de interfaces en Figma, maquetación web y desarrollo con Django y React.",
+      "technologies": ["Figma", "HTML", "CSS", "JavaScript", "Django", "React"],
       "type": "work",
       "location": "Pasto, Colombia"
     },
@@ -22,7 +22,7 @@
       "company": "INTESNAR",
       "role": "Técnico Laboral en Sistemas y Redes",
       "period": "Ene 2021 – Dic 2022",
-      "description": "Formación en infraestructura de redes, mantenimiento de equipos y soporte técnico. Prácticas en instalación y configuración de sistemas.",
+      "description": "Formación técnica en infraestructura de redes, mantenimiento de equipos y soporte técnico.",
       "technologies": ["Redes", "Hardware", "Soporte Técnico"],
       "type": "education",
       "location": "Pasto, Colombia"
@@ -31,7 +31,7 @@
       "company": "Guardianes de Identidad",
       "role": "Voluntario",
       "period": "Feb 2022 – Nov 2022",
-      "description": "Apoyo en organización de eventos culturales y promoción en redes sociales.",
+      "description": "Apoyo en organización de eventos culturales y difusión en redes sociales.",
       "technologies": [],
       "type": "volunteer",
       "location": "Pasto, Colombia"

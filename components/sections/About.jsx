@@ -8,7 +8,7 @@ export default function About({ profile = {} }) {
   const { t } = useLang();
 
   const STATS = [
-    { value: '2+',  label: t('about.stats.exp') },
+    { value: '1+',  label: t('about.stats.exp') },
     { value: '3',   label: t('about.stats.projects') },
     { value: '5to', label: t('about.stats.semester') },
     { value: '10+', label: t('about.stats.tech') },

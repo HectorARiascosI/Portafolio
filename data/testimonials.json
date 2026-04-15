@@ -2,26 +2,26 @@
   "testimonials": [
     {
       "id": 1,
-      "name": "Docente de Diseño de Interfaces",
-      "role": "Docente",
-      "company": "Universidad Cooperativa de Colombia",
-      "text": "Hector demuestra un nivel de compromiso y dedicación que lo distingue dentro del aula. Su portafolio refleja conocimiento técnico real y una comprensión genuina del diseño centrado en el usuario. Es un estudiante que siempre va más allá de lo que se le pide.",
+      "name": "Docente — Diseño de Interfaces",
+      "role": "Docente universitario",
+      "company": "UCC Pasto",
+      "text": "Hector es un estudiante que se nota que va más allá de lo que se pide en clase. Entrega trabajos bien pensados y se preocupa por los detalles visuales. Tiene potencial real en diseño de interfaces.",
       "avatar": ""
     },
     {
       "id": 2,
-      "name": "Cliente — Proyecto de Software",
-      "role": "Cliente independiente",
+      "name": "Cliente — Proyecto freelance",
+      "role": "Emprendedor",
       "company": "Pasto, Colombia",
-      "text": "Trabajé con Hector en el diseño de una interfaz para mi negocio. Entendió exactamente lo que necesitaba desde el principio, propuso mejoras que yo no había considerado y entregó en el tiempo acordado. Muy profesional.",
+      "text": "Le pedí que diseñara la interfaz de una aplicación para mi negocio. Cumplió con lo acordado, propuso ideas que yo no había pensado y fue fácil comunicarse con él durante todo el proceso.",
       "avatar": ""
     },
     {
       "id": 3,
       "name": "Compañero de equipo",
-      "role": "Estudiante de Ingeniería de Software",
-      "company": "Universidad Cooperativa de Colombia",
-      "text": "Hector es de las personas que llega con soluciones, no con problemas. En los proyectos grupales se asegura de que todo quede bien hecho, aporta ideas creativas y mantiene al equipo enfocado. Su conocimiento en diseño UI/UX complementa muy bien el trabajo técnico del grupo.",
+      "role": "Estudiante de Ing. de Software",
+      "company": "UCC Pasto",
+      "text": "En los proyectos grupales Hector siempre aporta desde el diseño y la parte visual. Es organizado y se nota que le importa que el resultado final quede bien.",
       "avatar": ""
     }
   ]
