@@ -35,11 +35,13 @@ export default function Navbar({ name = 'Portfolio' }) {
   const { lang, toggle: toggleLang, t } = useLang();
 
   const navLinks = [
-    { href: '#sobre-mi',    label: t('nav.about') },
-    { href: '#habilidades', label: t('nav.skills') },
-    { href: '#proyectos',   label: t('nav.projects') },
-    { href: '#experiencia', label: t('nav.experience') },
-    { href: '#contacto',    label: t('nav.contact') },
+    { href: '#sobre-mi',        label: t('nav.about') },
+    { href: '#habilidades',     label: t('nav.skills') },
+    { href: '#proyectos',       label: t('nav.projects') },
+    { href: '#testimonios',     label: t('nav.testimonials') },
+    { href: '#experiencia',     label: t('nav.experience') },
+    { href: '#certificaciones', label: t('nav.certifications') },
+    { href: '#contacto',        label: t('nav.contact') },
   ];
 
   const [scrolled, setScrolled] = useState(false);
