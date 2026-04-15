@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useReveal } from '@/lib/useReveal';
 import { useLang } from '@/lib/LangProvider';
+import { validateContact, normalize } from '@/lib/validateContact';
 
 export default function Contact({ contact = {}, profile = {} }) {
   const { ref, visible } = useReveal({ threshold: 0.06 });
@@ -15,44 +16,78 @@ export default function Contact({ contact = {}, profile = {} }) {
   const [errors, setErrors]   = useState({});
   const [loading, setLoading] = useState(false);
   const [status, setStatus]   = useState(null);
+  const [msgLen, setMsgLen]   = useState(0);
 
   const onChange = e => {
     const { name, value } = e.target;
-    setForm(p => ({ ...p, [name]: value }));
+    // Para el mensaje: bloquear más de 3 espacios consecutivos y más de 2 saltos seguidos en tiempo real
+    let sanitized = value;
+    if (name === 'message') {
+      sanitized = value
+        .replace(/[^\S\n]{4,}/g, '   ')   // máximo 3 espacios consecutivos
+        .replace(/\n{3,}/g, '\n\n');       // máximo 2 saltos de línea seguidos
+      setMsgLen(sanitized.trim().length);
+    }
+    if (name === 'name') {
+      sanitized = value.replace(/[^\S\n]{3,}/g, '  '); // máximo 2 espacios en nombre
+    }
+    setForm(p => ({ ...p, [name]: sanitized }));
     if (errors[name]) setErrors(p => ({ ...p, [name]: '' }));
   };
 
-  const validateClient = () => {
-    const errs = {};
-    const n = form.name.trim();
-    const em = form.email.trim();
-    const msg = form.message.trim();
-    const hasRealLetters = (str) => /[a-záéíóúüñA-ZÁÉÍÓÚÜÑ]{2,}/.test(str);
-    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!n || n.length < 2)           errs.name = t('contact.errors.name');
-    else if (!hasRealLetters(n))      errs.name = t('contact.errors.name_inv');
-    if (!em || !emailRe.test(em))     errs.email = t('contact.errors.email');
-    if (!msg || msg.length < 20)      errs.message = t('contact.errors.msg_len');
-    else if (!hasRealLetters(msg))    errs.message = t('contact.errors.msg_inv');
-
-    return errs;
+  // Mapea errores de la lib al diccionario i18n
+  const mapError = (field, msg) => {
+    const map = {
+      name: {
+        'Ingresa tu nombre completo.':        t('contact.errors.name'),
+        'El nombre es demasiado largo.':      t('contact.errors.name_long'),
+        'El nombre debe contener letras reales.': t('contact.errors.name_inv'),
+        'Por favor ingresa un nombre válido.': t('contact.errors.name_bad'),
+      },
+      email: {
+        'El correo electrónico es obligatorio.': t('contact.errors.email_req'),
+        'Ingresa un correo electrónico válido.': t('contact.errors.email'),
+        'El correo electrónico es demasiado largo.': t('contact.errors.email'),
+      },
+      message: {
+        'El mensaje debe tener al menos 20 caracteres.': t('contact.errors.msg_len'),
+        'El mensaje no puede superar los 2000 caracteres.': t('contact.errors.msg_long'),
+        'Escribe al menos 3 palabras reales en tu mensaje.': t('contact.errors.msg_words'),
+        'Por favor escribe un mensaje con contenido real.': t('contact.errors.msg_inv'),
+      },
+    };
+    return map[field]?.[msg] ?? msg;
   };
 
   const onSubmit = async e => {
     e.preventDefault();
-    const clientErrors = validateClient();
-    if (Object.keys(clientErrors).length > 0) { setErrors(clientErrors); return; }
+    const { ok, errors: errs, normalized } = validateContact(form);
+    if (!ok) {
+      const translated = {};
+      Object.entries(errs).forEach(([k, v]) => { translated[k] = mapError(k, v); });
+      setErrors(translated);
+      return;
+    }
     setLoading(true); setErrors({}); setStatus(null);
     try {
-      const res  = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(form) });
+      const res  = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(normalized), // enviamos el texto ya normalizado
+      });
       const data = await res.json();
       if (res.ok) {
         setStatus({ ok: true, msg: t('contact.form.success') });
         setForm({ name: '', email: '', message: '' });
+        setMsgLen(0);
       } else {
-        if (data.errors) setErrors(data.errors);
-        else setStatus({ ok: false, msg: data.message });
+        if (data.errors) {
+          const translated = {};
+          Object.entries(data.errors).forEach(([k, v]) => { translated[k] = mapError(k, v); });
+          setErrors(translated);
+        } else {
+          setStatus({ ok: false, msg: data.message });
+        }
       }
     } catch {
       setStatus({ ok: false, msg: t('contact.form.error') });
@@ -135,8 +170,20 @@ export default function Contact({ contact = {}, profile = {} }) {
               </label>
               <textarea id="message" name="message" value={form.message} onChange={onChange}
                 required rows={5} placeholder={t('contact.form.message_ph')}
+                maxLength={2000}
                 style={{ ...inputBase, border: `1px solid ${errors.message ? 'rgba(239,68,68,0.4)' : 'var(--border-2)'}`, resize: 'vertical', minHeight: '120px' }} />
-              {errors.message && <p style={{ marginTop: '4px', color: 'var(--red)' }}>{errors.message}</p>}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '4px' }}>
+                {errors.message
+                  ? <p style={{ color: 'var(--red)', fontSize: '0.85rem' }}>{errors.message}</p>
+                  : <span />
+                }
+                <span style={{
+                  fontSize: '0.75rem', color: msgLen > 1800 ? 'var(--red)' : 'var(--text-3)',
+                  marginLeft: 'auto', flexShrink: 0,
+                }}>
+                  {msgLen}/2000
+                </span>
+              </div>
             </div>
 
             <button type="submit" disabled={loading} className="btn btn-primary"

@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server';
+import { validateContact } from '@/lib/validateContact';
 
 /* ── Rate limiting en memoria ── */
 const rateMap = new Map();
 const WINDOW  = 60_000; // 1 minuto
-const MAX_REQ = 2; // máximo 2 intentos por minuto
+const MAX_REQ = 2;      // máximo 2 envíos por minuto por IP
 
 function isRateLimited(ip) {
   const now  = Date.now();
@@ -14,36 +15,13 @@ function isRateLimited(ip) {
   return false;
 }
 
-/* ── Validación estricta ── */
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const SPAM_RE  = /^[\s\W]*$/; // solo espacios o caracteres raros
-
-function validate({ name, email, message }) {
-  const errors = {};
-
-  const n = (name || '').trim();
-  if (!n || n.length < 2)   errors.name = 'El nombre debe tener al menos 2 caracteres.';
-  if (n.length > 80)        errors.name = 'El nombre es demasiado largo.';
-  if (SPAM_RE.test(n))      errors.name = 'Por favor ingresa un nombre válido.';
-
-  const e = (email || '').trim();
-  if (!e || !EMAIL_RE.test(e)) errors.email = 'Ingresa un correo electrónico válido.';
-
-  const m = (message || '').trim();
-  if (!m || m.length < 20)  errors.message = 'El mensaje debe tener al menos 20 caracteres.';
-  if (m.length > 2000)      errors.message = 'El mensaje no puede superar los 2000 caracteres.';
-  if (SPAM_RE.test(m))      errors.message = 'Por favor escribe un mensaje real.';
-
-  return { ok: Object.keys(errors).length === 0, errors };
-}
-
-function sanitize(str) {
-  return (str || '').trim().replace(/[<>]/g, '').slice(0, 2000);
+/* ── Sanitización final antes de enviar ── */
+function sanitizeHtml(str) {
+  return (str ?? '').replace(/[<>]/g, '').slice(0, 2000);
 }
 
 /* ── Envío de email ── */
 async function sendEmail({ name, email, message }) {
-  // Si hay RESEND_API_KEY configurada en Vercel, usa Resend
   if (process.env.RESEND_API_KEY) {
     const res = await fetch('https://api.resend.com/emails', {
       method: 'POST',
@@ -59,14 +37,14 @@ async function sendEmail({ name, email, message }) {
           <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px">
             <h2 style="color:#6366f1;margin-bottom:8px">Nuevo mensaje desde tu portafolio</h2>
             <hr style="border:none;border-top:1px solid #e5e7eb;margin-bottom:24px"/>
-            <p><strong>Nombre:</strong> ${name}</p>
-            <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+            <p><strong>Nombre:</strong> ${sanitizeHtml(name)}</p>
+            <p><strong>Email:</strong> <a href="mailto:${sanitizeHtml(email)}">${sanitizeHtml(email)}</a></p>
             <p><strong>Mensaje:</strong></p>
-            <div style="background:#f9fafb;border-left:4px solid #6366f1;padding:16px;border-radius:4px;margin-top:8px">
-              ${message.replace(/\n/g, '<br/>')}
+            <div style="background:#f9fafb;border-left:4px solid #6366f1;padding:16px;border-radius:4px;margin-top:8px;white-space:pre-wrap">
+              ${sanitizeHtml(message)}
             </div>
             <hr style="border:none;border-top:1px solid #e5e7eb;margin-top:24px"/>
-            <p style="color:#9ca3af;font-size:12px">Enviado desde hectorriascos.vercel.app</p>
+            <p style="color:#9ca3af;font-size:12px">Enviado desde el portafolio de Hector Riascos</p>
           </div>
         `,
       }),
@@ -75,7 +53,7 @@ async function sendEmail({ name, email, message }) {
     return;
   }
 
-  // Sin API key: solo log (en desarrollo)
+  // Sin API key: log en desarrollo
   console.log('📧 Mensaje de contacto recibido:');
   console.log('  Nombre:', name);
   console.log('  Email:', email);
@@ -85,7 +63,8 @@ async function sendEmail({ name, email, message }) {
 /* ── Handler POST ── */
 export async function POST(request) {
   try {
-    const ip = request.headers.get('x-forwarded-for') || 'local';
+    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'local';
+
     if (isRateLimited(ip)) {
       return NextResponse.json(
         { success: false, message: 'Demasiados intentos. Espera un momento e intenta de nuevo.' },
@@ -93,22 +72,23 @@ export async function POST(request) {
       );
     }
 
-    const body = await request.json();
-    const { ok, errors } = validate(body);
+    let body;
+    try {
+      body = await request.json();
+    } catch {
+      return NextResponse.json({ success: false, message: 'Solicitud inválida.' }, { status: 400 });
+    }
+
+    // Validación con la misma lógica que el cliente
+    const { ok, errors, normalized } = validateContact(body);
     if (!ok) {
       return NextResponse.json({ success: false, errors }, { status: 400 });
     }
 
-    const data = {
-      name:    sanitize(body.name),
-      email:   sanitize(body.email),
-      message: sanitize(body.message),
-    };
-
-    await sendEmail(data);
+    await sendEmail(normalized);
 
     return NextResponse.json(
-      { success: true, message: '¡Mensaje enviado! Te responderé pronto.' },
+      { success: true, message: 'Mensaje enviado correctamente.' },
       { status: 200 }
     );
   } catch (err) {
