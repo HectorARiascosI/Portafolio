@@ -23,7 +23,12 @@ export default function About({ profile = {} }) {
     { label: t('about.info.education'), value: t('about.info.edu_val') },
   ];
 
-  const paragraphs = (profile.bio ?? '').split('\n\n').filter(Boolean);
+  // Bio siempre desde el diccionario para que cambie con el idioma
+  const bioParagraphs = [
+    t('hero.bio_p1'),
+    t('hero.bio_p2'),
+    t('hero.bio_p3'),
+  ];
 
   return (
     <section id="sobre-mi" aria-label={t('about.section_label')}
@@ -63,23 +68,23 @@ export default function About({ profile = {} }) {
 
           {/* Bio + info */}
           <div className={`reveal ${visible ? 'visible' : ''} delay-2`}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.125rem', marginBottom: '2.25rem' }}>
-              {paragraphs.map((p, i) => (
-                <p key={i} style={{ lineHeight: 1.85, color: 'var(--text-2)', textAlign: 'left' }}>{p}</p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2rem' }}>
+              {bioParagraphs.map((p, i) => (
+                <p key={i} style={{ lineHeight: 1.8, color: 'var(--text-2)' }}>{p}</p>
               ))}
             </div>
 
-            <div className="divider" style={{ marginBottom: '1.75rem' }} />
+            <div className="divider" style={{ marginBottom: '1.5rem' }} />
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               {infoItems.map(item => (
-                <div key={item.label} style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', flexWrap: 'wrap' }}>
-                  <span className="t-field-label" style={{ minWidth: '90px', flexShrink: 0 }}>
+                <div key={item.label} style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                  <span className="t-field-label" style={{ minWidth: '90px', flexShrink: 0, paddingTop: '2px' }}>
                     {item.label}
                   </span>
                   {item.href
-                    ? <a href={item.href} className="link-muted" style={{ wordBreak: 'break-all' }}>{item.value}</a>
-                    : <span style={{ color: item.green ? 'var(--green)' : 'var(--text-2)', wordBreak: 'break-word' }}>{item.value}</span>
+                    ? <a href={item.href} className="link-muted" style={{ overflowWrap: 'anywhere', minWidth: 0, flex: 1 }}>{item.value}</a>
+                    : <span style={{ color: item.green ? 'var(--green)' : 'var(--text-2)', overflowWrap: 'break-word', minWidth: 0, flex: 1 }}>{item.value}</span>
                   }
                 </div>
               ))}

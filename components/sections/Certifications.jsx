@@ -31,20 +31,20 @@ export default function Certifications({ certifications }) {
           {certifications.map((cert, i) => (
             <div key={cert.id}
               className={`reveal ${visible ? 'visible' : ''} delay-${Math.min(i + 1, 5)}`}
-              style={{ background: 'var(--surface)', padding: '1.375rem 1.5rem', display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+              style={{ background: 'var(--surface)', padding: '1.25rem 1.5rem', display: 'flex', alignItems: 'flex-start', gap: '0.875rem' }}>
 
               <BadgeIcon />
 
               <div style={{ flex: 1, minWidth: 0 }}>
-                <p style={{ fontWeight: 600, color: 'var(--text-1)', marginBottom: '4px', letterSpacing: '-0.01em' }}>
+                <p style={{ fontWeight: 600, color: 'var(--text-1)', marginBottom: '3px', letterSpacing: '-0.01em', overflowWrap: 'break-word' }}>
                   {cert.title}
                 </p>
-                <p style={{ color: 'var(--text-2)' }}>{cert.issuer}</p>
+                <p style={{ color: 'var(--text-2)', fontSize: '0.9rem', overflowWrap: 'break-word' }}>{cert.issuer}</p>
               </div>
 
-              <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                <span className="tag-n">{cert.date}</span>
-                {cert.hours && <p className="t-meta" style={{ marginTop: '4px' }}>{cert.hours}</p>}
+              <div style={{ textAlign: 'right', flexShrink: 0, marginLeft: '0.5rem' }}>
+                <span className="tag-n" style={{ whiteSpace: 'nowrap' }}>{cert.date}</span>
+                {cert.hours && <p className="t-meta" style={{ marginTop: '4px', whiteSpace: 'nowrap' }}>{cert.hours}</p>}
               </div>
             </div>
           ))}

@@ -4,8 +4,8 @@
       "company": "Universidad Cooperativa de Colombia",
       "role": "Ingeniería de Software",
       "period": "Feb 2024 – En curso",
-      "description": "Actualmente en quinto semestre (2026). Formación en desarrollo de software, algoritmos, estructuras de datos, diseño de interfaces, bases de datos e ingeniería de requerimientos. Participante del Primer Seminario Nacional de Ingeniería de Software (Nov 2024, 16 horas). Sede Pasto.",
-      "technologies": ["Next.js", "TypeScript", "React", "Tailwind CSS", "Java", "Python"],
+      "description": "Quinto semestre (2026). Formación en desarrollo de software, algoritmos, estructuras de datos, diseño de interfaces, bases de datos e ingeniería de requerimientos.",
+      "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Java", "Python"],
       "type": "education",
       "location": "Pasto, Colombia"
     },
@@ -13,52 +13,25 @@
       "company": "Independiente",
       "role": "Diseñador de Software",
       "period": "Jul 2024 – Presente",
-      "description": "Diseño de interfaces de usuario que mejoran la experiencia de navegación y usabilidad. Colaboración en equipos multidisciplinarios para la creación de software a medida. Investigación de nuevas tecnologías. Análisis de requerimientos y necesidades de clientes. Gestión de instalaciones y soporte de software.",
-      "technologies": ["UI/UX", "Figma", "HTML", "CSS", "JavaScript", "Django"],
-      "type": "work",
-      "location": "Pasto, Colombia"
-    },
-    {
-      "company": "Ventas Independientes",
-      "role": "Asesor Comercial",
-      "period": "Ene 2025 – Presente",
-      "description": "Atención y servicio al cliente con enfoque en calidad. Gestión de tareas administrativas y plazos.",
-      "technologies": [],
-      "type": "work",
-      "location": "Pasto, Colombia"
-    },
-    {
-      "company": "Instituto Técnico Sistematizado de Nariño — INTESNAR",
-      "role": "Técnico Laboral en Sistemas y Redes",
-      "period": "Ene 2021 – Dic 2022",
-      "description": "Técnico laboral por competencias en Sistemas y Redes. Formación en infraestructura de redes, mantenimiento de equipos y soporte técnico.",
-      "technologies": ["Redes", "Hardware", "Soporte Técnico"],
-      "type": "education",
-      "location": "Pasto, Colombia"
-    },
-    {
-      "company": "Independiente",
-      "role": "Profesor Particular",
-      "period": "Abr 2022 – Ago 2023",
-      "description": "Elaboración de materiales didácticos y promoción de un ambiente participativo de aprendizaje.",
-      "technologies": [],
+      "description": "Diseño de interfaces de usuario, colaboración en equipos multidisciplinarios y análisis de requerimientos. Investigación de tecnologías y gestión de soporte de software.",
+      "technologies": ["Figma", "UI/UX", "HTML", "CSS", "JavaScript", "Django"],
       "type": "work",
       "location": "Pasto, Colombia"
     },
     {
       "company": "INTESNAR",
-      "role": "Estudiante en Prácticas",
-      "period": "Oct 2022",
-      "description": "Elaboración de informes, ejecución del plan de prácticas y aplicación práctica de habilidades técnicas.",
-      "technologies": ["Sistemas", "Redes"],
-      "type": "work",
+      "role": "Técnico Laboral en Sistemas y Redes",
+      "period": "Ene 2021 – Dic 2022",
+      "description": "Formación en infraestructura de redes, mantenimiento de equipos y soporte técnico. Prácticas en instalación y configuración de sistemas.",
+      "technologies": ["Redes", "Hardware", "Soporte Técnico"],
+      "type": "education",
       "location": "Pasto, Colombia"
     },
     {
       "company": "Guardianes de Identidad",
-      "role": "Voluntario Social",
+      "role": "Voluntario",
       "period": "Feb 2022 – Nov 2022",
-      "description": "Presentación de actividades culturales y de desarrollo. Apoyo en organización de eventos y promoción de actividades a través de redes sociales.",
+      "description": "Apoyo en organización de eventos culturales y promoción en redes sociales.",
       "technologies": [],
       "type": "volunteer",
       "location": "Pasto, Colombia"

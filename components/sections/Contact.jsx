@@ -105,7 +105,7 @@ export default function Contact({ contact = {}, profile = {} }) {
               <div key={item.label}>
                 <p className="t-field-label" style={{ marginBottom: '4px' }}>{item.label}</p>
                 {item.href
-                  ? <a href={item.href} className="link-muted" style={{ wordBreak: 'break-all' }}>{item.value}</a>
+                  ? <a href={item.href} className="link-muted" style={{ overflowWrap: 'anywhere', display: 'block' }}>{item.value}</a>
                   : <p style={{ color: 'var(--text-2)' }}>{item.value}</p>
                 }
               </div>
