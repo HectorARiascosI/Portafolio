@@ -40,7 +40,7 @@ export default function Testimonials({ testimonials }) {
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '1.25rem' }}>
           {testimonials.map((t, i) => (
             <div key={t.id}
               className={"reveal " + (visible ? 'visible' : '') + " delay-" + Math.min(i + 1, 5)}
