@@ -70,7 +70,7 @@ export default function Hero({ profile = {} }) {
     <section id="hero" aria-label="Presentación" style={{
       background: 'var(--bg)', paddingTop: '60px',
       position: 'relative', overflow: 'hidden',
-      width: '100%', maxWidth: '100vw',
+      width: '100%',
     }}>
       <div aria-hidden style={{
         position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)',
