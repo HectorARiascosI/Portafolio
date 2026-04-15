@@ -69,13 +69,23 @@
 /* ─────────────────────────────────────────
    BASE
 ───────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+p, h1, h2, h3, h4, h5, h6, span, a, li {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
 
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: clip;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -84,9 +94,9 @@ body {
   font-family: var(--font-inter), system-ui, sans-serif;
   font-size: 17px;
   line-height: 1.75;
-  overflow-x: clip;
-  min-width: 0;
+  overflow-x: hidden;
   width: 100%;
+  position: relative;
   transition: background 300ms ease, color 300ms ease;
 }
 
@@ -121,16 +131,16 @@ body {
   max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   box-sizing: border-box;
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 @media (min-width: 480px) {
-  .container-custom { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .container-custom { padding-left: 1.25rem; padding-right: 1.25rem; }
 }
 @media (min-width: 768px) {
-  .container-custom { padding-left: 2.5rem; padding-right: 2.5rem; }
+  .container-custom { padding-left: 2rem; padding-right: 2rem; }
 }
 
 .section-pad { padding-top: 4.5rem; padding-bottom: 4.5rem; }
@@ -420,15 +430,12 @@ body {
    MOBILE OVERFLOW FIXES — 2026
 ───────────────────────────────────────── */
 
-/* overflow-x: clip no crea scroll context (a diferencia de hidden) */
 img, video, iframe { max-width: 100%; height: auto; }
+svg { overflow: visible; }
 
-/* El wrapper del layout contiene todo */
-section, main, footer, article {
+section, main, footer, article, header {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
-
-/* Elimina max-width de SVGs para que no rompan layouts flex/grid */
-svg { max-width: none; overflow: visible; }

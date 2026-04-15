@@ -101,7 +101,7 @@ export default function Hero({ profile = {} }) {
               fontSize: 'clamp(1.75rem, 8vw, 4rem)',
               fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1,
               color: 'var(--text-1)', marginBottom: '0.75rem',
-              wordBreak: 'break-word',
+              wordBreak: 'break-word', overflowWrap: 'break-word',
             }}>
               {name}
             </h1>
@@ -118,6 +118,7 @@ export default function Hero({ profile = {} }) {
               fontSize: '1.06rem',
               lineHeight: 1.75, color: 'var(--text-2)',
               marginBottom: '2rem',
+              overflowWrap: 'break-word', wordBreak: 'break-word',
             }}>
               {tagline}
             </p>
