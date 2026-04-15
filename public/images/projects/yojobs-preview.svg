@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="tealBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d9488"/>
+      <stop offset="100%" style="stop-color:#14b8a6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fondo teal -->
+  <rect width="1200" height="675" fill="url(#tealBg)"/>
+
+  <!-- Card central blanca -->
+  <rect x="300" y="60" width="600" height="555" rx="16" fill="white" opacity="0.97"/>
+  <rect x="300" y="60" width="600" height="555" rx="16" fill="none" stroke="rgba(0,0,0,0.06)" stroke-width="1"/>
+
+  <!-- Título -->
+  <text x="600" y="140" font-family="Georgia, serif" font-size="30" font-weight="700" fill="#1f2937" text-anchor="middle">Crear cuenta</text>
+  <text x="600" y="170" font-family="Arial, sans-serif" font-size="15" fill="#6b7280" text-anchor="middle">Únete a la red laboral YoJobs</text>
+
+  <!-- Campo: Nombre de usuario -->
+  <text x="340" y="220" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#1f2937">Nombre de usuario</text>
+  <rect x="340" y="228" width="520" height="44" rx="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="360" y="255" font-family="Arial, sans-serif" font-size="14" fill="#9ca3af">Ej: juan_perez</text>
+
+  <!-- Campo: Correo -->
+  <text x="340" y="300" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#1f2937">Correo electrónico</text>
+  <rect x="340" y="308" width="520" height="44" rx="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="360" y="335" font-family="Arial, sans-serif" font-size="14" fill="#9ca3af">correo@ejemplo.com</text>
+
+  <!-- Campo: Contraseña -->
+  <text x="340" y="380" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#1f2937">Contraseña</text>
+  <rect x="340" y="388" width="520" height="44" rx="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="360" y="415" font-family="Arial, sans-serif" font-size="14" fill="#9ca3af">Mínimo 8 caracteres</text>
+
+  <!-- Campo: Confirmar -->
+  <text x="340" y="460" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#1f2937">Confirmar contraseña</text>
+  <rect x="340" y="468" width="520" height="44" rx="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="360" y="495" font-family="Arial, sans-serif" font-size="14" fill="#9ca3af">Repite tu contraseña</text>
+
+  <!-- Botón Registrarse -->
+  <rect x="340" y="530" width="520" height="50" rx="8" fill="url(#tealBg)"/>
+  <text x="600" y="561" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="white" text-anchor="middle">Registrarse</text>
+
+  <!-- Link login -->
+  <text x="600" y="600" font-family="Arial, sans-serif" font-size="13" fill="#6b7280" text-anchor="middle">¿Ya tienes una cuenta? </text>
+  <text x="720" y="600" font-family="Arial, sans-serif" font-size="13" fill="#0d9488" font-weight="700">Inicia sesión</text>
+
+  <!-- Bottom label -->
+  <rect x="0" y="620" width="1200" height="55" fill="#0f766e" opacity="0.95"/>
+  <text x="600" y="653" font-family="Arial, sans-serif" font-size="14" fill="#99f6e4" text-anchor="middle" font-weight="600">Red Social Laboral · Django · Python · Vercel</text>
+</svg>

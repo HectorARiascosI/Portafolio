@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="heroBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4f46e5"/>
+      <stop offset="50%" style="stop-color:#7c3aed"/>
+      <stop offset="100%" style="stop-color:#a855f7"/>
+    </linearGradient>
+    <linearGradient id="navBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f8f8ff"/>
+    </linearGradient>
+    <filter id="softBlur">
+      <feGaussianBlur stdDeviation="25"/>
+    </filter>
+  </defs>
+
+  <!-- Navbar blanca -->
+  <rect width="1200" height="60" fill="url(#navBg)"/>
+  <rect width="1200" height="1" y="60" fill="#e5e7eb"/>
+
+  <!-- Logo AeroTickets -->
+  <rect x="24" y="14" width="32" height="32" rx="8" fill="#4f46e5"/>
+  <text x="40" y="35" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle">✈</text>
+  <text x="68" y="36" font-family="Arial Black, sans-serif" font-size="16" font-weight="900" fill="#1f2937">AEROTICKETS</text>
+
+  <!-- Nav buttons -->
+  <text x="1020" y="36" font-family="Arial, sans-serif" font-size="14" fill="#374151">Ingresar</text>
+  <rect x="1090" y="16" width="100" height="32" rx="6" fill="#4f46e5"/>
+  <text x="1140" y="36" font-family="Arial, sans-serif" font-size="13" fill="white" text-anchor="middle" font-weight="600">Registrarse</text>
+
+  <!-- Hero section con gradiente azul-morado -->
+  <rect y="60" width="1200" height="500" fill="url(#heroBg)"/>
+
+  <!-- Glow suave -->
+  <circle cx="900" cy="310" r="280" fill="#6366f1" opacity="0.2" filter="url(#softBlur)"/>
+
+  <!-- Avión grande decorativo (derecha) -->
+  <g transform="translate(680, 160) scale(2.8)" opacity="0.18">
+    <path d="M45 20 L80 35 L45 50 L45 42 L20 42 L20 28 L45 28 Z" fill="white"/>
+    <path d="M45 20 L55 5 L60 8 L50 22 Z" fill="white"/>
+    <path d="M45 50 L55 65 L60 62 L50 48 Z" fill="white"/>
+    <rect x="20" y="33" width="8" height="4" rx="2" fill="white"/>
+  </g>
+
+  <!-- Avión SVG más limpio -->
+  <g transform="translate(700, 180)">
+    <path d="M0,60 L180,20 L200,30 L180,40 L0,80 Z" fill="white" opacity="0.15"/>
+    <path d="M40,30 L120,10 L130,20 L120,30 L40,50 Z" fill="white" opacity="0.12"/>
+    <ellipse cx="160" cy="60" rx="120" ry="55" fill="white" opacity="0.1"/>
+  </g>
+
+  <!-- Texto hero izquierda -->
+  <text x="80" y="180" font-family="Arial Black, sans-serif" font-size="52" font-weight="900" fill="white">Tu próxima</text>
+  <text x="80" y="245" font-family="Arial Black, sans-serif" font-size="52" font-weight="900" fill="white">aventura</text>
+  <text x="80" y="310" font-family="Arial Black, sans-serif" font-size="52" font-weight="900" fill="white">comienza aquí</text>
+
+  <!-- Subtítulo -->
+  <text x="80" y="360" font-family="Arial, sans-serif" font-size="17" fill="rgba(255,255,255,0.85)">Descubre los mejores vuelos al mejor precio.</text>
+  <text x="80" y="382" font-family="Arial, sans-serif" font-size="17" fill="rgba(255,255,255,0.85)">Reserva fácil, rápido y seguro.</text>
+
+  <!-- Botones CTA -->
+  <rect x="80" y="410" width="200" height="48" rx="8" fill="white" opacity="0.2"/>
+  <rect x="80" y="410" width="200" height="48" rx="8" fill="none" stroke="white" stroke-width="1.5"/>
+  <text x="180" y="440" font-family="Arial, sans-serif" font-size="15" fill="white" text-anchor="middle" font-weight="600">Comenzar ahora →</text>
+
+  <rect x="300" y="410" width="180" height="48" rx="8" fill="none" stroke="white" stroke-width="1.5"/>
+  <text x="390" y="440" font-family="Arial, sans-serif" font-size="15" fill="white" text-anchor="middle">Iniciar sesión</text>
+
+  <!-- Bottom label -->
+  <rect x="0" y="620" width="1200" height="55" fill="#1e1b4b" opacity="0.95"/>
+  <text x="600" y="653" font-family="Arial, sans-serif" font-size="14" fill="#818cf8" text-anchor="middle" font-weight="600">Aplicación Web · React · JavaScript · Vercel</text>
+</svg>

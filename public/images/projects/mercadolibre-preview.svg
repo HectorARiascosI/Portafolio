@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <!-- Fondo gris claro -->
+  <rect width="1200" height="675" fill="#ebebeb"/>
+
+  <!-- Navbar amarilla -->
+  <rect width="1200" height="56" fill="#ffe600"/>
+
+  <!-- Logo MercadoLibre -->
+  <rect x="20" y="10" width="36" height="36" rx="18" fill="#ffe600" stroke="#cccc00" stroke-width="1"/>
+  <text x="38" y="33" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">🤝</text>
+  <text x="65" y="28" font-family="Arial Black, sans-serif" font-size="11" font-weight="900" fill="#333333">mercado</text>
+  <text x="65" y="42" font-family="Arial Black, sans-serif" font-size="11" font-weight="900" fill="#333333">libre</text>
+
+  <!-- Search bar -->
+  <rect x="200" y="12" width="600" height="32" rx="4" fill="white" stroke="#cccccc" stroke-width="1"/>
+  <text x="420" y="32" font-family="Arial, sans-serif" font-size="13" fill="#999999" text-anchor="middle">Buscar productos, marcas y más...</text>
+  <rect x="800" y="12" width="32" height="32" rx="0 4 4 0" fill="#ffe600"/>
+  <text x="816" y="32" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">🔍</text>
+
+  <!-- Nav links -->
+  <text x="870" y="33" font-family="Arial, sans-serif" font-size="13" fill="#333333" font-weight="600">Categorías</text>
+  <text x="980" y="33" font-family="Arial, sans-serif" font-size="13" fill="#333333" font-weight="600">Nuestro Equipo</text>
+  <text x="1100" y="33" font-family="Arial, sans-serif" font-size="13" fill="#333333" font-weight="600">Carrito (0)</text>
+
+  <!-- Sección productos destacados -->
+  <text x="30" y="100" font-family="Arial Black, sans-serif" font-size="20" font-weight="900" fill="#1a1a1a">Productos destacados</text>
+
+  <!-- Producto 1: iPhone -->
+  <rect x="20" y="115" width="218" height="280" rx="8" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="20" y="115" width="218" height="160" rx="8 8 0 0" fill="#f5f5f5"/>
+  <text x="129" y="205" font-family="Arial, sans-serif" font-size="40" text-anchor="middle">📱</text>
+  <text x="30" y="295" font-family="Arial, sans-serif" font-size="11" fill="#333333">iPhone 14 Pro Max 256GB</text>
+  <text x="30" y="310" font-family="Arial, sans-serif" font-size="11" fill="#333333">Oro Reacondicionado</text>
+  <text x="30" y="328" font-family="Arial, sans-serif" font-size="10" fill="#999999" text-decoration="line-through">$ 4.899.000</text>
+  <text x="30" y="348" font-family="Arial Black, sans-serif" font-size="18" font-weight="900" fill="#1a1a1a">$ 4.299.000</text>
+  <rect x="30" y="355" width="55" height="18" rx="3" fill="#00a650"/>
+  <text x="57" y="368" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="700">12% OFF</text>
+  <text x="30" y="385" font-family="Arial, sans-serif" font-size="10" fill="#00a650">Envío gratis</text>
+
+  <!-- Producto 2: Samsung -->
+  <rect x="252" y="115" width="218" height="280" rx="8" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="252" y="115" width="218" height="160" rx="8 8 0 0" fill="#f5f5f5"/>
+  <text x="361" y="205" font-family="Arial, sans-serif" font-size="40" text-anchor="middle">📱</text>
+  <text x="262" y="295" font-family="Arial, sans-serif" font-size="11" fill="#333333">Samsung Galaxy S23 Ultra</text>
+  <text x="262" y="310" font-family="Arial, sans-serif" font-size="11" fill="#333333">256GB</text>
+  <text x="262" y="328" font-family="Arial, sans-serif" font-size="10" fill="#999999" text-decoration="line-through">$ 4.567.000</text>
+  <text x="262" y="348" font-family="Arial Black, sans-serif" font-size="18" font-weight="900" fill="#1a1a1a">$ 3.899.000</text>
+  <rect x="262" y="355" width="55" height="18" rx="3" fill="#00a650"/>
+  <text x="289" y="368" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="700">15% OFF</text>
+  <text x="262" y="385" font-family="Arial, sans-serif" font-size="10" fill="#00a650">Envío gratis</text>
+
+  <!-- Producto 3: MacBook -->
+  <rect x="484" y="115" width="218" height="280" rx="8" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="484" y="115" width="218" height="160" rx="8 8 0 0" fill="#f5f5f5"/>
+  <text x="593" y="205" font-family="Arial, sans-serif" font-size="40" text-anchor="middle">💻</text>
+  <text x="494" y="295" font-family="Arial, sans-serif" font-size="11" fill="#333333">MacBook Air M2 13 pulgadas</text>
+  <text x="494" y="310" font-family="Arial, sans-serif" font-size="11" fill="#333333">256GB</text>
+  <text x="494" y="328" font-family="Arial, sans-serif" font-size="10" fill="#999999" text-decoration="line-through">$ 6.110.000</text>
+  <text x="494" y="348" font-family="Arial Black, sans-serif" font-size="18" font-weight="900" fill="#1a1a1a">$ 5.499.000</text>
+  <rect x="494" y="355" width="55" height="18" rx="3" fill="#00a650"/>
+  <text x="521" y="368" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="700">10% OFF</text>
+  <text x="494" y="385" font-family="Arial, sans-serif" font-size="10" fill="#00a650">Envío gratis</text>
+
+  <!-- Producto 4: PS5 -->
+  <rect x="716" y="115" width="218" height="280" rx="8" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="716" y="115" width="218" height="160" rx="8 8 0 0" fill="#f5f5f5"/>
+  <text x="825" y="205" font-family="Arial, sans-serif" font-size="40" text-anchor="middle">🎮</text>
+  <text x="726" y="295" font-family="Arial, sans-serif" font-size="11" fill="#333333">PlayStation 5 Consola</text>
+  <text x="726" y="310" font-family="Arial, sans-serif" font-size="11" fill="#333333">Standard</text>
+  <text x="726" y="328" font-family="Arial, sans-serif" font-size="10" fill="#999999" text-decoration="line-through">$ 2.735.789</text>
+  <text x="726" y="348" font-family="Arial Black, sans-serif" font-size="18" font-weight="900" fill="#1a1a1a">$ 2.599.000</text>
+  <rect x="726" y="355" width="45" height="18" rx="3" fill="#00a650"/>
+  <text x="748" y="368" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="700">5% OFF</text>
+  <text x="726" y="385" font-family="Arial, sans-serif" font-size="10" fill="#00a650">Envío gratis</text>
+
+  <!-- Producto 5: TV -->
+  <rect x="948" y="115" width="232" height="280" rx="8" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="948" y="115" width="232" height="160" rx="8 8 0 0" fill="#f5f5f5"/>
+  <text x="1064" y="205" font-family="Arial, sans-serif" font-size="40" text-anchor="middle">📺</text>
+  <text x="958" y="295" font-family="Arial, sans-serif" font-size="11" fill="#333333">Smart TV Samsung 55" QLED</text>
+  <text x="958" y="310" font-family="Arial, sans-serif" font-size="11" fill="#333333">UHD 4K</text>
+  <text x="958" y="328" font-family="Arial, sans-serif" font-size="10" fill="#999999" text-decoration="line-through">$ 2.373.750</text>
+  <text x="958" y="348" font-family="Arial Black, sans-serif" font-size="18" font-weight="900" fill="#1a1a1a">$ 1.899.000</text>
+  <rect x="958" y="355" width="55" height="18" rx="3" fill="#00a650"/>
+  <text x="985" y="368" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="700">20% OFF</text>
+  <text x="958" y="385" font-family="Arial, sans-serif" font-size="10" fill="#00a650">Envío gratis</text>
+
+  <!-- Bottom label -->
+  <rect x="0" y="620" width="1200" height="55" fill="#333333" opacity="0.95"/>
+  <text x="600" y="653" font-family="Arial, sans-serif" font-size="14" fill="#ffe600" text-anchor="middle" font-weight="600">Clon MercadoLibre · HTML · CSS puro · GitHub Pages</text>
+</svg>
