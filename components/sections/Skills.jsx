@@ -23,9 +23,18 @@ export default function Skills({ skills }) {
           {skills.map((category, i) => (
             <div key={category.category}
               className={`reveal ${visible ? 'visible' : ''} delay-${Math.min(i + 1, 5)}`}
-              style={{ background: 'var(--surface)', padding: '1.75rem' }}>
+              style={{
+                background: 'var(--surface)',
+                border: '1px solid var(--border)',
+                borderRadius: '12px',
+                padding: '1.75rem',
+              }}>
 
-              <h3 style={{ fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--text-2)', marginBottom: '1.25rem' }}>
+              <h3 style={{
+                fontWeight: 700, letterSpacing: '0.06em',
+                textTransform: 'uppercase', fontSize: '0.72rem',
+                color: 'var(--accent-2)', marginBottom: '1.25rem',
+              }}>
                 {category.category}
               </h3>
 

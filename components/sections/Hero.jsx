@@ -25,82 +25,67 @@ export default function Hero({ profile = {} }) {
   /* ── Foto compartida entre móvil y desktop ── */
   const Photo = ({ size }) => {
     const w = parseInt(size);
-    const h = Math.round(w * 1.2); /* proporción retrato 5:6 */
-    const fold = Math.round(w * 0.13); /* tamaño del doblez */
+    const h = Math.round(w * 1.25); /* proporción retrato 4:5 */
 
     return (
       <div style={{ position: 'relative', display: 'inline-block', flexShrink: 0 }}>
 
-        {/* Marco con sombra exterior */}
+        {/* Glow de fondo — sutil, no invasivo */}
+        <div aria-hidden style={{
+          position: 'absolute', inset: '-12px',
+          borderRadius: '20px',
+          background: 'radial-gradient(ellipse at center, var(--accent-bg) 0%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }} />
+
+        {/* Contenedor de la foto */}
         <div style={{
-          position: 'relative',
+          position: 'relative', zIndex: 1,
           width: w, height: h,
-          borderRadius: '14px',
-          boxShadow: '0 20px 60px rgba(0,0,0,0.45), 0 4px 16px rgba(0,0,0,0.3)',
+          borderRadius: '16px',
+          overflow: 'hidden',
+          border: '1.5px solid var(--accent-border)',
+          boxShadow: '0 2px 0 0 var(--accent), 0 16px 48px rgba(0,0,0,0.5)',
         }}>
+          {image ? (
+            <Image
+              src={image}
+              alt={`Foto de ${name}`}
+              width={w}
+              height={h}
+              style={{ objectFit: 'cover', objectPosition: 'center top', width: '100%', height: '100%', display: 'block' }}
+              priority
+              quality={90}
+            />
+          ) : (
+            <div style={{
+              width: '100%', height: '100%',
+              background: 'linear-gradient(135deg, var(--surface-2) 0%, var(--accent-bg) 100%)',
+            }} />
+          )}
 
-          {/* Foto */}
+          {/* Badge disponibilidad — overlay en la parte inferior de la foto */}
           <div style={{
-            width: '100%', height: '100%',
-            borderRadius: '14px',
-            overflow: 'hidden',
-            border: '2px solid var(--accent)',
+            position: 'absolute', bottom: '12px', left: '50%', transform: 'translateX(-50%)',
+            display: 'flex', alignItems: 'center', gap: '6px',
+            background: 'rgba(7,7,15,0.75)',
+            backdropFilter: 'blur(8px)',
+            WebkitBackdropFilter: 'blur(8px)',
+            border: '1px solid rgba(255,255,255,0.08)',
+            borderRadius: '20px', padding: '5px 12px',
+            whiteSpace: 'nowrap',
           }}>
-            {image ? (
-              <Image
-                src={image}
-                alt={`Foto de ${name}`}
-                width={w}
-                height={h}
-                style={{ objectFit: 'cover', objectPosition: 'center top', width: '100%', height: '100%' }}
-                priority
-                quality={90}
-              />
-            ) : (
-              <div style={{
-                width: '100%', height: '100%',
-                background: 'linear-gradient(135deg, var(--surface-2) 0%, var(--accent-bg) 100%)',
-              }} />
-            )}
+            <span style={{
+              width: '6px', height: '6px', borderRadius: '50%',
+              background: 'var(--green)', display: 'block', flexShrink: 0,
+              boxShadow: '0 0 6px var(--green)',
+            }} />
+            <span style={{
+              color: 'rgba(255,255,255,0.85)', fontSize: '0.72rem',
+              fontWeight: 500, letterSpacing: '0.06em',
+            }}>Disponible</span>
           </div>
-
-          {/* Doblez esquina superior izquierda */}
-          <div style={{
-            position: 'absolute', top: 0, left: 0,
-            width: 0, height: 0,
-            borderStyle: 'solid',
-            borderWidth: `${fold}px ${fold}px 0 0`,
-            borderColor: `var(--bg) transparent transparent transparent`,
-            filter: 'drop-shadow(2px 2px 3px rgba(0,0,0,0.4))',
-            zIndex: 2,
-          }} />
-
-          {/* Doblez esquina inferior derecha */}
-          <div style={{
-            position: 'absolute', bottom: 0, right: 0,
-            width: 0, height: 0,
-            borderStyle: 'solid',
-            borderWidth: `0 0 ${fold}px ${fold}px`,
-            borderColor: `transparent transparent var(--bg) transparent`,
-            filter: 'drop-shadow(-2px -2px 3px rgba(0,0,0,0.4))',
-            zIndex: 2,
-          }} />
-        </div>
-
-        {/* Badge disponibilidad — discreto, debajo de la foto */}
-        <div style={{
-          marginTop: '10px',
-          display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '5px',
-        }}>
-          <span style={{
-            width: '5px', height: '5px', borderRadius: '50%',
-            background: 'var(--green)', display: 'block', flexShrink: 0,
-            boxShadow: '0 0 4px var(--green)',
-          }} />
-          <span style={{
-            color: 'var(--text-3)', fontSize: '0.7rem',
-            fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase',
-          }}>Disponible</span>
         </div>
       </div>
     );

@@ -36,13 +36,23 @@ export default function About({ profile = {} }) {
 
           {/* Izquierda — stats */}
           <div className={`reveal-left ${visible ? 'visible' : ''} delay-1`}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: 'var(--border)', borderRadius: '10px', overflow: 'hidden' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
               {STATS.map(s => (
-                <div key={s.label} style={{ background: 'var(--surface-2)', padding: '1.25rem 1rem' }}>
-                  <div style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--text-1)', letterSpacing: '-0.03em', marginBottom: '4px' }}>
+                <div key={s.label} style={{
+                  background: 'var(--surface-2)',
+                  border: '1px solid var(--border)',
+                  borderRadius: '12px',
+                  padding: '1.25rem 1rem',
+                  display: 'flex', flexDirection: 'column', gap: '6px',
+                }}>
+                  <div style={{ fontSize: '1.6rem', fontWeight: 700, color: 'var(--text-1)', letterSpacing: '-0.03em', lineHeight: 1 }}>
                     {s.value}
                   </div>
-                  <div className="t-field-label">{s.label}</div>
+                  <div style={{
+                    fontSize: '0.7rem', fontWeight: 600,
+                    letterSpacing: '0.07em', textTransform: 'uppercase',
+                    color: 'var(--text-3)', lineHeight: 1.3,
+                  }}>{s.label}</div>
                 </div>
               ))}
             </div>
@@ -58,15 +68,15 @@ export default function About({ profile = {} }) {
 
             <div className="divider" style={{ marginBottom: '1.75rem' }} />
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               {infoItems.map(item => (
-                <div key={item.label} style={{ display: 'flex', alignItems: 'baseline', gap: '1.25rem' }}>
-                  <span className="t-field-label" style={{ minWidth: '80px', flexShrink: 0 }}>
+                <div key={item.label} style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', flexWrap: 'wrap' }}>
+                  <span className="t-field-label" style={{ minWidth: '90px', flexShrink: 0 }}>
                     {item.label}
                   </span>
                   {item.href
-                    ? <a href={item.href} className="link-muted">{item.value}</a>
-                    : <span style={{ color: item.green ? 'var(--green)' : 'var(--text-2)' }}>{item.value}</span>
+                    ? <a href={item.href} className="link-muted" style={{ wordBreak: 'break-all' }}>{item.value}</a>
+                    : <span style={{ color: item.green ? 'var(--green)' : 'var(--text-2)', wordBreak: 'break-word' }}>{item.value}</span>
                   }
                 </div>
               ))}
